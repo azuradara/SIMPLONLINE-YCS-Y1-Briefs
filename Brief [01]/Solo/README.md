@@ -30,11 +30,9 @@ Le prototype web fait partie de la phase de conception du projet d’application
 
 Il est là pour simuler et valider l’interface utilisateur bien avant son développement, sa programmation et le produit final. Il permet donc de simuler la navigation, les interactions, les transitions, les process. Sur cette base, il sera facile de valider ou de modifier ce qu’il y a lieu de l’être.
 
----
 # 3 EXEMPLES D'OUTILS DE MAQUETTAGE
 Les solutions pour designer une interface ou réaliser un design system sont aujourd’hui très (trop ?) nombreuses. Qu’il s’agisse de Sketch, Adobe XD, Photoshop, Affinity, Protopie, Flinto ou encore Figma, il y a pléthore d’outils permettant de créer une interface.
 
----
 ### Adobe XD
 Adobe XD CC est une solution d'UX/UI design tout-en-un qui permet de concevoir aisément des sites web, applications mobiles, etc.
 
@@ -42,7 +40,6 @@ Adobe XD offre une palette d'outils intuitifs et performants qui facilitent le t
 
 Compatible avec les autres logiciels du Creative Cloud, Adobe XD CC profite d'une intégration parfaite avec d'autres logiciels Adobe comme Photoshop ou Illustrator. Il permet ainsi d'importer des PSD directement dans XD et faire en sorte que les prototypes soient rapidement opérationnels.
 
----
 ### Figma
 Figma est un outil de création d’interfaces qui se différencie de Sketch ou encore d’Adobe XD par plusieurs aspects:
 
@@ -56,7 +53,6 @@ Figma est un outil de création d’interfaces qui se différencie de Sketch ou 
 
 **Son coût** en fait un outil incontournable aujourd’hui pour qui souhaite accroître la productivité d’une équipe et améliorer la collaboration entre les différentes parties prenantes d’un projet (PO, Designers, Tech, …)
 
----
 ### InVision
 InVision est un puissant outil de maquettage utilisé par les concepteurs pour créer des interfaces interactives. Il permet de manière simple, pratique et intuitive de télécharger des fichiers de conception, d’ajouter des animations fonctionnelles au design attractif servant à transformer chaque écran statique en prototype cliquable et interactif.
 
@@ -65,7 +61,6 @@ InVision se présente sous la forme d’une plateforme de travail collaboratif e
 # Comparaison
 ～～ Might have to switch this part to french later..
 
----
 ### Pricing
 >Budget can be a big deal when working as an independent/startup developer. 
 
