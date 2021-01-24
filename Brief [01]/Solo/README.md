@@ -33,13 +33,17 @@ Il est là pour simuler et valider l’interface utilisateur bien avant son dév
 ---
 # 3 EXEMPLES D'OUTILS DE MAQUETTAGE
 Les solutions pour designer une interface ou réaliser un design system sont aujourd’hui très (trop ?) nombreuses. Qu’il s’agisse de Sketch, Adobe XD, Photoshop, Affinity, Protopie, Flinto ou encore Figma, il y a pléthore d’outils permettant de créer une interface.
-#### Adobe XD
+
+---
+### Adobe XD
 Adobe XD CC est une solution d'UX/UI design tout-en-un qui permet de concevoir aisément des sites web, applications mobiles, etc.
 
 Adobe XD offre une palette d'outils intuitifs et performants qui facilitent le travail autant qu'ils le professionnalisent. Les tâches quotidiennes sont simplifiées pour une productivité accrue. Des kits d'interface utilisateur intégrés proposent gratuitement des modèles, composants et éléments indispensables à la création de projets soignés.
 
 Compatible avec les autres logiciels du Creative Cloud, Adobe XD CC profite d'une intégration parfaite avec d'autres logiciels Adobe comme Photoshop ou Illustrator. Il permet ainsi d'importer des PSD directement dans XD et faire en sorte que les prototypes soient rapidement opérationnels.
-#### Figma
+
+---
+### Figma
 Figma est un outil de création d’interfaces qui se différencie de Sketch ou encore d’Adobe XD par plusieurs aspects:
 
 **Sa simplicité**, fortement inspirée de Sketch pour une meilleure appréhension par les designers.
@@ -51,13 +55,17 @@ Figma est un outil de création d’interfaces qui se différencie de Sketch ou 
 **Les librairies de composants** directement intégrées à chaque projet.
 
 **Son coût** en fait un outil incontournable aujourd’hui pour qui souhaite accroître la productivité d’une équipe et améliorer la collaboration entre les différentes parties prenantes d’un projet (PO, Designers, Tech, …)
-#### InVision
+
+---
+### InVision
 InVision est un puissant outil de maquettage utilisé par les concepteurs pour créer des interfaces interactives. Il permet de manière simple, pratique et intuitive de télécharger des fichiers de conception, d’ajouter des animations fonctionnelles au design attractif servant à transformer chaque écran statique en prototype cliquable et interactif.
 
 InVision se présente sous la forme d’une plateforme de travail collaboratif et permet d’élaborer facilement des modèles et maquettes d’interfaces digitales interactives. Une fois l’interface maquettée, elle peut être partagée via InVision avec l’équipe de conception UX/UI ou avec les clients. Utile et pratique, cet outil permet à chaque intervenant du projet peut discuter des mockups, laisser des commentaires. Tour d’horizon sur cette nouvelle manière de concevoir en UI design.
 
 # Comparaison
 ～～ Might have to switch this part to french later..
+
+---
 ### Pricing
 >Budget can be a big deal when working as an independent/startup developer. 
 
@@ -66,6 +74,8 @@ InVision se présente sous la forme d’une plateforme de travail collaboratif e
 **Adobe XD:** Offers free and paid plans, depending on an individual’s or team’s needs. Paid plans start at $9.99/month.
 
 **InVision Studio:** Free right now.
+
+---
 ### Platform
 >Forcing customers to use a certain platform will most likely alienate a lot of them.
 
@@ -74,6 +84,8 @@ InVision se présente sous la forme d’une plateforme de travail collaboratif e
 **Adobe XD:** Mac & Windows.
 
 **InVision:** Mac & Windows.
+
+---
 ### Live Collaboration
 >Real-time collaboration is essential when working with teams of developers & designers
 **Figma:** Yep.
@@ -81,6 +93,8 @@ InVision se présente sous la forme d’une plateforme de travail collaboratif e
 **Adobe XD:** Kinda(?) with the release of [real-time coediting](https://blog.adobe.com/en/2019/11/04/xd-november-2019-update-coediting-more.html#gs.riuld5)
 
 **InVision:** Yep.
+
+---
 ### Handoff
 >Some design tools have been developed specifically to deliver specs (sizing, spacing, color) to devs natively.
 
@@ -90,6 +104,7 @@ InVision se présente sous la forme d’une plateforme de travail collaboratif e
 
 **InVision:** Yep.
 
+---
 ### Offline
 >Being able to access your work with no internet connection is important (sometimes)
 
@@ -98,6 +113,8 @@ InVision se présente sous la forme d’une plateforme de travail collaboratif e
 **Adobe XD:** Yep.
 
 **InVision:** Yep.
+
+---
 ### Prototyping
 >There are too many prototyping tools nowadays but it's nice when you can have it in the same place as your design software.
 
@@ -107,6 +124,7 @@ InVision se présente sous la forme d’une plateforme de travail collaboratif e
 
 **InVision:** Yep.
 
+---
 ### Symbols
 > Symbols facilitate and speed up the design process through re-usable items.
 
