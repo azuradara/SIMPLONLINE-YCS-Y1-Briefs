@@ -1,6 +1,3 @@
-put the trello link here pls o/ ill make it look pretty later
-
-
-Sheets:
-https://docs.google.com/spreadsheets/d/1nOBv8gU2kVdT68CY1wiEXxzeOuYplHdHGzhcmX7MR_E/edit#gid=0
-
+[Trello Board](https://trello.com/invite/b/RCxdtw7a/915ac83860798984cfec7d0713abfce2/brief1) | | [References Sheet](https://docs.google.com/spreadsheets/d/1nOBv8gU2kVdT68CY1wiEXxzeOuYplHdHGzhcmX7MR_E/edit?usp=sharing)
+## Trello Board
+![Initial Board](progcaps/trello_1.jpeg)
