@@ -1,6 +1,6 @@
 ## Team Members
-[Aymane Hlamnach](https://github.com/azuradara)
-[Yassine Ait Belkouhia](https://github.com/YassineAitBelkouhia)
+[Aymane Hlamnach](https://github.com/azuradara) ||
+[Yassine Ait Belkouhia](https://github.com/YassineAitBelkouhia) ||
 [Safae Baamel](https://github.com/sapae)
 ## Links
 [Trello Board](https://trello.com/invite/b/RCxdtw7a/915ac83860798984cfec7d0713abfce2/brief1) | | [References Sheet](https://docs.google.com/spreadsheets/d/1nOBv8gU2kVdT68CY1wiEXxzeOuYplHdHGzhcmX7MR_E/edit?usp=sharing) | | [Figma Project](https://www.figma.com/file/TU8491D65UW2upgS8FdhWu/Safar?node-id=7%3A73)
