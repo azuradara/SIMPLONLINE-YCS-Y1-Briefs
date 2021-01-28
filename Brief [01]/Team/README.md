@@ -2,3 +2,4 @@
 ## Trello Board
 ![Initial Board](progcaps/trello_1.jpeg)
 ![Zoning Board](progcaps/trello_2.jpeg)
+![Post-Wireframe](progcaps/trello_3.jpeg)
