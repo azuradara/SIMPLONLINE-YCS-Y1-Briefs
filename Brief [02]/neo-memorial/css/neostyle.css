@@ -1,0 +1,24 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+:root {
+	--clr-red: #B32137;
+	--clr-purp: #81256C;
+	--clr-dark: #282727;
+	--clr-light: #fff ;
+}
+
+body {
+	margin: 0;
+}
+
+header {
+	background: var(--clr-dark);
+}
+
+.main--loc {
+	height: 70vh;
+	background-image: url("../extra/loc.jpg");
+	background-size: cover;
+}
