@@ -45,7 +45,7 @@ main a:hover {
 }
 
 .location {
-	color: var(--clr-dark);
+	color: rgba(255, 255, 255, .5);
 	font-size: 1.5rem;
 }
 
@@ -57,6 +57,7 @@ main a:hover {
 	padding: .5em;
 	position: relative;
 	margin-left: 1rem;
+	min-width: 150px;
 }
 
 .loc--readmore:hover,
@@ -156,7 +157,7 @@ main a:hover {
 }
 
 .loc--map--view {
-	height: 70vh;
+	height: 50vh;
 	background-image: url("../extra/map.png");
 	background-size: cover;
 	border-radius: 7px;
@@ -217,8 +218,10 @@ main a:hover {
 	.feature {
 		flex-direction: row;
 		align-items: center;
-		padding: 0 7rem;
+		padding: 0 15vw;
 		gap: 2rem;
+		font-size: 16px;
+		font-weight: 400;
 	}
 
 	.feature:nth-last-child(1) {
@@ -234,7 +237,7 @@ main a:hover {
 	}
 
 	.loc--map {
-		margin: 5rem 7rem;
+		margin: 5rem 15vw;
 		padding-right: 2rem;
 		padding-left: 2rem;
 	}
