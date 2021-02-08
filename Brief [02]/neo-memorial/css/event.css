@@ -20,13 +20,16 @@ header {
   position: relative;
 }
 
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
   margin: 0;
 }
 
 .gal--event {
   position: relative;
-  width: 12.5em;
+  width: 15em;
   margin: 5rem auto;
 }
 
@@ -58,6 +61,7 @@ h1, h2, h3, p {
 .event--front .event--title {
   margin: .75em 0;
   margin-bottom: 0;
+  text-align: left;
 }
 
 .event--front .event--stats {
@@ -87,8 +91,29 @@ h1, h2, h3, p {
           transform: translateX(25%);
 }
 
+.event--label {
+  position: absolute;
+  color: white;
+  font-weight: 500;
+  top: 0;
+  right: 1em;
+  background: var(--clr-red);
+  padding: 0 .5em;
+  -webkit-clip-path: polygon(100% 0%, 100% 100%, 50% 85%, 0 100%, 0 0);
+          clip-path: polygon(100% 0%, 100% 100%, 50% 85%, 0 100%, 0 0);
+}
+
 .event--back {
-  display: none;
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.event--back .event--info {
+  -webkit-columns: 2;
+          columns: 2;
 }
 
 .event--bg {
@@ -112,9 +137,66 @@ h1, h2, h3, p {
           transform: translateY(-20%);
 }
 
-.gal--event:hover .event--bg {
-  -webkit-transform: scale(2, 1.2);
-          transform: scale(2, 1.2);
+.gal--event:hover .event--front .event--title {
+  -webkit-animation: eventName 250ms forwards;
+          animation: eventName 250ms forwards;
+}
+
+.gal--event:hover .event--front .event--stats {
+  opacity: 0;
+}
+
+.gal--event:hover .event--back {
   opacity: 1;
+}
+
+.gal--event:hover .event--bg {
+  -webkit-transform: scale(1.5, 1.2);
+          transform: scale(1.5, 1.2);
+  opacity: 1;
+}
+
+@-webkit-keyframes eventName {
+  0% {
+    text-align: left;
+    opacity: 1;
+  }
+  20% {
+    text-align: left;
+    opacity: 0;
+  }
+  50% {
+    text-align: center;
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    text-align: center;
+    opacity: 1;
+    color: var(--clr-light);
+  }
+}
+
+@keyframes eventName {
+  0% {
+    text-align: left;
+    opacity: 1;
+  }
+  20% {
+    text-align: left;
+    opacity: 0;
+  }
+  50% {
+    text-align: center;
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    text-align: center;
+    opacity: 1;
+    color: var(--clr-light);
+  }
 }
 /*# sourceMappingURL=event.css.map */
