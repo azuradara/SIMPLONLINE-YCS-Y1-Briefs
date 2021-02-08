@@ -249,8 +249,8 @@ main a:hover {
 	}
 
 	.loc--map--info span {
-		rotate: 90deg;
-		width: 20%;
+		transform: rotate(90deg);
+		width: 10%;
 	}
 
 	.loc--map--info span:nth-last-child(1) {
