@@ -19,7 +19,6 @@ header {
 	position: relative;
 }
 
-
 h1,
 h2,
 h3,
@@ -27,142 +26,38 @@ p {
 	margin: 0;
 }
 
-.gal--event {
-	position: relative;
-	width: 15em;
-	margin: 5rem auto;
-}
-
-.gal--event img {
-	max-width: 100%;
-}
-
-.event--hosts {
+.events--disp {
+	background-image: url('../extra/library-activities.jpg');
+	color: var(--clr-light);
+	height: 50vh;
+	background-size: cover;
+	background-position: top;
 	display: flex;
-
-	img {
-		width: 2em;
-		height: 2em;
-		border-radius: 50%;
+	align-items: center;
+	justify-content: center;
+	p {
+		font-size: clamp(2em, 5vw, 5em);
+		padding: .5em;
+		height: fit-content;
+		background: rgba($color: #000000, $alpha: .5);
+		font-weight: 600;
 	}
 }
 
-.event--front {
-	transition: 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
-
-	.event--thumbnail {
-		border-radius: 5%;
-	}
-
-	.event--title {
-		// text-align: center;
-		margin: .75em 0;
-		margin-bottom: 0;
-		text-align: left;
-	}
-
-	.event--stats {
+.events--bread {
+	.events--nav {
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	.event--hosts img {
-		border: 1px solid var(--clr-red);
-
-		&:nth-of-type(1) {
-			transform: translateX(50%);
-			z-index: 1;
+		margin-top: -3em;
+		margin-left: 5em;
+		li {
+			background: var(--clr-light);
+			color: var(--clr-dark);
+			box-shadow: 3px 3px 3px #ccc;
+			font-size: 20px;
+			min-height: 2em;
+			margin: 0 -.5em;
+			padding: .1em 2em;
+			clip-path: polygon(14% 0, 86% 0, 75% 100%, 0% 100%);
 		}
-
-		&:nth-of-type(2) {
-			transform: translateX(25%);
-		}
-	}
-}
-
-.event--label {
-	position: absolute;
-	color: white;
-	font-weight: 500;
-	top: 0;
-	right: 1em;
-	background: var(--clr-red);
-	padding: 0 .5em;
-	clip-path: polygon(100% 0%, 100% 100%, 50% 85%, 0 100%, 0 0);
-	// z-index: 1000;
-}
-
-.event--back {
-	opacity: 0;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	.event--info {
-		columns: 2;
-	}
-}
-
-.event--bg {
-	border-radius: 5%;
-	background: var(--clr-red);
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: -1;
-	transform: scale(0);
-	opacity: 0;
-	transition: 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.gal--event:hover {
-
-	.event--front {
-		transform: translateY(-20%);
-
-		.event--title {
-			animation: eventName 250ms forwards;
-		}
-
-		.event--stats {
-			opacity: 0;
-		}
-	}
-
-	.event--back {
-		opacity: 1;
-
-	}
-
-	.event--bg {
-		transform: scale(1.5, 1.2);
-		opacity: 1;
-	}
-}
-
-@keyframes eventName {
-	0% {
-		text-align: left;
-		opacity: 1;
-	}
-
-	20% {
-		text-align: left;
-		opacity: 0;
-	}
-
-	50% {
-		text-align: center;
-		opacity: 0;
-		transform: scale(1.2);
-	}
-
-	100% {
-		text-align: center;
-		opacity: 1;
-		color: var(--clr-light);
 	}
 }
