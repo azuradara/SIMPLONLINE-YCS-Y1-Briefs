@@ -53,7 +53,7 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 3em 10vw;
+  padding: 3em 5vw;
   gap: 3em;
 }
 
