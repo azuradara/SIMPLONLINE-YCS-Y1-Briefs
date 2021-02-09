@@ -90,6 +90,13 @@ p {
   border-radius: .5em;
 }
 
+.events--container .event--item .event__front img {
+  width: 100%;
+  height: 25em;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .events--container .event--item .event__front .event--date {
   font-size: 10px;
   font-weight: 600;
@@ -187,7 +194,7 @@ p {
 
 .books--container .book--listing .book--item img {
   width: 10em;
-  height: 13em;
+  min-width: 10em;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -219,6 +226,12 @@ p {
   position: sticky;
   position: -webkit-sticky;
   top: 2em;
+}
+
+.books--container .book--featured img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: 50vh;
 }
 
 .books--container .book--featured h2 {
@@ -267,8 +280,8 @@ p {
   }
   .books--container .book--listing .book--item img {
     width: 100%;
-    -o-object-fit: center;
-       object-fit: center;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   .books--container .book--featured {
     position: relative;
