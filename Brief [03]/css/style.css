@@ -65,7 +65,7 @@ body {
   list-style-type: none;
   position: absolute;
   top: 2em;
-  left: 12%;
+  left: 6vw;
 }
 
 .navbar .navbar__menu-links .navbar__menu-link a {
