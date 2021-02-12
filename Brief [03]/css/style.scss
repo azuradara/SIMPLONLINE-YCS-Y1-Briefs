@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	
+}
+
+.bg {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	z-index: -1000;
+	object-fit: cover;
+	filter: brightness(.5) saturate(.2);
+}
+
+.homepage {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	background: #a7a7a7;
+	color: white;
+}
+
+.navbar {
+	// grid-area: nav;
+	background: #ff7420;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+	.navbar__menu-links {
+		display: flex;
+		flex-direction: row;
+		gap: 2em;
+		list-style-type: none;
+		position: absolute;
+		top: 3em;
+		left: 12%;
+
+		.navbar__menu-link a {
+			text-decoration: none;
+			color: white;
+			text-transform: capitalize;
+			font-weight: 500;
+			font-size: 1.5em;
+		}
+
+		.navbar__menu-link--active {
+			border-bottom: 3px solid #ff7420;
+			border-radius: 4px;
+		}
+	}
+	
+	.navbar__socials {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5em;
+		padding: 2em 0;
+
+		.navbar__social {
+			width: 2em;
+			height: 2em;
+		}
+	}
+	
+	.navbar__logo img {
+		width: 4em;
+		margin-top: 2em;
+		background-color: black;
+	}
+}
+
+
+.display {
+	display: flex;
+	margin-top: 4em;
+
+	.cardesc {
+		display: flex;
+		flex-direction: column;
+		margin-top: 13em;
+		margin-left: 12em;
+		width: 100%;
+
+		.cardesc__type {
+			font-size: 4em;
+			font-weight: 300;
+			margin-bottom: -.5em;
+			padding-left: .5em;
+		}
+
+		.cardesc__name {
+			font-size: 10em;
+			font-weight:800;
+
+			.model {
+				-webkit-text-stroke: 3px white;
+				-webkit-text-fill-color: transparent;
+			}
+		}
+
+		.cardesc__seps {
+			display: flex;
+			gap: .5em;
+			width: 20%;
+			margin-bottom: 3em;
+
+			.cardesc__sep {
+				background: white;
+				height: 3px;
+				border-radius: 10px;
+
+				&:nth-child(1) {
+					width: 10%;
+				}
+				&:nth-child(2) {
+					width: 20%;
+				}
+				&:nth-child(3) {
+					width: 100%;
+				}
+			}
+		}
+
+
+		.cardesc__stats {
+			display: flex;
+			gap: 2em;
+			width: 40%;
+			align-items: center;
+			justify-content: space-evenly;
+			.cardesc__stats__item img {
+				width: 2em;
+				height: 2em;
+			}
+		}
+
+		.cardesc__info {
+			font-size: 1.5em;
+			font-weight: 600;
+			line-height: 1.6;
+			color: #ccc;
+			width: 80%;
+		}
+	}
+}

@@ -7,7 +7,7 @@ Le siteweb doit contenir les pages suivantes :
 - **Accueil** (bien représentative pour le siteweb)
 - **Gallerie** (regroupe l'ensemble des produits de l'agence)
 - **Réservation** (contient un formulaire d'estimation du montant à payer selon les critères mentionnées en bas)
-Contact (contient un formulaire qui prend [nom, email, sujet, message] et affiche un message avec les détails renseignés)
+- **Contact** (contient un formulaire qui prend [nom, email, sujet, message] et affiche un message avec les détails renseignés)
 ​
 
 Critères du formulaire de réservation :
