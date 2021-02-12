@@ -287,4 +287,8 @@ p {
     position: relative;
   }
 }
+
+.blank {
+  height: 5em;
+}
 /*# sourceMappingURL=event.css.map */
