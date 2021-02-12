@@ -1,12 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 * {
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .bg {
@@ -16,8 +20,9 @@ body {
   z-index: -1000;
   -o-object-fit: cover;
      object-fit: cover;
-  -webkit-filter: brightness(0.5) saturate(0.2);
-          filter: brightness(0.5) saturate(0.2);
+  overflow: hidden;
+  -webkit-filter: brightness(0.2) saturate(0.2);
+          filter: brightness(0.2) saturate(0.2);
 }
 
 .homepage {
@@ -26,8 +31,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: #a7a7a7;
-  color: white;
+  overflow: hidden;
+  color: #ffffff;
+  background: #242124;
 }
 
 .navbar {
@@ -55,24 +61,32 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  gap: 2em;
+  gap: 4em;
   list-style-type: none;
   position: absolute;
-  top: 3em;
+  top: 2em;
   left: 12%;
 }
 
 .navbar .navbar__menu-links .navbar__menu-link a {
   text-decoration: none;
-  color: white;
+  color: #ffffff;
   text-transform: capitalize;
   font-weight: 500;
-  font-size: 1.5em;
+  font-size: 1em;
+  padding: .5em;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: border 250ms;
+  transition: border 250ms;
 }
 
-.navbar .navbar__menu-links .navbar__menu-link--active {
-  border-bottom: 3px solid #ff7420;
-  border-radius: 4px;
+.navbar .navbar__menu-links .navbar__menu-link a:hover {
+  border-bottom: 2px solid #ff7420;
+}
+
+.navbar .navbar__menu-links .navbar__menu-link--active a {
+  color: #ff7420;
+  font-weight: 600;
 }
 
 .navbar .navbar__socials {
@@ -83,26 +97,72 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 1.5em;
+  gap: 1.2em;
   padding: 2em 0;
 }
 
 .navbar .navbar__socials .navbar__social {
-  width: 2em;
-  height: 2em;
+  width: 1.3em;
 }
 
 .navbar .navbar__logo img {
   width: 4em;
-  margin-top: 2em;
-  background-color: black;
+  margin-top: .5em;
+  padding: .7em;
+}
+
+.navbar .navbar__contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  right: 5vw;
+  top: 2.2em;
+  font-size: .7em;
+  font-weight: 700;
+  gap: 1em;
+}
+
+.navbar .navbar__contact img {
+  height: 1em;
+  display: inline-block;
+}
+
+.navbar .navbar__contact .contact__phone, .navbar .navbar__contact .contact__email {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: .5em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar .navbar__contact .contact__contactus {
+  text-decoration: none;
+  color: #ffffff;
+  background: #ff7420;
+  padding: .9em 2em;
+  font-size: .8rem;
+  border-radius: 100px;
+  margin-left: 3em;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .display {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 4em;
+  margin-top: 5em;
 }
 
 .display .cardesc {
@@ -113,25 +173,26 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 13em;
-  margin-left: 12em;
+  margin-top: 5em;
+  margin-left: 5vw;
   width: 100%;
 }
 
 .display .cardesc .cardesc__type {
-  font-size: 4em;
+  font-size: 3em;
   font-weight: 300;
   margin-bottom: -.5em;
   padding-left: .5em;
 }
 
 .display .cardesc .cardesc__name {
-  font-size: 10em;
-  font-weight: 800;
+  font-size: 7em;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .display .cardesc .cardesc__name .model {
-  -webkit-text-stroke: 3px white;
+  -webkit-text-stroke: 2px #ff7420;
   -webkit-text-fill-color: transparent;
 }
 
@@ -140,12 +201,13 @@ body {
   display: -ms-flexbox;
   display: flex;
   gap: .5em;
-  width: 20%;
-  margin-bottom: 3em;
+  width: 30%;
+  margin-left: 1em;
+  margin-bottom: 1.5em;
 }
 
 .display .cardesc .cardesc__seps .cardesc__sep {
-  background: white;
+  background: #ff7420;
   height: 3px;
   border-radius: 10px;
 }
@@ -162,30 +224,62 @@ body {
   width: 100%;
 }
 
-.display .cardesc .cardesc__stats {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 2em;
-  width: 40%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+.display .cardesc .cardesc__slogan {
+  font-weight: 500;
 }
 
-.display .cardesc .cardesc__stats .cardesc__stats__item img {
-  width: 2em;
-  height: 2em;
+.display .cardesc .cardesc__slogan .model {
+  color: #ff7420;
 }
 
 .display .cardesc .cardesc__info {
-  font-size: 1.5em;
-  font-weight: 600;
+  max-width: 25em;
+  margin-top: 1em;
+  font-weight: 300;
   line-height: 1.6;
-  color: #ccc;
-  width: 80%;
+}
+
+.display .cardesc .btn--primary {
+  font-family: 'Inter', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #ffffff;
+  background: transparent;
+  cursor: pointer;
+  color: #ffffff;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 2em;
+  padding: 1.3em 3em;
+  font-weight: 600;
+  font-size: 1em;
+  border-radius: 300px;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 2em;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.display .cardesc .btn--primary:hover {
+  background: #ff7420;
+  border: 1px solid #ff7420;
+}
+
+.display .jeepimg img {
+  max-width: 70vw;
+  right: -10em;
+  bottom: 0;
+  position: absolute;
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
+  z-index: -1;
 }
 /*# sourceMappingURL=style.css.map */
