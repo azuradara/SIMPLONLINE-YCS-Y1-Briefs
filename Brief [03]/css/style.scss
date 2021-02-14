@@ -15,12 +15,17 @@ html {
 	padding: 0;
 	user-select: none;
 	font-family: Lato, sans-serif;
+	// color: white;
 }
 
 body {
 	display: flex;
 	overflow: hidden;
 	background: $dark;
+
+	main {
+		margin: 7rem;
+	}
 
 	.sidebar {
 		display: flex;
@@ -29,7 +34,9 @@ body {
 		justify-content: space-between;
 		align-items: center;
 		background: $primary;
-		position: relative;
+		position: relative sticky;
+		top: 0;
+		left: 0;
 		box-shadow: 3px 3px 10px $dark;
 		// width: 4em;
 
@@ -64,6 +71,7 @@ body {
 
 		ul {
 			display: flex;
+			list-style-type: none;
 			gap: 5rem;
 
 			a {
@@ -105,7 +113,7 @@ body {
 		overflow: hidden;
 
 		.home__desc {
-			margin: 7rem 7rem;
+			// margin: 0 7rem;
 			max-width: 35rem;
 			display: flex;
 			flex-direction: column;
@@ -131,7 +139,7 @@ body {
 			}
 
 			.desc__info {
-				font-weight: 300;
+				font-weight: 500;
 			}
 
 			.desc__btn {
@@ -170,16 +178,190 @@ body {
 			}
 		}
 
+		
 		.home__img {
 			position: absolute;
 			right: -10em;
 			bottom: 0;
-
+			
 			img {
 				width: 70vw;
 				filter: saturate(.9);
 			}
 		}
+	}
+
+	.contact-disp {
+		width: 100%;
+		color: white;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		
+		h1 {
+			color: white;
+			font-size: clamp(5rem, 15vw, 7rem);
+
+			span {
+				-webkit-text-stroke: 3px $primary;
+				-webkit-text-fill-color: transparent;
+			}
+		}
+
+		form {
+			// background: white;
+			// padding: 2rem;
+			width: fit-content;
+			display: flex;
+			flex-direction: column;
+			gap: 2em;
+			margin-top: 2rem;
+
+			.contact__twocol {
+				display: flex;
+				gap: 5rem;
+
+				label{
+					position: relative;
+					&::after {
+						content: '';
+						position: absolute;
+						background: #ccc;
+						height: 2px;
+						border-radius: 20px;
+						width: 100%;
+						bottom: 0;
+						left: 0;
+						transition: transform 250ms ease-in-out;
+						z-index: -1;
+					}
+				}
+				
+				input, textarea {
+					border: none;
+					background: rgba($color: #fff, $alpha: .1);
+					border-radius: 5px 5px 0 0;
+					border: 2px solid transparent;
+					color: white;
+					width: 20rem;
+					font-size: 1.125rem;
+					padding: 0 1rem;
+					transition: all 250ms ease-in-out;
+					font-weight: 600;
+
+					&:focus {
+						outline: none;
+						border: 2px solid $primary;
+					}
+				}
+
+				textarea {
+					resize: none;
+					height: 100%;
+					width: 100%;
+					padding-top: .5rem;
+				}
+	
+				input {
+					height: 3rem;
+					width: 100%;
+				}	
+
+				.contact__userinfo {
+					display: flex;
+					flex-direction: column;
+					gap: 2rem;
+				}
+			}
+
+			.checktainer {
+				display: flex;
+				align-items: center;
+				position: relative;
+				padding-left: 35px;
+				margin-bottom: 12px;
+				cursor: pointer;
+				font-size: 1.1rem;
+				font-weight: 600;
+
+				input {
+					position: absolute;
+					opacity: 0;
+					cursor: pointer;
+					height: 0;
+					width: 0;
+				}
+
+				.checkmark {
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 20px;
+					width: 20px;
+					background: white;
+					border: 2px solid #ccc;
+					border-radius: 3px;
+					transition: all 250ms ease-in-out;
+
+					&:after {
+						content: '';
+						position: absolute;
+						display: none;
+
+						left: 6px;
+						top: 2px;
+						width: 5px;
+						height: 10px;
+						border: solid white;
+						border-width: 0 3px 3px 0;
+						transform: rotate(45deg);
+					}
+				}
+
+				&:hover input ~ .checkmark {
+					border-color: $primary;
+				}
+
+				input:checked ~ .checkmark {
+					background: $primary;
+					border: transparent;
+				}
+
+				input:checked ~ .checkmark:after {
+					display: block;
+				}
+
+				input:focus ~ .checkmark {
+					border-color: $primary;
+				}
+				
+			}
+
+			button {
+				padding: .5rem 2rem;
+				border-radius: 50rem;
+				background: rgba($color: white, $alpha: .1);
+				color: white;
+				font-size: 1.25rem;
+				border: none;
+				text-transform: uppercase;
+				width: fit-content;
+				position: relative;
+				align-self: center;
+				border: 2px solid transparent;
+				transition: all 250ms ease-in-out;
+				cursor: pointer;
+
+				&:focus, &:hover {
+					outline: none;
+					border: 2px solid $primary;
+					color: white;
+					background: $primary;
+				}
+			}
+		}
+
 	}
 }
 
@@ -276,11 +458,15 @@ body {
 		
 		}
 
+		main {
+			margin: 0;
+			margin-top: 1rem;
+		}
+
 		.home-disp {
 			justify-content: center;
 
 			.home__desc {
-				margin-top: 1rem;
 				text-align: center;
 
 				.desc__info {
@@ -300,6 +486,21 @@ body {
 				img {
 					width: auto;
 					height: 50vh;
+				}
+			}
+		}
+
+		.contact-disp {
+
+			form {
+				
+				.contact__twocol {
+					flex-direction: column;
+					gap: 2rem;
+
+					textarea {
+						height: 7rem;
+					}
 				}
 			}
 		}

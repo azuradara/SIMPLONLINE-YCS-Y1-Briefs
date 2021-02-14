@@ -25,6 +25,10 @@ body {
   background: #0e0e0e;
 }
 
+body main {
+  margin: 7rem;
+}
+
 body .sidebar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -41,7 +45,10 @@ body .sidebar {
       -ms-flex-align: center;
           align-items: center;
   background: #ff7420;
-  position: relative;
+  position: relative -webkit-sticky;
+  position: relative sticky;
+  top: 0;
+  left: 0;
   -webkit-box-shadow: 3px 3px 10px #0e0e0e;
           box-shadow: 3px 3px 10px #0e0e0e;
   display: flex;
@@ -81,6 +88,7 @@ body .navbar ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  list-style-type: none;
   gap: 5rem;
 }
 
@@ -129,7 +137,6 @@ body .home-disp {
 }
 
 body .home-disp .home__desc {
-  margin: 7rem 7rem;
   max-width: 35rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -161,7 +168,7 @@ body .home-disp .home__desc .desc__slogan .tilde {
 }
 
 body .home-disp .home__desc .desc__info {
-  font-weight: 300;
+  font-weight: 500;
 }
 
 body .home-disp .home__desc .desc__btn {
@@ -216,6 +223,213 @@ body .home-disp .home__img img {
   width: 70vw;
   -webkit-filter: saturate(0.9);
           filter: saturate(0.9);
+}
+
+body .contact-disp {
+  width: 100%;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .contact-disp h1 {
+  color: white;
+  font-size: clamp(5rem, 15vw, 7rem);
+}
+
+body .contact-disp h1 span {
+  -webkit-text-stroke: 3px #ff7420;
+  -webkit-text-fill-color: transparent;
+}
+
+body .contact-disp form {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2em;
+  margin-top: 2rem;
+}
+
+body .contact-disp form .contact__twocol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5rem;
+}
+
+body .contact-disp form .contact__twocol label {
+  position: relative;
+}
+
+body .contact-disp form .contact__twocol label::after {
+  content: '';
+  position: absolute;
+  background: #ccc;
+  height: 2px;
+  border-radius: 20px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+  z-index: -1;
+}
+
+body .contact-disp form .contact__twocol input, body .contact-disp form .contact__twocol textarea {
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px 5px 0 0;
+  border: 2px solid transparent;
+  color: white;
+  width: 20rem;
+  font-size: 1.125rem;
+  padding: 0 1rem;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  font-weight: 600;
+}
+
+body .contact-disp form .contact__twocol input:focus, body .contact-disp form .contact__twocol textarea:focus {
+  outline: none;
+  border: 2px solid #ff7420;
+}
+
+body .contact-disp form .contact__twocol textarea {
+  resize: none;
+  height: 100%;
+  width: 100%;
+  padding-top: .5rem;
+}
+
+body .contact-disp form .contact__twocol input {
+  height: 3rem;
+  width: 100%;
+}
+
+body .contact-disp form .contact__twocol .contact__userinfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+}
+
+body .contact-disp form .checktainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+body .contact-disp form .checktainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+body .contact-disp form .checktainer .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: white;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+}
+
+body .contact-disp form .checktainer .checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+body .contact-disp form .checktainer:hover input ~ .checkmark {
+  border-color: #ff7420;
+}
+
+body .contact-disp form .checktainer input:checked ~ .checkmark {
+  background: #ff7420;
+  border: transparent;
+}
+
+body .contact-disp form .checktainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+body .contact-disp form .checktainer input:focus ~ .checkmark {
+  border-color: #ff7420;
+}
+
+body .contact-disp form button {
+  padding: .5rem 2rem;
+  border-radius: 50rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1.25rem;
+  border: none;
+  text-transform: uppercase;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  border: 2px solid transparent;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  cursor: pointer;
+}
+
+body .contact-disp form button:focus, body .contact-disp form button:hover {
+  outline: none;
+  border: 2px solid #ff7420;
+  color: white;
+  background: #ff7420;
 }
 
 @media (max-width: 800px) {
@@ -321,13 +535,16 @@ body .home-disp .home__img img {
     -webkit-transform: rotate(45deg) translate(-5px, -6px);
             transform: rotate(45deg) translate(-5px, -6px);
   }
+  body main {
+    margin: 0;
+    margin-top: 1rem;
+  }
   body .home-disp {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
   body .home-disp .home__desc {
-    margin-top: 1rem;
     text-align: center;
   }
   body .home-disp .home__desc .desc__info {
@@ -346,6 +563,16 @@ body .home-disp .home__img img {
   body .home-disp .home__img img {
     width: auto;
     height: 50vh;
+  }
+  body .contact-disp form .contact__twocol {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 2rem;
+  }
+  body .contact-disp form .contact__twocol textarea {
+    height: 7rem;
   }
 }
 

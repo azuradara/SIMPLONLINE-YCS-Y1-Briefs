@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="home">
+<body class="contact">
 
 	<nav class="sidebar">
 
@@ -39,22 +39,36 @@
 		</div>
 	</nav>
 
-	<main class="home-disp">
-		<div class="home__desc">
-			<h1 class="desc__name">Wheels<span class="tilde">~</span></h1>
-			<h2 class="desc__slogan">why re<span class="tilde">~</span>invent.</h2>
-			<p class="desc__info">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis enim sit pariatur
-				quae, impedit dicta vel quibusdam, libero laborum in dolores numquam quasi eius esse ut labore illo ab,
-				eligendi quis nesciunt unde magnam minus quas! Veritatis quisquam dolore vero.</p>
-			<a href="#" class="desc__btn">BROWSE OUR COLLECTION ~</a>
-		</div>
+	<main class="contact-disp">
+		<h1>Contact<span>.</span></h1>
+		<form onsubmit="return false">
+			<div class="contact__twocol">
+				<div class="contact__userinfo">
+					<label for="frm__Name">
+						<input type="text" placeholder="Name" id="frm__Name" />
+					</label>
+					<label for="frm__Name">
+						<input type="text" placeholder="E-mail" id="frm__Email" />
+					</label>
+					<label for="frm__Name">
+						<input type="text" placeholder="Subject" id="frm__Subject" />
+					</label>
+				</div>
+				<label>
+					<textarea id="frm__Message" placeholder="Message"></textarea>
+				</label>
+			</div>
 
-		<div class="home__img">
-			<img src="res/car-disp.png" alt="">
-		</div>
+
+			<label class="checktainer">I agree to receive monthly newsletter.
+				<input type="checkbox" id="frm__Newsletter" />
+				<span class="checkmark"></span>
+			</label>
+			<button onclick="vAndCreate();">Send</button>
+		</form>
 	</main>
 
-
+	<script src="js/formValidator.js"></script>
 	<script src="js/app.js"></script>
 </body>
 
