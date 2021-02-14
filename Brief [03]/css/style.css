@@ -536,8 +536,8 @@ body .contact-disp form button:focus, body .contact-disp form button:hover {
             transform: rotate(45deg) translate(-5px, -6px);
   }
   body main {
-    margin: 0;
-    margin-top: 1rem;
+    margin: 2rem 0rem;
+    padding: 0 1rem;
   }
   body .home-disp {
     -webkit-box-pack: center;
