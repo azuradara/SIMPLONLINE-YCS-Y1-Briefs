@@ -215,6 +215,118 @@ body {
 			}
 		}
 
+		form {
+			// background: white;
+			// padding: 2rem;
+			width: 30vw;
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+			margin-top: 2rem;
+			color: white;
+			font-size: 1.125rem;
+			font-weight: 600;
+			// background: rgba($color: white, $alpha: .1);
+			padding: 1rem 2rem;
+			border-radius: 5px;
+
+			label {
+				position: relative;
+
+				&::after {
+					content: '';
+					position: absolute;
+					background: #ccc;
+					height: 2px;
+					border-radius: 20px;
+					width: 100%;
+					bottom: 0;
+					left: 0;
+					transition: transform 250ms ease-in-out;
+					z-index: -1;
+				}
+			}
+
+			select {
+				border: none;
+				width: 100%;
+				display: block;
+				margin-top: .6rem;
+				background: rgba($color: #fff, $alpha: .1);
+				border-radius: 5px 5px 0 0;
+				border: 2px solid transparent;
+				color: white;
+				font-size: 1.125rem;
+				padding: .6rem;
+				transition: all 250ms ease-in-out;
+				font-weight: 600;
+
+				option {
+					font-weight: 300;
+					color: #171717;
+				}
+			}
+
+			input {
+				border: none;
+				width: 100%;
+				display: block;
+				margin-top: .6rem;
+				background: rgba($color: #fff, $alpha: .1);
+				border-radius: 5px 5px 0 0;
+				border: 2px solid transparent;
+				color: white;
+				font-size: 1.125rem;
+				padding: .6rem;
+				transition: all 250ms ease-in-out;
+				font-weight: 600;
+
+				&:focus {
+					outline: none;
+					border: 2px solid $primary;
+				}
+			}
+
+			
+		}
+
+		button {
+			margin-top: 1rem;
+			padding: .5rem 2rem;
+			border-radius: 5px;
+			background: rgba($color: $primary, $alpha: .5);
+			color: white;
+			font-size: 1.25rem;
+			border: none;
+			text-transform: uppercase;
+			width: fit-content;
+			position: relative;
+			align-self: center;
+			border: 2px solid transparent;
+			transition: all 250ms ease-in-out;
+			cursor: pointer;
+
+			&:focus,
+			&:hover {
+				outline: none;
+				border: 2px solid $primary;
+				color: white;
+				background: $primary;
+				transform: scale(1.05);
+			}		
+		}
+
+		.btn--disabled {
+			background: rgba($color: white, $alpha: .1);
+
+			&:focus, &:hover {
+				border: 2px solid transparent;
+				background: rgba($color: white, $alpha: .1);
+				transform: scale(1);
+				cursor: default;
+			}
+		}
+
 		
 	}
 

@@ -40,7 +40,7 @@
 	</nav>
 
 	<main class="res-disp">
-		<h1>Reservation<span>.</span></h1>
+		<h1>Reserve<span>.</span></h1>
 
 		<form onsubmit="return false" class="res-calc">
 			<!-- <label class="select-suspension" for="suspension">Suspension
@@ -54,22 +54,24 @@
 
 			<label class="select-type" for="type">Vehicle Type
 				<select name="type" id="slc-type">
+					<!-- <option value="--">~</option> -->
 				</select>
 			</label>
 
-			<label class="select-engine" for="engine">Engine
+			<label class="select-engine" for="engine">Engine Type
 				<select name="engine" id="slc-engine">
+					<!-- <option value="--">~</option> -->
 				</select>
 			</label>
 
-			<label for="days" class="select-days">days
-				<input type="number" min="1" max="90" id="slc-days">
+			<label for="days" class="select-days">Lease Duration
+				<input type="number" min="1" max="90" id="slc-days" placeholder="In days">
 			</label>
 
-			<button onclick="concoct();">submit</button>
+			<button onclick="concoct();">Get price estimate</button>
 		</form>
 
-		<p class="price">20$</p>
+		<p class="price"></p>
 
 		
 	</main>

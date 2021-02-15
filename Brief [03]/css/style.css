@@ -257,6 +257,129 @@ body .res-disp h1 span {
   -webkit-text-fill-color: transparent;
 }
 
+body .res-disp form {
+  width: 30vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+  margin-top: 2rem;
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
+
+body .res-disp form label {
+  position: relative;
+}
+
+body .res-disp form label::after {
+  content: '';
+  position: absolute;
+  background: #ccc;
+  height: 2px;
+  border-radius: 20px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+  z-index: -1;
+}
+
+body .res-disp form select {
+  border: none;
+  width: 100%;
+  display: block;
+  margin-top: .6rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px 5px 0 0;
+  border: 2px solid transparent;
+  color: white;
+  font-size: 1.125rem;
+  padding: .6rem;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  font-weight: 600;
+}
+
+body .res-disp form select option {
+  font-weight: 300;
+  color: #171717;
+}
+
+body .res-disp form input {
+  border: none;
+  width: 100%;
+  display: block;
+  margin-top: .6rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px 5px 0 0;
+  border: 2px solid transparent;
+  color: white;
+  font-size: 1.125rem;
+  padding: .6rem;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  font-weight: 600;
+}
+
+body .res-disp form input:focus {
+  outline: none;
+  border: 2px solid #ff7420;
+}
+
+body .res-disp button {
+  margin-top: 1rem;
+  padding: .5rem 2rem;
+  border-radius: 5px;
+  background: rgba(255, 116, 32, 0.5);
+  color: white;
+  font-size: 1.25rem;
+  border: none;
+  text-transform: uppercase;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  border: 2px solid transparent;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  cursor: pointer;
+}
+
+body .res-disp button:focus, body .res-disp button:hover {
+  outline: none;
+  border: 2px solid #ff7420;
+  color: white;
+  background: #ff7420;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+body .res-disp .btn--disabled {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+body .res-disp .btn--disabled:focus, body .res-disp .btn--disabled:hover {
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  cursor: default;
+}
+
 body .contact-disp {
   width: 100%;
   color: white;

@@ -28,9 +28,9 @@ const transArr = {
 const engineArr = {
 
 	'Electrique': .05,
-	
+
 	'Hybride': .09,
-	
+
 	'Essence': .14,
 
 	'Diesel': .21
@@ -83,15 +83,18 @@ const typeArr = {
 
 window.onload = function () {
 	populateOpts(typeEl, Object.keys(typeArr))
+
 	btn.disabled = true
 	btn.classList.add('btn--disabled')
 }
 
 function populateOpts(selecEl, arr) {
 	let filler = document.createElement('option')
-	filler.text = '--'
-	filler.value = null
+	filler.text = '~'
+	filler.value = '--'
 	selecEl.add(filler)
+
+	engineEl.add(filler)
 
 	for (x in arr) {
 		let option = document.createElement('option')
@@ -108,6 +111,13 @@ function typeSelect() {
 	}
 	populateOpts(engineEl, typeArr[typeEl.value].engine)
 }
+
+function enableBtn() {
+	if (engineEl.value != '--' && typeEl.value != '--' && daysEl.value != (null || 0)) {
+		btn.disabled = false
+		btn.classList.remove('btn--disabled')
+	}
+}
 // 
 
 class VehicleLease {
@@ -115,9 +125,12 @@ class VehicleLease {
 		this.Type = typeArr[Type]
 		this.Engine = engineArr[Engine]
 		this.Period = Period
-		
+
 		this.Transmission = this.Type.transmission
 		this.basePrice = this.Type.basePrice
+
+		this.ppD = this.basePrice + (this.basePrice * this.Transmission.mod) + (this.basePrice * this.Engine)
+		this.tPrice = this.ppD * Period
 	}
 }
 
@@ -127,18 +140,14 @@ typeEl.onchange = function () {
 }
 
 engineEl.onchange = function() {
-	if (engineEl.value != '--') {
-		btn.disabled = false
-		btn.classList.remove('btn--disabled')
-	}
+	enableBtn()
+}
+
+daysEl.onchange = function() {
+	enableBtn()
 }
 
 function concoct() {
 	const sVeh = new VehicleLease(typeEl.value, engineEl.value, daysEl.value)
-	console.log(sVeh)
-
-	const pricePerDay = sVeh.basePrice + (sVeh.basePrice * sVeh.Transmission.mod) + (sVeh.basePrice * sVeh.Engine)
-	console.log(pricePerDay)
-
-	document.querySelector('.price').textContent = pricePerDay * sVeh.Period
+	document.querySelector('.price').textContent = `${Math.round(sVeh.tPrice * 100) / 100}€`
 }
