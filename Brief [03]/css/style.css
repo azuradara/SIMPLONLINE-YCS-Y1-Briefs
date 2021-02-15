@@ -229,6 +229,34 @@ body .home-disp .home__img img {
           filter: saturate(0.9);
 }
 
+body .res-disp {
+  width: 100%;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .res-disp h1 {
+  color: white;
+  font-size: clamp(5rem, 15vw, 7rem);
+}
+
+body .res-disp h1 span {
+  -webkit-text-stroke: 3px #ff7420;
+  -webkit-text-fill-color: transparent;
+}
+
 body .contact-disp {
   width: 100%;
   color: white;

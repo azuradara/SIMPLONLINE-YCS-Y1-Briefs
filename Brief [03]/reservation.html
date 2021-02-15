@@ -39,9 +39,42 @@
 		</div>
 	</nav>
 
-	<main class="contact-disp">
+	<main class="res-disp">
+		<h1>Reservation<span>.</span></h1>
+
+		<form onsubmit="return false" class="res-calc">
+			<!-- <label class="select-suspension" for="suspension">Suspension
+				<select name="suspension" id="slc-suspension">
+					<option>--</option>
+					<option value="Manual">Manuelle</option>
+					<option value="Auto">Automatique</option>
+					<option value="Other">Autre</option>
+				</select>
+			</label> -->
+
+			<label class="select-type" for="type">Vehicle Type
+				<select name="type" id="slc-type">
+				</select>
+			</label>
+
+			<label class="select-engine" for="engine">Engine
+				<select name="engine" id="slc-engine">
+				</select>
+			</label>
+
+			<label for="days" class="select-days">days
+				<input type="number" min="1" max="90" id="slc-days">
+			</label>
+
+			<button onclick="concoct();">submit</button>
+		</form>
+
+		<p class="price">20$</p>
+
+		
 	</main>
 
+	<script src="js/reservation.js"></script>
 	<script src="js/app.js"></script>
 </body>
 

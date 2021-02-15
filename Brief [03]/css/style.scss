@@ -197,6 +197,27 @@ body {
 		}
 	}
 
+	.res-disp {
+		width: 100%;
+		color: white;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		h1 {
+			color: white;
+			font-size: clamp(5rem, 15vw, 7rem);
+
+			span {
+				-webkit-text-stroke: 3px $primary;
+				-webkit-text-fill-color: transparent;
+			}
+		}
+
+		
+	}
+
 	.contact-disp {
 		width: 100%;
 		color: white;
