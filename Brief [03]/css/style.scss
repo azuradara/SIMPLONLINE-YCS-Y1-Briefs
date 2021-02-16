@@ -288,7 +288,7 @@ body {
 				}
 			}
 
-			
+
 		}
 
 		button {
@@ -314,13 +314,14 @@ body {
 				color: white;
 				background: $primary;
 				transform: scale(1.05);
-			}		
+			}
 		}
 
 		.btn--disabled {
 			background: rgba($color: white, $alpha: .1);
 
-			&:focus, &:hover {
+			&:focus,
+			&:hover {
 				border: 2px solid transparent;
 				background: rgba($color: white, $alpha: .1);
 				transform: scale(1);
@@ -328,7 +329,7 @@ body {
 			}
 		}
 
-		
+
 	}
 
 	.contact-disp {
@@ -365,6 +366,7 @@ body {
 
 				label {
 					position: relative;
+					color: red;
 
 					&::after {
 						content: '';
@@ -507,8 +509,9 @@ body {
 			}
 
 		}
-		
+
 	}
+
 	#modal {
 		display: none;
 		position: fixed;
@@ -545,7 +548,7 @@ body {
 			label {
 				font-size: 1.125rem;
 				font-weight: 600;
-				
+
 				p {
 					font-weight: 300;
 					margin-top: .5rem;
@@ -557,7 +560,8 @@ body {
 
 			.close {
 				color: #ccc;
-				position: absolute;;
+				position: absolute;
+				;
 				// top: .5rem;
 				top: 0;
 				left: 0;
@@ -570,14 +574,22 @@ body {
 				border-radius: 7px 7px 0 0;
 				transition: all 250ms ease-in-out;
 
-				&:hover, &:focus {
+				&:hover,
+				&:focus {
 					background: $primary;
 					color: white;
 				}
 			}
 		}
 	}
-	
+
+	input .invalid-field {
+		border: 2px solid red !important;
+		outline: 2px solid red !important;
+		background: red !important;
+		z-index: 20 !important;
+	}
+
 	.gallery-disp {
 		color: white;
 		// margin: 7rem 0;
@@ -689,12 +701,13 @@ body {
 						letter-spacing: 1px;
 						transition: all 250ms ease-in-out;
 
-						&:hover, &:focus {
+						&:hover,
+						&:focus {
 							background: $primary;
 							transform: scale(1.05);
 							outline: none;
 						}
-						
+
 					}
 
 					.stats {
@@ -738,9 +751,11 @@ body {
 
 		.grabbing {
 			cursor: grabbing;
+
 			.slide {
 				transform: scale(.9);
 			}
+
 			//trans
 		}
 	}
@@ -749,16 +764,19 @@ body {
 .res-bod {
 	#modal {
 		.content {
-				#disp-total {
-					background: none;
-					p {
-						font-weight: 700;
-					}
+			// gap: 2rem;
+
+			#disp-total {
+				background: none;
+
+				p {
+					font-weight: 700;
 				}
 			}
 		}
 	}
 }
+
 
 @media (max-width: 800px) {
 	body {
@@ -862,7 +880,7 @@ body {
 		}
 
 		.res-disp {
-			
+
 			form {
 				width: 100%;
 			}
@@ -943,15 +961,17 @@ body {
 								&:nth-child(1) {
 									width: 10%;
 								}
+
 								&:nth-child(2) {
 									width: 80%;
 								}
+
 								&:nth-child(3) {
 									width: 10%;
 								}
 							}
 						}
-						
+
 						h2 {
 							width: 100vw;
 						}

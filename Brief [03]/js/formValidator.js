@@ -30,11 +30,17 @@ function isEmail(Email) {
 }
 
 function fieldValidation(field, validationFunc) {
-	if (field == null) return flase
+	if (field == null) {return false}
 
 	let isFieldValid = validationFunc(field.value)
 	if (!isFieldValid) {
-		field.className = 'invalid-field'
+		
+		let warning = field.parentNode.firstChild
+		
+		field.style.border = '2px solid red'
+		if (field.type == 'email') {
+			warning.textContent = 'Invalid E-mail'
+		} else warning.textContent = 'Field cannot be empty'
 	} else {
 		field.className = ''
 	}
@@ -58,7 +64,9 @@ document.querySelector('.close').addEventListener('click', () => {
 })
 
 function vAndCreate() {
-	if (!Validate()) alert("An error occured~")
+	if (!Validate()) {
+		return false
+	}
 
 	else {
 		const { Name, Email, Subject, Message } = fields		

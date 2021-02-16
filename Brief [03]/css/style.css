@@ -434,6 +434,7 @@ body .contact-disp form .contact__twocol {
 
 body .contact-disp form .contact__twocol label {
   position: relative;
+  color: red;
 }
 
 body .contact-disp form .contact__twocol label::after {
@@ -666,6 +667,13 @@ body #modal .content .close:hover, body #modal .content .close:focus {
   color: white;
 }
 
+body input .invalid-field {
+  border: 2px solid red !important;
+  outline: 2px solid red !important;
+  background: red !important;
+  z-index: 20 !important;
+}
+
 body .gallery-disp {
   color: white;
   z-index: 0;
@@ -866,43 +874,11 @@ body .gallery-disp .grabbing .slide {
           transform: scale(0.9);
 }
 
-.res-bod #modal .content {
-  gap: 2rem;
-}
-
-.res-bod #modal .content .sep {
-  width: 77%;
-  height: 2px;
-  background: #ccc;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.res-bod #modal .content label div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-  padding: 1rem;
-  margin-top: .5rem;
-}
-
-.res-bod #modal .content label div p {
-  background: none;
-  margin: 0;
-  padding: 0;
-}
-
-.res-bod #modal .content label #disp-total {
+.res-bod #modal .content #disp-total {
   background: none;
 }
 
-.res-bod #modal .content label #disp-total p {
+.res-bod #modal .content #disp-total p {
   font-weight: 700;
 }
 
