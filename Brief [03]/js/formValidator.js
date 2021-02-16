@@ -53,12 +53,29 @@ function Validate() {
 	return valid
 }
 
+document.querySelector('.close').addEventListener('click', () => {
+	document.querySelector('#modal').style.display = 'none'
+})
+
 function vAndCreate() {
 	if (!Validate()) alert("An error occured~")
 
 	else {
-		let cntc = new Contact(fields.Name.value, fields.Email.value, fields.Subject.value, fields.Message.value, fields.Newsletter.checked)
+		const { Name, Email, Subject, Message } = fields		
+		const cntc = new Contact(Name.value, Email.value, Subject.value, Message.value, fields.Newsletter.checked)
 
-		alert(`${cntc.Name} thanks for contacting us! We'll get back to you soon.`)
+		const nameDisp = document.querySelector('#disp-name')
+		const emailDisp = document.querySelector('#disp-email')
+		const subjectDisp = document.querySelector('#disp-subject')
+		const messageDisp  = document.querySelector('#disp-message')
+		
+		nameDisp.textContent = cntc.Name
+		emailDisp.textContent = cntc.Email
+		subjectDisp.textContent = cntc.Subject
+		messageDisp.textContent = cntc.Message
+
+
+		document.querySelector('#modal').style.display = 'block'
+
 	}
 }

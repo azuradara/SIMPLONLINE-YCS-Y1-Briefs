@@ -147,7 +147,13 @@ daysEl.onchange = function() {
 	enableBtn()
 }
 
+document.querySelector('.close').addEventListener('click', () => {
+	document.querySelector('#modal').style.display = 'none'
+})
+
 function concoct() {
 	const sVeh = new VehicleLease(typeEl.value, engineEl.value, daysEl.value)
-	document.querySelector('.price').textContent = `${Math.round(sVeh.tPrice * 100) / 100}€`
+	document.querySelector('#modal').style.display = 'block'
+
+	document.querySelector('#disp-total').textContent = `${sVeh.tPrice}€`
 }

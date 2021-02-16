@@ -47,10 +47,10 @@
 					<label for="frm__Name">
 						<input type="text" placeholder="Name" id="frm__Name" />
 					</label>
-					<label for="frm__Name">
-						<input type="text" placeholder="E-mail" id="frm__Email" />
+					<label for="frm__Email">
+						<input type="email" placeholder="E-mail" id="frm__Email" />
 					</label>
-					<label for="frm__Name">
+					<label for="frm__Subject">
 						<input type="text" placeholder="Subject" id="frm__Subject" />
 					</label>
 				</div>
@@ -67,6 +67,26 @@
 			<button onclick="vAndCreate();">Send</button>
 		</form>
 	</main>
+
+	<div id="modal">
+		<div class="content">
+			<h class="thanks">Thanks for contacting us<span>!</span></br>We'll get back to you soon<span>.</span></h>
+			<span class="close">&times;</span>
+			<label for="">Name:
+				<p id="disp-name">Lorem ipsum dolor sit.</p>
+			</label>
+			<label for="">E-Mail:
+				<p id="disp-email">Lorem ipsum dolor sit.</p>
+			</label>
+			<label for="">Subject:
+				<p id="disp-subject">Lorem ipsum dolor sit.</p>
+			</label>
+			<label for="">Message:
+				<p id="disp-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quasi repudiandae ratione incidunt nihil
+					quia sapiente dignissimos, suscipit vitae vel.</p>
+			</label>
+		</div>
+	</div>
 
 	<script src="js/formValidator.js"></script>
 	<script src="js/app.js"></script>

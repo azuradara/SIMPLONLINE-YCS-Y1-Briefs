@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="contact">
+<body class="res-bod">
 
 	<nav class="sidebar">
 
@@ -70,11 +70,16 @@
 
 			<button onclick="concoct();">Get price estimate</button>
 		</form>
-
-		<p class="price"></p>
-
-		
 	</main>
+
+	<div id="modal">
+		<div class="content">
+			<h class="thanks">Your total is<span> : 
+				<p id="disp-total">13$</p>
+			</span></h>
+			<span class="close">&times;</span>
+		</div>
+	</div>
 
 	<script src="js/reservation.js"></script>
 	<script src="js/app.js"></script>
