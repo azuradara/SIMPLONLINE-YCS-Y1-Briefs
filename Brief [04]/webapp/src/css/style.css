@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Poppins, sans-serif;
+}
+
+.hdr--home {
+  background: conic-gradient(from -270deg at 75% 110%, midnightblue, lawngreen);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 64px;
+}
+
+.hdr--home .logo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.hdr--home .logo-container img {
+  height: 45px;
+}
+
+.hdr--home .logo-container p {
+  color: wh;
+}
+/*# sourceMappingURL=style.css.map */
