@@ -15,7 +15,10 @@ $primary: #3399cc;
 	max-width: 100vw;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
 	font-family: Montserrat;
 	font-weight: 500;
 }
@@ -43,8 +46,13 @@ h1, h2, h3, h4 {
 		}
 	}
 
+	.menu-closed {
+		display: none;
+	}
+
 	.links {
-		
+
+
 		ul {
 			display: flex;
 			gap: 3rem;
@@ -56,7 +64,11 @@ h1, h2, h3, h4 {
 					text-decoration: none;
 					color: $light;
 					font-size: 1.2rem;
-					font-weight: 400;
+					font-weight: 300;
+				}
+
+				.auth-login, .auth-signup {
+					display: none;
 				}
 			}
 		}
@@ -70,7 +82,7 @@ h1, h2, h3, h4 {
 			text-decoration: none;
 			color: $light;
 			font-size: 1.2rem;
-			font-weight: 600;
+			font-weight: 300;
 			padding: .5rem;
 		}
 
@@ -92,7 +104,7 @@ h1, h2, h3, h4 {
 	align-items: center;
 	justify-content: center;
 	// margin: 0 20rem;
-	
+
 	.nwltr-container {
 		background: $dark;
 		color: $light;
@@ -119,6 +131,8 @@ h1, h2, h3, h4 {
 			justify-content: space-between;
 
 			input {
+				font-size: 1rem;
+
 				border: none;
 
 				&:focus {
@@ -127,6 +141,7 @@ h1, h2, h3, h4 {
 			}
 
 			button {
+				font-size: 1rem;
 				border: none;
 				background: $primary;
 				color: $light;
@@ -134,10 +149,10 @@ h1, h2, h3, h4 {
 				border-radius: 7px;
 				cursor: pointer;
 
-				&:focus { 
+				&:focus {
 					outline: none;
 				}
-				
+
 				&:hover {
 					// outline: none;
 					box-shadow: inset 3px 3px 20px 0px rgba(0, 0, 0, .5);
@@ -166,11 +181,12 @@ h1, h2, h3, h4 {
 			li a {
 				text-decoration: none;
 				color: $dark;
-				font-weight: 400;
+				font-weight: 300;
 				font-size: 1.1rem;
 			}
 		}
 	}
+
 	span {
 		width: 70rem;
 		height: 2px;
@@ -198,6 +214,128 @@ h1, h2, h3, h4 {
 				text-decoration: none;
 				color: $dark;
 			}
+		}
+	}
+}
+
+@media (max-width: 1000px) {
+
+
+	.hdr {
+		position: relative;
+
+		.menu-closed {
+			display: block;
+			height: 35px;
+			cursor: pointer;
+		}
+
+		.logo-container {
+
+			p {
+				display: none;
+			}
+		}
+
+		.links {
+			position: absolute;
+			// background: white;
+			right: 0;
+			left: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			top: 62px;
+			z-index: 10;
+			transform: translateY(-120%);
+			transition: transform 250ms ease-in-out;
+			
+			ul {
+				background: $light;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				box-shadow: 0px 10px 14px 0px rgba(0,0,0,0.45);
+				width: 20rem;
+				border-radius: 0 0 7px 7px;
+				padding: 2rem 0;
+				border: 2px solid $primary;
+				gap: 1.5rem;
+				
+				li {
+
+					a {
+						color: $dark;
+						font-weight: 300;
+					}
+					
+					span {
+						display: inline-block;
+						height: 2px;
+						background: #ccc;
+						border-radius: 50%;
+						width: 15rem;
+					}
+
+					.auth-login, .auth-signup {
+						display: inline-block;
+					}
+
+					.auth-signup {
+						background: $conic;
+						color: $light;
+						border-radius: 7px;
+						padding: .5rem 1rem;
+					}
+				}
+
+			}
+		}
+
+		.links-active {
+			transform: translateY(0);
+		}
+
+		.auth-btns {
+			display: none;
+		}
+	}
+
+	.ftr {
+
+		.nwltr-container {
+			flex-direction: column;
+			width: 90vw;
+
+			.input {
+				width: 80vw;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+
+				input {
+					width: 100%;
+					text-align: center;
+					padding: 1rem;
+					padding-bottom: 1.5rem;
+				}
+
+				button {
+					width: 100%;
+				}
+			}
+		}
+
+		.ftr-links {
+			padding-top: 1rem;
+			flex-direction: column;
+			gap: 2rem;
+		}
+
+		.ftr-fprint {
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
 		}
 	}
 }
