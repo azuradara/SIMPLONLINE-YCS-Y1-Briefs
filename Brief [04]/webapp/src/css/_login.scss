@@ -1,0 +1,132 @@
+.login--page {
+	background: $conic;
+	background-repeat: no-repeat;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+
+	h1 {
+		font-size: 5rem;
+		color: $light;
+	}
+
+	.container {
+		background: $light;
+		padding: 2rem 1.2rem;
+		border-radius: 20px;
+		
+		form {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+
+			label {
+				display: flex;
+				flex-direction: column;
+				font-size: 1.2rem;
+				font-weight: 400;
+
+				input {
+					padding: .6rem 1rem;
+					font-size: 1rem;
+					border-radius: 7px;
+					border: 2px solid #ccc;
+
+					&:hover, &:focus {
+						outline: none;
+						border-color: $primary;
+					}
+				}
+				
+				.smalltext {
+					font-size: .8rem;
+					font-weight: 400;
+				}
+			}
+
+			.sessionInvalidation {
+				display: inline-block;
+				
+				#sessionInvalidation {
+					border: 1px solid $primary;
+				}
+			}
+
+			.checktainer {
+				position: relative;
+				padding-left: 30px;
+
+				input {
+					position: absolute;
+					opacity: 0;
+					cursor: pointer;
+					height: 0;
+					width: 0;
+				}
+
+				.checkmark {
+					position: absolute;
+					top: 3px;
+					left: 0;
+					height: 20px;
+					width: 20px;
+					background: white;
+					border: 2px solid #ccc;
+					border-radius: 3px;
+					transition: all 250ms ease-in-out;
+
+					&:after {
+						content: '';
+						position: absolute;
+						display: none;
+
+						left: 6px;
+						top: 2px;
+						width: 5px;
+						height: 10px;
+						border: solid white;
+						border-width: 0 3px 3px 0;
+						transform: rotate(45deg);
+					}
+				}
+
+				&:hover input~.checkmark {
+					border-color: $primary;
+				}
+
+				input:checked~.checkmark {
+					background: $primary;
+					border: transparent;
+				}
+
+				input:checked~.checkmark:after {
+					display: block;
+				}
+
+				input:focus~.checkmark {
+					border-color: $primary;
+				}
+			}
+
+			button {
+				border: none;
+				font-size: 1.2rem;
+				background: $primary;
+				color: $light;
+				padding: .6rem;
+				border-radius: 7px;
+				font-weight: 600;
+				text-transform: uppercase;
+				cursor: pointer;
+
+				&:hover, &:focus {
+					background: $conic;
+				}
+
+			}
+		}
+	}
+}
