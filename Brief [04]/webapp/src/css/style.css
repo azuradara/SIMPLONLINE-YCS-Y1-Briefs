@@ -46,6 +46,10 @@
   display: none;
 }
 
+.hdr .links {
+  z-index: 1;
+}
+
 .hdr .links ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -62,6 +66,24 @@
   color: #fff;
   font-size: 1.2rem;
   font-weight: 300;
+  position: relative;
+}
+
+.hdr .links ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  right: 0;
+  left: 0;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+
+.hdr .links ul li a:hover::after, .hdr .links ul li a:focus::after {
+  width: 100%;
 }
 
 .hdr .links ul li .auth-login, .hdr .links ul li .auth-signup {
@@ -73,6 +95,7 @@
   display: -ms-flexbox;
   display: flex;
   gap: 1rem;
+  z-index: 1;
 }
 
 .hdr .auth-btns a {
@@ -81,6 +104,28 @@
   font-size: 1.2rem;
   font-weight: 300;
   padding: .5rem;
+  position: relative;
+}
+
+.hdr .auth-btns .auth-login {
+  position: relative;
+}
+
+.hdr .auth-btns .auth-login::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  right: 0;
+  left: 0;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+
+.hdr .auth-btns .auth-login:hover::after, .hdr .auth-btns .auth-login:focus::after {
+  width: 100%;
 }
 
 .hdr .auth-btns .auth-signup {
@@ -89,11 +134,168 @@
   border-radius: 7px;
 }
 
+.hdr .auth-btns .auth-signup:hover, .hdr .auth-btns .auth-signup:focus {
+  background-color: #ccc;
+}
+
 .hdr--trans {
   background: none;
   position: absolute;
   width: 100%;
   top: 0;
+}
+
+.login--page {
+  background: conic-gradient(from 90deg at bottom right, cyan, rebeccapurple);
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login--page h1 {
+  font-size: 5rem;
+  color: #fff;
+}
+
+.login--page .container {
+  background: #fff;
+  padding: 2rem 1.2rem;
+  border-radius: 20px;
+}
+
+.login--page .container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.login--page .container form label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.login--page .container form label input {
+  padding: .6rem 1rem;
+  font-size: 1rem;
+  border-radius: 7px;
+  border: 2px solid #ccc;
+}
+
+.login--page .container form label input:hover, .login--page .container form label input:focus {
+  outline: none;
+  border-color: #3399cc;
+}
+
+.login--page .container form label .smalltext {
+  font-size: .8rem;
+  font-weight: 400;
+}
+
+.login--page .container form .sessionInvalidation {
+  display: inline-block;
+}
+
+.login--page .container form .sessionInvalidation #sessionInvalidation {
+  border: 1px solid #3399cc;
+}
+
+.login--page .container form .checktainer {
+  position: relative;
+  padding-left: 30px;
+}
+
+.login--page .container form .checktainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.login--page .container form .checktainer .checkmark {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: white;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+}
+
+.login--page .container form .checktainer .checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.login--page .container form .checktainer:hover input ~ .checkmark {
+  border-color: #3399cc;
+}
+
+.login--page .container form .checktainer input:checked ~ .checkmark {
+  background: #3399cc;
+  border: transparent;
+}
+
+.login--page .container form .checktainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.login--page .container form .checktainer input:focus ~ .checkmark {
+  border-color: #3399cc;
+}
+
+.login--page .container form button {
+  border: none;
+  font-size: 1.2rem;
+  background: #3399cc;
+  color: #fff;
+  padding: .6rem;
+  border-radius: 7px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.login--page .container form button:hover, .login--page .container form button:focus {
+  background: conic-gradient(from 90deg at bottom right, cyan, rebeccapurple);
 }
 
 main .hero {
@@ -152,13 +354,12 @@ main .hero .hero--disp .hero--links .hero--signup {
   border-radius: 7px;
   color: #3399cc;
   text-decoration: none;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
 }
 
 main .hero .hero--disp .hero--links .hero--signup:hover, main .hero .hero--disp .hero--links .hero--signup:focus {
-  background: conic-gradient(from 90deg at bottom right, cyan, rebeccapurple);
-  color: white;
-  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
+  background: #ccc;
 }
 
 main .hero .hero--disp .hero--links .hero--demo {
@@ -166,13 +367,157 @@ main .hero .hero--disp .hero--links .hero--demo {
   color: #ccc;
   font-weight: 500;
   font-size: .8rem;
+  position: relative;
+}
+
+main .hero .hero--disp .hero--links .hero--demo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0%;
+  height: 1px;
+  background: #fff;
+  right: 0;
+  left: 0;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+
+main .hero .hero--disp .hero--links .hero--demo:hover::after, main .hero .hero--disp .hero--links .hero--demo:focus::after {
+  width: 100%;
 }
 
 main .hero img {
   position: absolute;
   right: 0;
-  bottom: 5.25rem;
-  width: 50%;
+  top: 1rem;
+  width: 40%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+main .testi {
+  background: conic-gradient(from 90deg at bottom right, cyan, rebeccapurple);
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3rem;
+}
+
+main .testi--header {
+  font-size: 3rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+main .testi--content {
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 40rem;
+  margin-bottom: 2rem;
+}
+
+main .placeholder {
+  background: #ccc;
+  height: 5rem;
+}
+
+main .features {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+}
+
+main .features .feature {
+  display: -ms-grid;
+  display: grid;
+  padding: 0rem 10rem;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .features .feature h3 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+main .features .feature img {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 4;
+  grid-column: 3 / span 4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1 / span 2;
+}
+
+main .features .feature .descs {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -webkit-columns: 2;
+          columns: 2;
+}
+
+main .features .feature .descs h4 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+main .features .feature .descs p {
+  font-weight: 300;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+main .features .feature:nth-child(2n - 1) {
+  background: rgba(51, 153, 204, 0.4);
+  -webkit-clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%);
+          clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%);
+  padding: 4rem 7rem;
+}
+
+main .features .feature:nth-child(2n - 1) img {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+}
+
+main .features .feature:nth-child(2n - 1) h3 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 4;
+  grid-column: 3 / span 4;
+}
+
+main .features .feature:nth-child(2n - 1) .descs {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 4;
+  grid-column: 3 / span 4;
 }
 
 .blank {
@@ -366,14 +711,14 @@ main .hero img {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    top: 0;
+    top: -5px;
     z-index: 10;
     -webkit-transform: translateY(-120%);
             transform: translateY(-120%);
-    -webkit-transition: -webkit-transform 250ms ease-in-out;
-    transition: -webkit-transform 250ms ease-in-out;
-    transition: transform 250ms ease-in-out;
-    transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+    -webkit-transition: -webkit-transform 500ms ease-in-out;
+    transition: -webkit-transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
   }
   .hdr .links ul {
     background: #fff;
@@ -421,6 +766,88 @@ main .hero img {
   }
   .hdr .auth-btns {
     display: none;
+  }
+  main .hero {
+    padding: 7rem 0;
+    padding-bottom: 3rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  main .hero .hero--disp {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  main .hero .hero--disp .hero--title {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  main .hero .hero--disp .hero--desc {
+    font-size: .9rem;
+    text-align: center;
+    width: 100%;
+  }
+  main .hero .hero--disp .hero--links {
+    margin-top: 1rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 1rem;
+  }
+  main .hero img {
+    position: relative;
+    width: 100%;
+    top: -100px;
+    margin-bottom: -7rem;
+  }
+  main .testi {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  main .testi--header {
+    font-size: 2rem;
+  }
+  main .testi--content {
+    font-weight: 300;
+    font-size: .9rem;
+  }
+  main .features .feature {
+    padding: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 1rem;
+  }
+  main .features .feature h3 {
+    font-size: 1.5rem;
+  }
+  main .features .feature .descs {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    -webkit-columns: 1;
+            columns: 1;
+  }
+  main .features .feature .descs h4 {
+    font-size: 1.2rem;
+  }
+  main .features .feature .descs p:nth-child(8), main .features .feature .descs h4:nth-child(7), main .features .feature .descs p:nth-child(6), main .features .feature .descs h4:nth-child(5) {
+    display: none;
+  }
+  main .features .feature:nth-child(2n - 1) {
+    padding: 1rem;
+    -webkit-clip-path: none;
+            clip-path: none;
   }
   .ftr .nwltr-container {
     -webkit-box-orient: vertical;
