@@ -12,4 +12,22 @@ window.onload = () => {
 		}
 	}
 
+	const header = document.querySelector('header')
+	const heroOne = document.querySelector('.hero')
+
+	const heroOpts = {}
+
+	const heroObserver = new IntersectionObserver(function (entries, heroObserver) {
+
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				header.classList.add('hdr--trans')
+			} else {
+				header.classList.remove('hdr--trans')
+			}
+		})
+
+	}, heroOpts);
+
+	heroObserver.observe(heroOne)
 }

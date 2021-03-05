@@ -23,6 +23,10 @@
           align-items: center;
   padding: 0 6rem;
   height: 64px;
+  position: fixed;
+  width: 100vw;
+  z-index: 20;
+  top: 0;
 }
 
 .hdr .logo-container {
@@ -299,7 +303,8 @@
 }
 
 main .hero {
-  padding: 10rem 6rem;
+  min-height: 100vh;
+  padding: 10rem 10rem;
   background: conic-gradient(from 90deg at bottom right, cyan, rebeccapurple);
 }
 
@@ -313,12 +318,13 @@ main .hero .hero--disp {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 1rem;
+  z-index: 2;
 }
 
 main .hero .hero--disp .hero--title {
   font-family: Montserrat;
   font-weight: 300;
-  font-size: 3rem;
+  font-size: 6rem;
 }
 
 main .hero .hero--disp .hero--title span {
@@ -329,7 +335,7 @@ main .hero .hero--disp .hero--desc {
   font-size: 1.05rem;
   font-weight: 300;
   width: 30rem;
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 main .hero .hero--disp .hero--desc span {
@@ -364,7 +370,7 @@ main .hero .hero--disp .hero--links .hero--signup:hover, main .hero .hero--disp 
 
 main .hero .hero--disp .hero--links .hero--demo {
   text-decoration: none;
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 500;
   font-size: .8rem;
   position: relative;
@@ -376,7 +382,7 @@ main .hero .hero--disp .hero--links .hero--demo::after {
   bottom: 0;
   width: 0%;
   height: 1px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.8);
   right: 0;
   left: 0;
   -webkit-transition: all 150ms ease-in-out;
@@ -433,6 +439,7 @@ main .testi--content {
 main .placeholder {
   background: #ccc;
   height: 5rem;
+  margin-top: 64px;
 }
 
 main .features {
