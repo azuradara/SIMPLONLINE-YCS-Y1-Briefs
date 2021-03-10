@@ -1,0 +1,59 @@
+@mixin scuffTable($colNum) {
+
+	.table {
+		display: grid;
+		grid-template-columns: repeat($colNum, auto) 24px;
+		row-gap: .5rem;
+		border: 2px solid $primary;
+		padding: 1rem 2rem; 
+		border-radius: 10px 10px 0 0;
+		background: rgba($color: $primary, $alpha: .2);
+
+		$colNum: $colNum+1;
+	
+		.header {
+			font-weight: 500;
+			
+			@for $i from 1 through $colNum {
+				grid-row: 1;
+				min-width: 100%;
+				
+				&:nth-child(#{$i}) {
+					grid-column: #{$i};
+				}
+			}
+		}
+		
+		.line {
+			// min-width: 100%;
+			min-width: 0;
+			align-self: center;
+			// border-top: 1px solid rgba($color: #000, $alpha: .2);
+	
+			@for $i from 1 through 100 {
+				$j: $i % $colNum;
+	
+				&:nth-child(#{$i}) {
+					grid-column: #{$i%$colNum+1};
+					padding-top: .5rem;
+
+					@if $i <= $colNum+2 {
+						border-top: 1px solid rgba($color: black, $alpha: .5);
+					}
+	
+					@if $j==0 {
+						grid-row: #{$i/$colNum+1};
+					}
+				}
+			}
+		}
+
+		.btn--info {
+			display: flex;
+			// justify-content: flex-end;
+			cursor: pointer;
+			justify-content: flex-end;
+			height: 100%;
+		}
+	}
+}

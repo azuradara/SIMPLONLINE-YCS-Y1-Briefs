@@ -1,0 +1,222 @@
+.app {
+	display: flex;
+	max-height: 100vh;
+	position: relative;
+
+	* {
+		font-weight: 400;
+	}
+
+	main {
+		display: flex;
+		gap: 1.5rem;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: stretch;
+		padding: 1rem 3rem;
+		width: calc(100vw - 60px);
+		max-width: calc(100vw - 60px);
+		margin-left: 60px;
+
+		@include scuffTable(2);
+
+		h3 {
+			font-size: 1.5rem;
+		}
+
+		header {
+			display: flex;
+			justify-content: space-between;
+			height: 64px;
+			font-size: 1rem;
+			color: $dark;
+
+			.status {
+				display: flex;
+				flex-direction: row;
+				gap: 1rem;
+				align-items: center;
+
+				.icons {
+					display: flex;
+					gap: 1rem;
+				}
+
+				h2 {
+					width: 100%;
+				}
+			}
+		}
+
+		.info {
+			background: $conic;
+			display: flex;
+			color: $light;
+			border-radius: 10px;
+			align-items: center;
+			gap: 2rem;
+
+			img {
+				height: 10rem;
+				border-radius: 10px 0 0 10px;
+			}
+
+			&--text {
+				display: flex;
+				flex-direction: column;
+
+				.name {
+					display: flex;
+					align-items: center;
+					gap: 1rem;
+
+					img {
+						border-radius: 0;
+					}
+
+				}
+
+				img {
+					height: 20px;
+					cursor: pointer;
+					border-radius: 0px;
+				}
+
+				p {
+					font-size: 1rem;
+					font-weight: 300;
+					display: flex;
+					align-items: center;
+					gap: .5rem;
+					color: rgba($color: #fff, $alpha: .7);
+				}
+			}
+		}
+
+	}
+	
+	.lists--container {
+		display: flex;
+		width: 100%;
+		gap: 1rem;
+		
+		.list--container {
+			flex: 1;
+
+			h3 {
+				text-align: center;
+				margin-bottom: .5rem;
+			}
+
+			button {
+				width: 100%;
+			}
+
+			.table {
+				overflow: auto;
+			}
+		}
+	}
+
+	button {
+		background: $conic;
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: $light;
+		padding: 1rem 0;
+		border: none;
+		cursor: pointer;
+		border-radius: 0 0 10px 10px;
+		margin-top: -.5rem;
+		transition: all 250ms ease-out;
+
+		&:focus,
+		&:hover {
+			filter: brightness(.9);
+		}
+	}
+
+	.ftr {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		color: rgba($color: #000, $alpha: .7);
+	}
+
+
+}
+
+@media (max-width: 1000px) {
+	.app {
+
+		main {
+			width: 100vw;
+			margin: auto;
+			padding: 1rem;
+
+			h2 {
+				text-align: center;
+			}
+
+			header {
+				flex-direction: column-reverse;
+				justify-content: center;
+				align-items: center;
+
+				.status {
+					display: flex;
+					width: 100%;
+					justify-content: space-between;
+					align-content: space-between;
+					flex-direction: row-reverse;
+
+					h2 {
+						width: fit-content;
+					}
+				}
+			}
+
+			.lists--container {
+				flex-direction: column;
+			}
+
+			.info {
+				flex-direction: column;
+				gap: 0;
+
+				img {
+					width: 100%;
+					object-fit: cover;
+					border-radius: 10px;
+				}
+
+				&--text {
+					width: 100%;
+					align-items: flex-start;
+					padding: 1rem;
+
+					.name {
+						display: flex;
+						justify-content: space-between;
+						width: 100%;
+
+						h3 {
+							font-size: 1.5rem;
+						}
+					}
+					img {
+						width: auto;
+						height: 1.5rem
+					}
+
+					p {
+						font-size: 1rem;
+					}
+
+				}
+
+
+			}
+		}
+	}
+}
