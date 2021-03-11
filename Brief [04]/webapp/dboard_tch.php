@@ -13,7 +13,7 @@
     <nav class="sidebar">
 
         <div class="logo">
-            <a href="index.html"><img class="menuico" src="./src/img/sidebar/home_white_24dp.svg" alt="">
+            <a href="index.php"><img class="menuico" src="./src/img/sidebar/home_white_24dp.svg" alt="">
             </a>
         </div>
 
@@ -23,7 +23,7 @@
             </a>
         </div>
 
-        <a class="log-out" href="#"><img src="./src/img/sidebar/logout_white_24dp.svg" alt=""></a>
+        <a class="log-out" href="./includes/logout-inc.php"><img src="./src/img/sidebar/logout_white_24dp.svg" alt=""></a>
     </nav>
     <main>
         <header>

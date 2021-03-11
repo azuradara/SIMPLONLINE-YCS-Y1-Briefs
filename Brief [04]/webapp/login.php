@@ -13,21 +13,20 @@
 	<h1>Log In</h1>
 
 	<div class="container">
-		<form action="return false">
-			<label for="email" class="email">E-Mail
-				<input type="text" placeholder="E-Mail">
+		<form action="includes/login-inc.php" method="post">
+
+			<label for="username">Username or Email
+				<input type="text" name="uid" placeholder="Username or Email">
 				<p class="smalltext" style="display:none;">smalltext</p>
-			</label>
-			<label for="password" class="passwprd">Password
-				<input type="password" placeholder="Password">
-				<p class="smalltext" style="display:none;">smalltext</p>
-			</label>
-			<label class="checktainer">Stay signed in
-				<input type="checkbox" id="frm__Newsletter" />
-				<span class="checkmark"></span>
 			</label>
 
-			<button>Log In</button>
+			<label for="password"">Password
+				<input type="password" name="pwd" placeholder="Password">
+				<p class="smalltext" style="display:none;">smalltext</p>
+			</label>
+
+			<button type="submit" name="submit">Log In</button>
+
 		</form>
 	</div>
 	
