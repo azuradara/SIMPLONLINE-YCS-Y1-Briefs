@@ -1,0 +1,355 @@
+.app {
+
+	#modal {
+		width: 100vw;
+		height: 100vh;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: rgba($color: #000, $alpha: .5);
+		z-index: 200;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		
+		.modalcontent {
+			background: $light;
+			border-radius: 10px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 20rem;
+			// padding: 1rem;
+		}
+		
+		.close {
+			font-size: 2rem;
+			cursor: pointer;
+			padding: .5rem 0;
+			background: $gradient;
+			color: $light;
+			margin: 1rem 0;
+			// border-radius: 10px 10px 0 0;
+			border-radius: 50%;
+			width: 3rem;
+			height: 3rem;
+			text-align: center;
+			transition: all 250ms ease-out;
+			
+			p {
+				transition: transform 250ms ease-out;
+			}
+
+			&:hover, &:focus {
+				margin-top: 0;
+				width: 100%;
+				border-radius: 10px 10px 0 0;
+				
+
+				p {
+					transform:rotate(90deg);
+				}
+			}
+		}
+		
+		form {
+			max-height: calc(100vh - 210px);
+			overflow: auto;
+			width: 100%;
+			// background: $light;
+			border-radius: 10px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			columns: 2;
+			gap: .5rem;
+			padding: 1rem 2rem;
+
+			label {
+				width: 100%;
+
+				p {
+					min-width: fit-content;
+					font-weight: bold;
+
+				}
+			}
+
+			input {
+				padding: .5rem;
+				font-size: 1rem;
+				border: none;
+				border-bottom: 2px solid rgba($color: #000, $alpha: .1);
+				// margin: 0 1rem;
+				width: 100%;
+
+				&:focus {
+					outline: none;
+					border-bottom: 2px solid $primary;
+				}
+			}
+
+			.form-btns {
+				display: flex;
+				gap: 0;
+				margin-top: 1rem;
+				margin-bottom: 1rem;
+				gap: 2rem;
+
+				.btn {
+					// background-image: url(../img/app/save_white_24dp.svg);
+					background-size: cover;
+					padding: 0;
+					height: 3rem;
+					width: 3rem;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					background: $gradient;
+					cursor: pointer;
+
+					&--del {
+						// background-image: url(../img/app/delete_white_24dp.svg);
+						background: red;
+					}
+				}
+			}
+		}
+	}
+
+	main {
+		margin-left: calc(60px + 2.5rem);
+		margin-top: 1rem;
+		margin-right: 2.5rem;
+		display: flex;
+		flex-direction: column;
+		height: 95vh;
+		gap: 1rem;
+
+		.maincontent {
+			display: flex;
+			height: 100%;
+			gap: 2rem;
+
+
+			.containers {
+				min-height: max-content;
+				// overflow: auto;
+				flex: 1;
+				background: $light;
+				border-radius: 10px;
+				// border: 2px solid rgba($color: #000, $alpha: .3);
+				background: $gradient;
+				display: flex;
+				flex-direction: column;
+
+				table {
+					color: white;
+					margin: 1rem;
+					font-size: 1rem;
+					border-collapse: separate;
+					border-spacing: .5rem;
+
+					th {
+						font-weight: bold;
+						text-align: left;
+						padding-bottom: .5rem;
+						height: 2rem;
+						border-bottom: 2px solid rgba($color: #fff, $alpha: .5);
+					}
+					
+					td {
+						height: 1rem;
+						vertical-align: middle;
+					}
+					
+					tr {
+						vertical-align: middle;
+						height: 1.5rem;
+					}
+
+					.crud-ico {
+						text-align: right;
+						width: 5rem;
+
+						img {
+							cursor: pointer;
+							transition: all 200ms ease-out;
+							
+							&:hover, &:focus {
+								filter: brightness(.8);
+								transform: rotate(45deg);
+							}
+						}
+					}
+				}
+				
+				.tab-btns {
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					// gap: 4rem;
+					// padding: 1rem;
+					background: $gradient;
+					border-radius: 10px 10px 0 0;
+					border-bottom: 2px solid white;
+					
+					button {
+						font-size: 1.2rem;
+						background: $primary;
+						border: none;
+						// border-bottom: 2px solid $light;
+						color: $light;
+						width: 100%;
+						padding: 1rem;
+						cursor: pointer;
+						transition: filter, background, color 200ms ease-in-out;
+						
+						&:nth-child(1) {
+							border-radius: 10px 0 0 0;
+						}
+						
+						&:nth-child(3) {
+							border-radius: 0 10px 0 0;
+						}
+
+						&:hover, &:focus {
+							outline: none;
+							filter: brightness(.8);
+						}
+					}
+
+					.tab__active {
+						background: $light;
+						border: 2px solid $primary;
+						// border-bottom: none;
+						color: $primary;
+						cursor: default;
+
+						&:hover, &:focus {
+							filter: none;
+						}
+					}
+				}
+			}
+
+			.entity {
+				overflow: auto;
+				min-height: fit-content;
+				display: flex;
+				flex-direction: column;
+				background: $gradient;
+				color: $light;
+				padding: 2rem;
+				border-radius: 10px;
+				gap: 1rem;
+				font-size: 1.1rem;
+				height: 100%;
+
+				img {
+					width: 15rem;
+					border-radius: 10px;
+				}
+
+				.icon {
+					width: 24px;
+					border-radius: 0;
+				}
+
+				&--stat {
+					display: flex;
+					gap: .5rem;
+					align-items: center;
+				}
+
+				.sep {
+					height: 2px;
+					background: rgba($color: #fff, $alpha: .5);
+				}
+
+				&--info {
+					display: flex;
+					flex-direction: column;
+					gap: 1rem;
+					// text-align: center;
+				}
+			}
+		}
+
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 64px;
+			font-size: 2rem;
+			color: $dark;
+			// padding-right: 2rem;
+
+			.status {
+				display: flex;
+				flex-direction: row;
+				gap: 1rem;
+				align-items: center;
+
+				.icons {
+					display: flex;
+					gap: 1rem;
+				}
+
+				h2 {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 1000px) {
+	.app {
+
+		form {
+			width: unset !important;
+		}
+
+		main {
+			margin: 0;
+			padding: 1rem;
+			height: calc(100vh - 60px);
+
+			header {
+				flex-direction: column-reverse;
+				padding: 0 .5rem;
+
+				.status {
+					justify-content: space-between;
+					flex-direction: row-reverse;
+					width: 100%;
+					font-size: 1.2rem;
+
+					h2 {
+						width: fit-content;
+					}
+				}
+			}
+			
+			.maincontent {
+				flex-direction: column;
+
+				.entity {
+					flex-direction: column;
+					height: fit-content;
+
+					img {
+						display: none;
+					}
+
+					.icon {
+						display: inline-block;
+					}
+				}
+			}
+		}
+	}
+}
