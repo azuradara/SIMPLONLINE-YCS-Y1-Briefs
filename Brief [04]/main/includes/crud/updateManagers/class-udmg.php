@@ -1,5 +1,10 @@
 <?php
 
+session_start();
+if(!isset($_SESSION["userid"]) || $_SESSION["level"] !== 1) {
+	header("location: ./login.php?error=noperm");
+}
+
 if (isset($_POST["submit"])) {
 	
 	$classesId = $_POST["classesId"];

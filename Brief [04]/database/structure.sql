@@ -4,7 +4,7 @@ use brief4db;
 
 drop table if exists users;
 create table users (
-    usersId int(11) primary key auto_increment not null,
+    usersId int(16) primary key auto_increment not null,
     usersLevel int(1) not null,
 	usersEmail varchar(128) not null,
 	usersUid varchar(128) not null,
@@ -14,7 +14,7 @@ create table users (
 drop table if exists classes;
 create table classes
 (
-    classesId   int(11) primary key auto_increment not null,
+    classesId   int(16) primary key auto_increment not null,
     classesName varchar(128)                       not null
 );
 
@@ -49,7 +49,7 @@ create table students (
 
 drop table if exists assignments;
 create table assignments (
-    assignmentsId int(11) primary key auto_increment,
+    assignmentsId int(16) primary key auto_increment,
     assignmentsClassId int,
     assignmentsTitle tinytext not null,
     assignmentsDesc longtext not null,

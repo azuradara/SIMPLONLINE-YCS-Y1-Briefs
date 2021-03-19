@@ -1,0 +1,133 @@
+{
+	"classes": [
+		{
+			"title": "Class Id",
+			"type": "text",
+			"name": "classesId"
+		},
+
+		{
+			"title": "Class Name",
+			"type": "text",
+			"name": "classesName"
+		}
+	],
+
+	"assignments": [
+		{
+			"title": "Title",
+			"type": "text",
+			"name": "assignmentsTitle"
+		},
+
+		{
+			"title": "Description",
+			"type": "text",
+			"name": "assignmentsDesc"
+		}
+	],
+
+	"teachers": [{
+			"title": "Teacher Id",
+			"type": "text",
+			"name": "usersId"
+		},
+		{
+			"title": "Email",
+			"type": "text",
+			"name": "usersEmail"
+		},
+		{
+			"title": "Username",
+			"type": "text",
+			"name": "usersUid"
+		},
+		{
+			"title": "Password",
+			"type": "text",
+			"name": "usersPwd"
+		},
+		{
+			"title": "Assigned Class",
+			"type": "text",
+			"name": "teachersClassId"
+		},
+		{
+			"title": "First Name",
+			"type": "text",
+			"name": "teachersFName"
+		},
+		{
+			"title": "Last Name",
+			"type": "text",
+			"name": "teachersLName"
+		},
+		{
+			"title": "Address",
+			"type": "text",
+			"name": "teachersAddress"
+		},
+		{
+			"title": "Phone Number",
+			"type": "text",
+			"name": "teachersPhone"
+		}
+	],
+
+	"students": [{
+			"title": "Student Id",
+			"type": "text",
+			"name": "usersId"
+		},
+		{
+			"title": "Email",
+			"type": "text",
+			"name": "usersEmail"
+		},
+		{
+			"title": "Username",
+			"type": "text",
+			"name": "usersUid"
+		},
+		{
+			"title": "Password",
+			"type": "text",
+			"name": "usersPwd"
+		},
+		{
+			"title": "Assigned Class",
+			"type": "text",
+			"name": "studentsClassId"
+		},
+		{
+			"title": "First Name",
+			"type": "text",
+			"name": "studentsFName"
+		},
+		{
+			"title": "Last Name",
+			"type": "text",
+			"name": "studentsLName"
+		},
+		{
+			"title": "Address",
+			"type": "text",
+			"name": "studentsAddress"
+		},
+		{
+			"title": "Gender",
+			"type": "text",
+			"name": "studentsGender"
+		},
+		{
+			"title": "Birthday",
+			"type": "text",
+			"name": "studentsBirthday"
+		},
+		{
+			"title": "Phone Number",
+			"type": "text",
+			"name": "studentsPhone"
+		}
+	]
+}

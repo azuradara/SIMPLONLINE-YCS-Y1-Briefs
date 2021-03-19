@@ -29,6 +29,8 @@
 							echo "<p style='color: red;'>Please fill in the required fields.</p>";
 						} else if ($_GET["error"] == "invalidcreds") {
 							echo "<p style='color: red;'>Invalid credentials!</p>";
+						} else if ($_GET["error"] == "noperm"){
+							echo "<p style='color:red;text-align:center;'>You don't have the required permissions to access this page, please log in first.</p>";
 						} else {
 							echo "<p style='color: red;'>Gah Da</p>";
 						}

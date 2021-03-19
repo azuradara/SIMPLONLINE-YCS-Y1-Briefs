@@ -1,20 +1,25 @@
 <?php
 
+session_start();
+if(!isset($_SESSION["userid"]) || $_SESSION["level"] !== 1) {
+	header("location: ./login.php?error=noperm");
+}
+
+$usersId = $_POST["usersId"];
+$usersEmail = $_POST["usersEmail"];
+$usersUid = $_POST["usersUid"];
+$usersPwd = $_POST["usersPwd"];
+
+$teachersClassId = $_POST["teachersClassId"];
+$teachersFName = $_POST["teachersFName"];
+$teachersLName = $_POST["teachersLName"];
+$teachersAddress = $_POST["teachersAddress"];
+$teachersPhone = $_POST["teachersPhone"];
+
+require_once '../../dbh-inc.php';
+
 if (isset($_POST["submit"])) {
 	
-	$usersId = $_POST["usersId"];
-	$usersEmail = $_POST["usersEmail"];
-	$usersUid = $_POST["usersUid"];
-	$usersPwd = $_POST["usersPwd"];
-
-	$teachersClassId = $_POST["teachersClassId"];
-	$teachersFName = $_POST["teachersFName"];
-	$teachersLName = $_POST["teachersLName"];
-	$teachersAddress = $_POST["teachersAddress"];
-	$teachersPhone = $_POST["teachersPhone"];
-
-	require_once '../../dbh-inc.php';
-
 	$sql = "UPDATE users SET usersEmail = ?, usersUid = ?, usersPwd = ? WHERE usersId = ?" ;
 	$stmt = mysqli_stmt_init($conn);
 	
@@ -45,11 +50,8 @@ if (isset($_POST["submit"])) {
 	exit();
 
 } else if (isset($_POST["delete"])) {
-	$teachersClassId = $_POST["teachersClassId"];
 
-	require_once '../../dbh-inc.php';
-
-	$sql = "DELETE FROM teachers WHERE teachersClassId = ?";
+	$sql = "DELETE FROM teachers WHERE teachersId = ?";
 	$stmt = mysqli_stmt_init($conn);
 	
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -57,11 +59,22 @@ if (isset($_POST["submit"])) {
 		exit();
 	}
 
-	mysqli_stmt_bind_param($stmt, "i", $teachersClassId);
-	mysqli_stmt_execute($stmt) or die(
-		header("location: ../../../dboard_admin.php?error=classhasstudents")
-	);
+	mysqli_stmt_bind_param($stmt, "i", $usersId);
+	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
+
+	$sql = "DELETE FROM users WHERE usersId = ?";
+	$stmt = mysqli_stmt_init($conn);
+	
+	if (!mysqli_stmt_prepare($stmt, $sql)) {
+		header("location: ../../../dboard_admin.php?error_stmtfailure");
+		exit();
+	}
+
+	mysqli_stmt_bind_param($stmt, "i", $usersId);
+	mysqli_stmt_execute($stmt);
+	mysqli_stmt_close($stmt);
+
 	header("location: ../../../dboard_admin.php?error=none");
 	exit();
 }

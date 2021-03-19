@@ -15,7 +15,7 @@ window.addEventListener('load', () => {
 	form = modal.querySelector('form')
 	crudIcons = document.querySelectorAll('table .crud-ico')
 
-	fetch('../formCreationData.json').then(response => {
+	fetch('../json/formCreationData.json').then(response => {
 		return response.json()
 	}).then(data => json = data)
 
@@ -31,6 +31,7 @@ window.addEventListener('load', () => {
 
 					form.innerHTML = genFields(json.classes)
 					form.action = '../includes/crud/updateManagers/class-udmg.php'
+					document.querySelector(`input[name="classesId"]`).parentElement.style.display = 'none'
 
 					postData('../includes/crud/fetchManager.php', JSON.stringify(`SELECT * FROM classes WHERE classesId = ${selectedId}`))
 						.then(response => {
@@ -45,12 +46,14 @@ window.addEventListener('load', () => {
 						})
 
 					renderModal()
+					checkVoidOnUpdate()
 					break;
 				case 'teachertable':
 					selectedId = icon.closest('tr').firstChild.textContent
 
 					form.innerHTML = genFields(json.teachers)
 					form.action = '../includes/crud/updateManagers/teacher-udmg.php'
+					document.querySelector(`input[name="usersId"]`).parentElement.style.display = 'none'
 
 					postData('../includes/crud/fetchManager.php', JSON.stringify(`SELECT \`users\`.*, \`teachers\`.* FROM \`users\` LEFT JOIN \`teachers\` ON \`teachers\`.\`teachersId\` = \`users\`.\`usersId\` WHERE \`teachers\`.\`teachersId\` = ${selectedId}`))
 						.then(response => {
@@ -64,12 +67,14 @@ window.addEventListener('load', () => {
 							// form.querySelector('input[name="classesName"]').value = data.classesName
 						})
 					renderModal()
+					checkVoidOnUpdate()
 					break;
 				case 'studenttable':
 					selectedId = icon.closest('tr').firstChild.textContent
 
 					form.innerHTML = genFields(json.students)
 					form.action = '../includes/crud/updateManagers/student-udmg.php'
+					document.querySelector(`input[name="usersId"]`).parentElement.style.display = 'none'
 
 					postData('../includes/crud/fetchManager.php', JSON.stringify(`SELECT \`users\`.*, \`students\`.* FROM \`users\` LEFT JOIN \`students\` ON \`students\`.\`studentsId\` = \`users\`.\`usersId\` WHERE \`students\`.\`studentsId\` = ${selectedId}`))
 						.then(response => {
@@ -84,11 +89,47 @@ window.addEventListener('load', () => {
 						})
 
 					renderModal()
+					checkVoidOnUpdate()
 					break;
 			}
 		})
 	})
 })
+
+function checkVoidOnUpdate() {
+	// let valid = false
+	const inputs = Array.from(form.querySelectorAll('input'))
+
+	inputs.forEach((input) => {
+		if (input.parentElement.textContent.includes('Id')) {
+			return
+		}
+
+		input.addEventListener('keyup', () => {
+			if(!input.value == '') {
+				input.classList.remove('iv-frm-btn')
+			} else {
+				input.classList.add('iv-frm-btn')
+			}
+		})
+	})
+
+	form.addEventListener('keyup', () => {
+		inputs_fl = Array.from(form.querySelectorAll('input'))
+		const emptyInputs = inputs_fl.filter(input => input.value == '')
+
+		console.log(emptyInputs.length)
+		if (emptyInputs.length > 0) {
+			form.querySelectorAll('button').forEach((button) => {
+				button.disabled = true
+			})
+		} else {
+			form.querySelectorAll('button').forEach((button) => {
+				button.disabled = false
+			})
+		}
+	})
+}
 
 function genFields(data = {}) {
 	let output = ''
@@ -106,6 +147,7 @@ function renderModal() {
 	modal.querySelector('.close').addEventListener('click', () => {
 		modal.style.display = 'none'
 	})
+	// document.querySelector('').style.overflow = 'hidden !important'
 }
 
 async function postData(url = '', data = {}) {

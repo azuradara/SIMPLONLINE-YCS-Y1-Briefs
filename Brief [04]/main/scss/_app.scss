@@ -3,7 +3,7 @@
 	#modal {
 		width: 100vw;
 		height: 100vh;
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		background: rgba($color: #000, $alpha: .5);
@@ -61,11 +61,11 @@
 			border-radius: 10px;
 			display: flex;
 			flex-direction: column;
-			justify-content: center;
+			justify-content: flex-start;
 			align-items: center;
 			columns: 2;
 			gap: .5rem;
-			padding: 1rem 2rem;
+			padding: 1rem 2rem !important;
 
 			label {
 				width: 100%;
@@ -79,16 +79,41 @@
 
 			input {
 				padding: .5rem;
+				margin-top: .5rem;
 				font-size: 1rem;
 				border: none;
-				border-bottom: 2px solid rgba($color: #000, $alpha: .1);
+				border: 2px solid rgba($color: #000, $alpha: .2);
+				border-radius: 10px;
 				// margin: 0 1rem;
 				width: 100%;
+				transition: all 250ms ease-out;
 
 				&:focus {
 					outline: none;
 					border-bottom: 2px solid $primary;
 				}
+			}
+
+			textarea {
+				margin-top: .5rem;
+				resize: none;
+				padding: .5rem;
+				font-size: 1rem;
+				border: none;
+				border: 2px solid rgba($color: #000, $alpha: .2);
+				border-radius: 10px;
+				// margin: 0 1rem;
+				width: 100%;
+				transition: all 250ms ease-out;
+
+				&:focus {
+					outline: none;
+					border-bottom: 2px solid $primary;
+				}
+			}
+
+			.iv-frm-btn {
+				border-bottom: 2px solid red !important;
 			}
 
 			.form-btns {
@@ -113,6 +138,11 @@
 					&--del {
 						// background-image: url(../img/app/delete_white_24dp.svg);
 						background: red;
+					}
+
+					&:disabled {
+						filter: saturate(0) opacity(.5);
+						cursor: unset;
 					}
 				}
 			}
@@ -144,7 +174,56 @@
 				background: $gradient;
 				display: flex;
 				flex-direction: column;
+				position: relative;
 
+				.a-tb-stud {
+					border-radius: 10px 10px 0 0;
+				}
+
+				#add-entry {
+					background: white;
+					// padding: 1rem;
+					width: fit-content;
+					border-radius: 50%;
+					align-items: center;
+					justify-content: center;
+					display: flex;
+					padding: 1rem;
+					position: absolute;
+					right: 1rem;
+					bottom: 1rem;
+					cursor: pointer;
+					transition: all 200ms ease-out;
+
+					&:hover, &:focus {
+						filter: brightness(.9);
+						transform: scale(1.05);
+					}
+
+					img {
+						width: 2rem;
+					}
+				}
+				
+				#assignmenttable {
+					display: flex;
+					flex-direction: column;
+					padding: 1rem;
+					gap: 2rem;
+
+					.assignment {
+						background: white;
+						padding: 1rem;
+						border-radius: 10px;
+
+						h3 {
+							font-size: 1.5rem;
+							font-weight: bold;
+							margin-bottom: .5rem;
+						}
+					}
+				}
+				
 				table {
 					color: white;
 					margin: 1rem;
@@ -152,17 +231,29 @@
 					border-collapse: separate;
 					border-spacing: .5rem;
 
+
 					th {
 						font-weight: bold;
 						text-align: left;
 						padding-bottom: .5rem;
 						height: 2rem;
 						border-bottom: 2px solid rgba($color: #fff, $alpha: .5);
+
+						&:first-child {
+							display: none;
+						}
 					}
 					
 					td {
 						height: 1rem;
 						vertical-align: middle;
+
+						&:first-child {
+							width: 1rem;
+							overflow: hidden;
+							max-width: 1rem;
+							display: none;
+						}
 					}
 					
 					tr {
@@ -219,8 +310,9 @@
 							outline: none;
 							filter: brightness(.8);
 						}
-					}
 
+					}
+					
 					.tab__active {
 						background: $light;
 						border: 2px solid $primary;
@@ -310,13 +402,17 @@
 	.app {
 
 		form {
-			width: unset !important;
+			// width: unset !important;
+			// padding: 0 !important;
+			width: 99% !important;
 		}
 
 		main {
 			margin: 0;
 			padding: 1rem;
-			height: calc(100vh - 60px);
+			// height: calc(100vh - 60px);
+			height: auto;
+			padding-bottom: 5rem;
 
 			header {
 				flex-direction: column-reverse;
@@ -336,6 +432,25 @@
 			
 			.maincontent {
 				flex-direction: column;
+
+				.containers {
+					
+					#add-entry {
+						position: relative;
+						align-self: flex-end;
+						bottom: unset;
+						right: unset;
+						width: 100%;
+						border-radius: 0 0 10px 10px;
+						border: 2px solid $primary;
+						border-top: none;
+						padding: .5rem;
+
+						&:hover, &:focus {
+							transform: none;
+						}
+					}
+				}
 
 				.entity {
 					flex-direction: column;

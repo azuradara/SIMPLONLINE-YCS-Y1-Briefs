@@ -111,27 +111,24 @@
 			header("location: ../login.php?error=invalidcreds");
 			exit();
 		} else if ($checkPwd === true) {
+
+			session_start();
+			$_SESSION["userid"] = $uidExists["usersId"];
+			$_SESSION["level"] = $permLevel;
+			$_SESSION["useruid"] = $uidExists["usersUid"];
+
 			switch ($permLevel) {
 				case 1:
-					session_start();
-					$_SESSION["userid"] = $uidExists["usersId"];
-					$_SESSION["useruid"] = $uidExists["usersUid"];
 					header("location: ../dboard_admin.php");
 					exit();
 					break;
 
 				case 2:
-					session_start();
-					$_SESSION["userid"] = $uidExists["usersId"];
-					$_SESSION["useruid"] = $uidExists["usersUid"];
 					header("location: ../dboard_teacher.php");
 					exit();
 					break;
 
 				case 3:
-					session_start();
-					$_SESSION["userid"] = $uidExists["usersId"];
-					$_SESSION["useruid"] = $uidExists["usersUid"];
 					header("location: ../dboard_student.php");
 					exit();
 					break;

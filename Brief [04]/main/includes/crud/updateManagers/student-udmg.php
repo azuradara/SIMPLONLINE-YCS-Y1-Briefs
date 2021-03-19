@@ -1,22 +1,26 @@
 <?php
 
-if (isset($_POST["submit"])) {
-	
-	$usersId = $_POST["usersId"];
-	$usersEmail = $_POST["usersEmail"];
-	$usersUid = $_POST["usersUid"];
-	$usersPwd = $_POST["usersPwd"];
+session_start();
+if(!isset($_SESSION["userid"]) || $_SESSION["level"] !== 1) {
+	header("location: ./login.php?error=noperm");
+}
 
-	$studentsId = $_POST["studentsId"];
-	$studentsClassId = $_POST["studentsClassId"];
-	$studentsFName = $_POST["studentsFName"];
-	$studentsLName = $_POST["studentsLName"];
-	$studentsAddress = $_POST["studentsAddress"];
-	$studentsGender = $_POST["studentsGender"];
-	$studentsBirthday = $_POST["studentsBirthday"];
-	$studentsPhone = $_POST["studentsPhone"];
-    
-	require_once '../../dbh-inc.php';
+$usersId = $_POST["usersId"];
+$usersEmail = $_POST["usersEmail"];
+$usersUid = $_POST["usersUid"];
+$usersPwd = $_POST["usersPwd"];
+
+$studentsClassId = $_POST["studentsClassId"];
+$studentsFName = $_POST["studentsFName"];
+$studentsLName = $_POST["studentsLName"];
+$studentsAddress = $_POST["studentsAddress"];
+$studentsGender = $_POST["studentsGender"];
+$studentsBirthday = $_POST["studentsBirthday"];
+$studentsPhone = $_POST["studentsPhone"];
+
+require_once '../../dbh-inc.php';
+
+if (isset($_POST["submit"])) {
 
 	$sql = "UPDATE users SET usersEmail = ?, usersUid = ?, usersPwd = ? WHERE usersId = ?" ;
 	$stmt = mysqli_stmt_init($conn);
@@ -29,13 +33,11 @@ if (isset($_POST["submit"])) {
 	
 	mysqli_stmt_bind_param($stmt, "sssi", $usersEmail, $usersUid , $usersPwd, $usersId);
 	mysqli_stmt_execute($stmt);
-	mysqli_stmt_close($stmt);
 
-	$sql = "UPDATE students SET studentsClassId = ? , studentsFName = ? , studentsLName = ? , studentsAddress = ? , studentsGender = ? , studentsBirthday = ? , studentsPhone = ? WHERE studentsId = ?" ; 
-	$stmt = mysqli_stmt_init($conn) ; 
+	$sql = "UPDATE students SET studentsClassId = ? , studentsFName = ? , studentsLName = ? , studentsAddress = ? , studentsGender = ? , studentsBirthday = ? , studentsPhone = ? WHERE studentsId = ?" ;
 	
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-	header("location: ../../../dboard_admin.php?error=noene");
+	header("location: ../../../dboard_admin.php?error=ohno");
 	exit();
 	}
 
@@ -43,28 +45,34 @@ if (isset($_POST["submit"])) {
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
 
-	header("location: ../../../dboard_admin.php?error=noene");
+	header("location: ../../../dboard_admin.php?error=none");
 	exit();
 
 
 } else if (isset($_POST["delete"])) {
-	$studentsId = $_POST["usersId"];
 
-	require_once '../../dbh-inc.php';
-
-	$sql = "DELETE FROM students WHERE studentsId = ?";
 	$stmt = mysqli_stmt_init($conn);
+	$sql = "DELETE FROM students WHERE studentsId = ?";
 	
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
 		header("location: ../../../dboard_admin.php?error_stmtfailure");
 		exit();
 	}
 
-	mysqli_stmt_bind_param($stmt, "i", $studentsId);
-	mysqli_stmt_execute($stmt) or die(
-		header("location: ../../../dboard_admin.php?error=classhasstudents")
-	);
+	mysqli_stmt_bind_param($stmt, "i", $usersId);
+	mysqli_stmt_execute($stmt);
+
+	$sql = "DELETE FROM users WHERE usersId = ?";
+	
+	if (!mysqli_stmt_prepare($stmt, $sql)) {
+		header("location: ../../../dboard_admin.php?error_stmtfailure");
+		exit();
+	}
+
+	mysqli_stmt_bind_param($stmt, "i", $usersId);
+	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
+
 	header("location: ../../../dboard_admin.php?error=none");
 	exit();
 }

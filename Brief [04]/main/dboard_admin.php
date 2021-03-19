@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if(!isset($_SESSION["userid"]) || $_SESSION["level"] !== 1) {
+		header("location: ./login.php?error=noperm");
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +16,7 @@
 	<link rel="stylesheet" href="./scss/style.css">
 	<script src="./js/tabs_admin.js"></script>
 	<script src="./js/populateTables.js"></script>
+	<script src="./js/cycleAddBtn.js"></script>
 </head>
 
 <body class="app">
@@ -25,7 +33,15 @@
 					<img class="bell" src="./img/app/bell.svg" alt="">
 					<img src="./img/app/profile.svg" alt="">
 				</div>
-				<h2 class="username">RED B.</h2>
+				<h2 class="username">
+				<?php
+					$query = "SELECT usersUid FROM users WHERE usersId =" . $_SESSION["userid"];
+					$result = mysqli_query($conn, $query);
+					$row = mysqli_fetch_array($result);
+
+					echo "$row[usersUid]";	
+				?>
+					</h2>
 			</div>
 		</header>
 
@@ -35,11 +51,23 @@
 					alt="" class="entity--img">
 				<div class="entity--stat">
 					<img src="./img/app/alternate_email_white_24dp.svg" alt="" class="icon">
-					<p>example@email.com</p>
+					<?php
+						$query = "SELECT usersEmail FROM users WHERE usersId =" . $_SESSION["userid"];
+						$result = mysqli_query($conn, $query);
+						$row = mysqli_fetch_array($result);
+
+						echo "<p>$row[usersEmail]</p>";	
+					?>
 				</div>
 				<div class="entity--stat">
 					<img src="./img/app/account_circle_white_24dp.svg" alt="" class="icon">
-					<p>adminUsername</p>
+					<?php
+						$query = "SELECT usersUid FROM users WHERE usersId =" . $_SESSION["userid"];
+						$result = mysqli_query($conn, $query);
+						$row = mysqli_fetch_array($result);
+
+						echo "<p>$row[usersUid]</p>";	
+					?>
 				</div>
 				<span class="sep"></span>
 				<div class="entity--info">
@@ -114,13 +142,14 @@
 		};
 	?>
 	</table>
+	<div id="add-entry"><img src="./img/app/add_black_24dp.svg" alt=""></div>
 </div>
 	</main>
 
 	<div id="modal" style="display: none;">
 		<div class="modalcontent">
-			<div class="close"><p>&times;</p>	</div>
-			<form action="./includes/crud/updateManagers/class-udmg.php" method="post">
+			<div class="close"><p>&times;</p></div>
+			<form action="ye" method="post">
 			</form>
 		</div>
 	</div>

@@ -1,4 +1,6 @@
 window.addEventListener('load', () => {
+	const addButton = document.querySelector('#add-entry')
+
 	const tables = {
 		classTable : document.querySelector('#classtable'),
 		teacherTable : document.querySelector('#teachertable'),
@@ -13,6 +15,8 @@ window.addEventListener('load', () => {
 	
 	purgeActiveTables()
 	tables.classTable.style.display = 'table'
+	purgeClassList()
+	addButton.classList.add('add-classes')
 
 	tabs.classTab.addEventListener('click', () => {
 		purgeActiveClass();
@@ -20,6 +24,9 @@ window.addEventListener('load', () => {
 
 		purgeActiveTables()
 		tables.classTable.style.display = 'table'
+
+		purgeClassList()
+		addButton.classList.add('add-classes')
 	})
 
 	tabs.teacherTab.addEventListener('click', () => {
@@ -27,6 +34,9 @@ window.addEventListener('load', () => {
 		tabs.teacherTab.classList.add('tab__active')
 		purgeActiveTables()
 		tables.teacherTable.style.display = 'table'
+
+		purgeClassList()
+		addButton.classList.add('add-teachers')
 	})
 
 	tabs.studentTab.addEventListener('click', () => {
@@ -34,6 +44,9 @@ window.addEventListener('load', () => {
 		tabs.studentTab.classList.add('tab__active')
 		purgeActiveTables()
 		tables.studentTable.style.display = 'table'
+
+		purgeClassList()
+		addButton.classList.add('add-students')
 	})
 
 	function purgeActiveClass() {
@@ -46,6 +59,10 @@ window.addEventListener('load', () => {
 		tables.classTable.style.display = 'none'
 		tables.teacherTable.style.display = 'none'
 		tables.studentTable.style.display = 'none'
+	}
+
+	function purgeClassList() {
+		addButton.classList.remove(...addButton.classList)
 	}
 
 })
