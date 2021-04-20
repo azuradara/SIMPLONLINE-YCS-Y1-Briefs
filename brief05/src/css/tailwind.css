@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700&display=swap');
+@layer utilities {
+  .honey-bgrad {
+    background: linear-gradient(223.19deg, #ff4e50 -13.57%, #f9d423 85.48%);
+  }
+}
