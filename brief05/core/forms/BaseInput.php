@@ -20,10 +20,10 @@ abstract class BaseInput
     public function __toString(): string
     {
         return sprintf('
-			<div class="relative h-10 input-component mb-5 empty">
-				<label for="%s" class="absolute left-2 transition-all bg-white px-1">%s</label>
+			<div class="mb-2">
+				<label for="%s" class="block text-md text-gray-600 font-medium">%s</label>
 				%s
-				<div class="text-sm text-red-500">%s</div>
+				<div class="text-sm text-red-600">%s</div>
 			</div>
 		',
             $this->attr,

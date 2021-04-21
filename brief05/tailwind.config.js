@@ -9,7 +9,14 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
+    container: {
+      center: true
+    },
     extend: {
+      backgroundImage: (theme) => ({
+        check: "url('/icons/check.svg')",
+        landscape: "url('/images/landscape/2.jpg')",
+      }),
       fontFamily: {
         'logo': 'Montserrat Alternates, sans-serif'
       },
@@ -21,7 +28,12 @@ module.exports = {
     }
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ["checked"],
+      borderColor: ["checked"],
+      inset: ["checked"],
+      zIndex: ["hover", "active"],
+    },
   },
   plugins: [],
 }

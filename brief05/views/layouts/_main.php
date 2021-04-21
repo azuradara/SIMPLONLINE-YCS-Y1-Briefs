@@ -29,9 +29,9 @@ use app\core\Application;
 		rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-gray-100 antialiased select-none">
 
-	<nav class="bg-white shadow-md m-4 rounded-md text-gray-600">
+	<nav class="bg-white shadow-md mx-6 xl:mx-auto max-w-7xl rounded-md text-gray-600 my-3">
 
 		<div class="max-w-7xl mx-auto px-8">
 			<div class="flex items-center justify-between h-16">
@@ -43,14 +43,14 @@ use app\core\Application;
 				</div>
 				<div class="hidden md:block">
 					<div class="ml-10 flex items-baseline space-x-4">
-						<a href="/" class="px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Home</a>
-						<a href="/" class="px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Browse</a>
-						<a href="/" class="px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Other</a>
+						<a href="/" class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Home</a>
+						<a href="/" class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Browse</a>
+						<a href="/" class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Other</a>
 					</div>
 				</div>
-				<div class="hidden md:block ml-10 flex items-baseline space-x-4">
-					<a href="/" class="px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Login</a>
-					<a href="/"
+				<div class="hidden md:block ml-10 items-baseline space-x-4">
+					<a href="/login" class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Login</a>
+					<a href="/signup"
 						class="px-3 py-2 rounded-md text-md font-medium bg-yellow-500 text-gray-50 hover:bg-yellow-600 duration-200">Sign
 						Up</a>
 				</div>
@@ -58,6 +58,10 @@ use app\core\Application;
 		</div>
 
 	</nav>
+
+	<main>
+		{{content}}
+	</main>
 
 </body>
 

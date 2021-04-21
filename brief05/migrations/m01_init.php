@@ -10,13 +10,14 @@ class m01_init
     {
         $db = Application::$app->db;
         $sql = '
-		create table user (
-			userId serial primary key,
-			userState int not null,
-			userUsername varchar(16) not null,
-			userEmail varchar(64) not null,
-			userPwd varchar(64) not null,
-			userCreationDate timestamp default current_timestamp
+		create table users (
+			usr_id varchar(255) primary key,
+			usr_state int not null,
+			usr_fname varchar(255) not null,
+			usr_lname varchar(255) not null,
+			usr_email varchar(255) unique not null,
+			usr_pwd varchar(255) not null,
+			usr_creation_date timestamp default current_timestamp
 		);
 		';
         $db->driver->exec($sql);
@@ -26,9 +27,8 @@ class m01_init
     {
         $db = Application::$app->db;
         $sql = '
-		drop table if exists user;
+		drop table if exists users;
 		';
         $db->driver->exec($sql);
     }
 }
-

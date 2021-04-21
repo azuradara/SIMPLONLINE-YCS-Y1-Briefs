@@ -4,61 +4,64 @@ namespace app\models;
 
 //use app\core\BaseDBModel;
 use app\core\UserModel;
-use JetBrains\PhpStorm\ArrayShape;
 
 class User extends UserModel
 {
-    const STATE_ON = 0;
-    const STATE_OFF = 1;
-    const STATE_RM = 2;
+    const STATE_USR = 0;
+    const STATE_ADMIN = 1;
 
 
-    public string $userUsername = '';
-    public string $userEmail = '';
-    public string $userPwd = '';
-    public string $userPwdRpt = '';
+    public string $usr_id = '';
+    public string $usr_fname = '';
+    public string $usr_lname = '';
+    public string $usr_email = '';
+    public string $usr_pwd = '';
+    public string $usr_pwd_rpt = '';
 
-    public int $userState = self::STATE_OFF;
+    public int $usr_state = self::STATE_USR;
 
     public static function get_table(): string
     {
-        return 'user';
+        return 'users';
     }
 
     public static function get_pk(): string
     {
-        return 'userId';
+        return 'usr_id';
     }
 
     public function push(): bool
     {
-        $this->userState = self::STATE_OFF;
-        $this->userPwd = password_hash($this->userPwd, PASSWORD_DEFAULT);
+        $this->usr_id = uniqid(rand(), true);
+        $this->usr_state = self::STATE_USR;
+        $this->usr_pwd = password_hash($this->usr_pwd, PASSWORD_DEFAULT);
         return parent::push();
     }
 
     public function get_rows(): array
     {
-        return ['userUsername', 'userEmail', 'userPwd', 'userState'];
+        return ['usr_id', 'usr_fname', 'usr_lname', 'usr_email', 'usr_pwd', 'usr_state'];
     }
 
-    #[ArrayShape(['userUsername' => "array", 'userEmail' => "array", 'userPwd' => "array", 'userPwdRpt' => "array"])] public function ruleset(): array
+    public function ruleset(): array
     {
         return [
-            'userUsername' => [self::RL_REQUIRED, [self::RL_MIN, 'val' => 3], [self::RL_MAX, 'val' => 16], [self::RL_UNIQ, 'class' => self::class]],
-            'userEmail' => [self::RL_REQUIRED, self::RL_EMAIL, [self::RL_UNIQ, 'class' => self::class]],
-            'userPwd' => [self::RL_REQUIRED],
-            'userPwdRpt' => [self::RL_REQUIRED, [self::RL_MATCH, 'matches' => 'userPwd']],
+            'usr_fname' => [self::RL_REQUIRED],
+            'usr_lname' => [self::RL_REQUIRED],
+            'usr_email' => [self::RL_REQUIRED, self::RL_EMAIL, [self::RL_UNIQ, 'class' => self::class]],
+            'usr_pwd' => [self::RL_REQUIRED],
+            'usr_pwd_rpt' => [self::RL_REQUIRED, [self::RL_MATCH, 'matches' => 'usr_pwd']],
         ];
     }
 
-    #[ArrayShape(['userUsername' => "string", 'userEmail' => "string", 'userPwd' => "string", 'userPwdRpt' => "string"])] public function inputLabels(): array
+    public function inputLabels(): array
     {
         return [
-            'userUsername' => 'Username',
-            'userEmail' => 'Email',
-            'userPwd' => 'Password',
-            'userPwdRpt' => 'Confirm Password',
+            'usr_fname' => 'First Name',
+            'usr_lname' => 'Last Name',
+            'usr_email' => 'Email',
+            'usr_pwd' => 'Password',
+            'usr_pwd_rpt' => 'Confirm Password',
         ];
     }
 
@@ -66,6 +69,6 @@ class User extends UserModel
     {
         // TODO: Implement getDisplayName() method.
 
-        return $this->userUsername;
+        return $this->usr_fname;
     }
 }

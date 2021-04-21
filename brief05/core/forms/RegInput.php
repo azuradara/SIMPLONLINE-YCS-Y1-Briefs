@@ -12,7 +12,7 @@ class RegInput extends BaseInput
 
     public string $type;
 
-    #[Pure] public function __construct(Model $model, string $attr)
+    public function __construct(Model $model, string $attr)
     {
         parent::__construct($model, $attr);
         $this->type = self::TY_TEXT;
@@ -29,12 +29,12 @@ class RegInput extends BaseInput
 
     public function renderInput(): string
     {
-        return sprintf('<input type="%s" name="%s" value="%s" class="%s h-full w-full border-gray-300 px-2 transition-all border-blue rounded-sm"/>'
+        return sprintf('<input type="%s" name="%s" value="%s" class="%s rounded-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:border-transparent focus:ring-yellow-500"/>'
             ,
             $this->type,
             $this->attr,
             $this->model->{$this->attr},
-            $this->model->hasErr($this->attr) ? 'border-red-500' : '',
+            $this->model->hasErr($this->attr) ? 'border-red-600' : 'border-gray-300',
         );
     }
 }

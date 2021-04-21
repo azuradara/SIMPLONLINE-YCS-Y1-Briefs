@@ -5,39 +5,38 @@ namespace app\models;
 
 use app\core\Application;
 use app\core\Model;
-use JetBrains\PhpStorm\ArrayShape;
 
 class Login extends Model
 {
-    public string $userUsername = '';
-    public string $userPwd = '';
+    public string $usr_email = '';
+    public string $usr_pwd = '';
 
     public function ruleset(): array
     {
         return [
-            'userUsername' => [self::RL_REQUIRED],
-            'userPwd' => [self::RL_REQUIRED]
+            'usr_email' => [self::RL_REQUIRED, self::RL_EMAIL],
+            'usr_pwd' => [self::RL_REQUIRED]
         ];
     }
 
     public function inputLabels(): array
     {
         return [
-            'userUsername' => 'Username',
-            'userPwd' => 'Password'
+            'usr_email' => 'E-Mail',
+            'usr_pwd' => 'Password'
         ];
     }
 
     public function login(): bool
     {
-        $user = User::fetchOne(['userUsername' => $this->userUsername]);
+        $user = User::fetchOne(['usr_email' => $this->usr_email]);
         if (!$user) {
-            $this->appendErr('userUsername', "We can't find an account with this username.");
+            $this->appendErr('usr_email', "We can't find an account with this address.");
             return false;
         }
 
-        if (!password_verify($this->userPwd, $user->userPwd)) {
-            $this->appendErr('userPwd', "Invalid credentials.");
+        if (!password_verify($this->usr_pwd, $user->usr_pwd)) {
+            $this->appendErr('usr_pwd', "Invalid credentials.");
             return false;
         }
 

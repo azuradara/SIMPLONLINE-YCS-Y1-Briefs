@@ -8,78 +8,52 @@ use app\core\forms\Form;
 $this->title = 'Sign Up'
 ?>
 
-<main class="bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
-    <section>
-        <h1 class="text-4xl font-bold mb-7 text-center">Sign Up</h1>
-        <?php $form = Form::open('', 'post'); ?>
-        <div class="flex flex-col">
+<main class="grid place-items-center">
+	<div class="flex flex-col bg-white max-w-lg mx-6 p-6 md:p-8 my-10 rounded-lg shadow-2xl">
+		<h1 class="text-md font-semibold mb-3">Sign up using</h1>
+		<div class="flex gap-4 item-center">
+			<button type="button"
+				class="gap-3 py-2 px-4 flex justify-center items-center focus:ring-yellow-500 focus:ring-offset-yellow-200 text-gray-600 w-full transition ease-in duration-200 text-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+				<img class="w-5" src="img/facebook-icon.svg" alt="">
+				Facebook
+			</button>
+			<button type="button"
+				class="gap-3 py-2 px-4 flex justify-center items-center focus:ring-yellow-500 focus:ring-offset-yellow-200 text-gray-600 w-full transition ease-in duration-200 text-center text-base font-medium  focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+				<img class="w-5" src="img/google-icon.svg" alt="">
+				Google
+			</button>
+		</div>
+		<hr class="border-0 bg-gray-300 text-gray-500 h-px my-4">
+		<div>
+			<?php $form = Form::open('', 'post'); ?>
 
-            <?php echo $form->input($model, 'userUsername'); ?>
-            <?php echo $form->input($model, 'userEmail'); ?>
-            <?php echo $form->input($model, 'userPwd')->toPwd(); ?>
-            <?php echo $form->input($model, 'userPwdRpt')->toPwd(); ?>
+			<div class="grid grid-cols-2 gap-3">
+				<?php echo $form->input($model, 'usr_fname'); ?>
+				<?php echo $form->input($model, 'usr_lname'); ?>
+			</div>
 
-            <button
-                    class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200 my-3"
-                    type="submit" name="submit">
-                Sign Up
-            </button>
+			<?php echo $form->input($model, 'usr_email'); ?>
+			<?php echo $form->input($model, 'usr_pwd')->toPwd(); ?>
+			<?php echo $form->input($model, 'usr_pwd_rpt')->toPwd(); ?>
 
-        </div>
-        <?php Form::close() ?>
+			<hr class="border-0 bg-gray-300 text-gray-500 h-px my-4">
 
-    </section>
+
+			<div class="flex w-full">
+				<button type="submit"
+					class="py-2 px-4  bg-yellow-500 hover:bg-yellow-600 focus:ring-yellow-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+					Sign Up
+				</button>
+			</div>
+
+			<?php Form::close() ?>
+
+		</div>
+		<div class="flex items-center justify-center mt-6">
+			<a href="/login" target="_blank"
+				class="inline-flex items-center text-xs font-medium text-center text-gray-500 hover:text-gray-700">
+				Already have an account?
+			</a>
+		</div>
+	</div>
 </main>
-
-<div class="max-w-lg mx-auto text-center mt-12 mb-6">
-    <p class="text-gray-800">
-        Already have an account?
-        <a class="font-bold hover:underline" href="#">Log In</a>.
-    </p>
-</div>
-
-<!-- assets -->
-
-<style>
-    label {
-        top: 0;
-        transform: translateY(-50%);
-        font-size: 11px;
-        color: rgba(37, 99, 235, 1);
-    }
-
-    .empty input:not(:focus) + label {
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 14px;
-    }
-
-    input:not(:focus) + label {
-        color: rgba(70, 70, 70, 1);
-    }
-
-    input {
-        border-width: 1px;
-    }
-
-    input:focus {
-        outline: none;
-        border-color: rgba(37, 99, 235, 1);
-    }
-</style>
-<script>
-    // document.getElementById('name').value = 'John Doe'
-    // document.getElementById('email').value = 'john.doe@mail.com'
-    document.querySelector('#userUsername').focus()
-    const allInputs = document.querySelectorAll('input');
-    for (const input of allInputs) {
-        input.addEventListener('input', () => {
-            const val = input.value
-            if (!val) {
-                input.parentElement.classList.add('empty')
-            } else {
-                input.parentElement.classList.remove('empty')
-            }
-        })
-    }
-</script>

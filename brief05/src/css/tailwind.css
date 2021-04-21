@@ -7,4 +7,39 @@
   .honey-bgrad {
     background: linear-gradient(223.19deg, #ff4e50 -13.57%, #f9d423 85.48%);
   }
+
+  .text-gradient {
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.hero__img {
+  width: 25rem;
+  object-fit: cover;
+  height: 30rem;
+  border-radius: 8px;
+}
+
+.nav__link {
+  position: relative;
+}
+
+.nav__link::after {
+  content: '';
+  height: 2px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 200ms ease-out;
+  width: 0%;
+}
+
+.nav__link:hover::after {
+  width: 90%;
+  background-color: #f59e0b;
 }
