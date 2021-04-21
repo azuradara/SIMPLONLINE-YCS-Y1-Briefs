@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 @layer utilities {
   .honey-bgrad {
     background: linear-gradient(223.19deg, #ff4e50 -13.57%, #f9d423 85.48%);
@@ -42,4 +43,10 @@
 .nav__link:hover::after {
   width: 90%;
   background-color: #f59e0b;
+}
+
+.book_btn:hover::after {
+  width: 24px;
+  margin-right: -10px;
+  /* display: inline; */
 }

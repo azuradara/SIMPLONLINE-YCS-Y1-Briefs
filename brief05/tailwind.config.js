@@ -18,7 +18,8 @@ module.exports = {
         landscape: "url('/images/landscape/2.jpg')",
       }),
       fontFamily: {
-        'logo': 'Montserrat Alternates, sans-serif'
+        'logo': 'Montserrat Alternates, sans-serif',
+        'sans': 'Poppins, sans-serif'
       },
       colors: {
         redd: '#ff4e50',
