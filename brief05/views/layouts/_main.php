@@ -32,7 +32,29 @@ use app\core\Application;
 		rel="stylesheet">
 </head>
 
-<body class="bg-gray-200 antialiased select-none">
+<body class="bg-gray-200 antialiased select-non relativee">
+
+	<?php if(Application::$app->session->getPop('success')): ?>
+	<div
+		class="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 top-28 inset-middle"
+		id="pop">
+		<div class="flex items-center justify-center w-12 bg-green-500">
+			<svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+				<path
+					d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
+			</svg>
+		</div>
+
+		<div class="px-4 py-2 -mx-3">
+			<div class="mx-3">
+				<span class="font-semibold text-green-500 dark:text-green-400">Success</span>
+				<p class="text-sm text-gray-600 dark:text-gray-200"><?php echo Application::$app->session->getPop('success'); ?>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<?php endif; ?>
 
 	<!-- <nav class="bg-white shadow-md mx-6 xl:mx-auto max-w-7xl rounded-md text-gray-600 mt-3 mb-20 relative">
 
@@ -87,7 +109,7 @@ use app\core\Application;
 
 	</nav> -->
 
-	<nav class="bg-white shadow-lg mb-20 max-w-7xl mx-6 lg:mx-auto mt-6 rounded-xl">
+	<nav class="bg-white shadow-lg mb-20 max-w-7xl mx-6 xl:mx-auto mt-6 rounded-xl">
 		<div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
 			<div class="relative flex items-center justify-between h-16">
 				<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -124,7 +146,8 @@ use app\core\Application;
 					<div class="hidden sm:block sm:ml-6">
 						<div class="flex space-x-4">
 							<a href="/" class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Home</a>
-							<a href="/" class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Browse</a>
+							<a href="/reservations"
+								class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Reservations</a>
 							<a href="/" class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Other</a>
 						</div>
 					</div>
@@ -185,8 +208,8 @@ use app\core\Application;
 					class="text-gray-600 hover:bg-yellow-500 hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium"
 					aria-current="page">Home</a>
 
-				<a href="/"
-					class="text-gray-600 hover:bg-yellow-500 hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">Browse</a>
+				<a href="/reservations"
+					class="text-gray-600 hover:bg-yellow-500 hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">Reservations</a>
 
 				<a href="/"
 					class="text-gray-600 hover:bg-yellow-500 hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">Other</a>
@@ -213,8 +236,8 @@ use app\core\Application;
 	<footer class="text-gray-600 body-font bg-white mt-24">
 		<div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
 			<a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-				<img src="/img/logo.svg" class="h-10 w-10" alt="">
-				<span class="ml-3 text-xl font-logo">honeyside</span>
+				<img src="/img/logo-grayscale.svg" class="h-10 w-10" alt="">
+				<span class="ml-3 text-xl text-gray-400 font-logo">honeyside</span>
 			</a>
 			<p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2020
 				HONEYSIDE

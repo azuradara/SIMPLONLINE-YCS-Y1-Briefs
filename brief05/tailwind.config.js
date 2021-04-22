@@ -19,13 +19,14 @@ module.exports = {
       }),
       fontFamily: {
         'logo': 'Montserrat Alternates, sans-serif',
-        'sans': 'Poppins, sans-serif'
+        'sans': 'Inter, sans-serif'
       },
       colors: {
         redd: '#ff4e50',
         orange: '#f9d423'
       },
       brightness: ['hover', 'focus'],
+      ring: ['hover'],
     }
   },
   variants: {

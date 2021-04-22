@@ -10,15 +10,15 @@ class m01_init
     {
         $db = Application::$app->db;
         $sql = '
-		create table users (
-			usr_id varchar(255) primary key,
-			usr_state int not null,
-			usr_fname varchar(255) not null,
-			usr_lname varchar(255) not null,
-			usr_email varchar(255) unique not null,
-			usr_pwd varchar(255) not null,
-			usr_creation_date timestamp default current_timestamp
-		);
+				create table users (
+					usr_id varchar(255) primary key,
+					usr_state int not null,
+					usr_fname varchar(255) not null,
+					usr_lname varchar(255) not null,
+					usr_email varchar(255) unique not null,
+					usr_pwd varchar(255) not null,
+					usr_creation_date timestamp default current_timestamp
+				);
 		';
         $db->driver->exec($sql);
     }

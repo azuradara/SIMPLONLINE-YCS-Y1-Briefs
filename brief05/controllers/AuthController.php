@@ -29,6 +29,7 @@ class AuthController extends Controller
             $login->getData($req->getReqBody());
 
             if ($login->validate() && $login->login()) {
+                Application::$app->session->setPop('success', "Logged in as " . Application::$app->user->getDisplayName());
                 $res->redirect('/');
                 return true;
             }
@@ -65,6 +66,7 @@ class AuthController extends Controller
     public function logout(Request $req, Response $res)
     {
         Application::$app->logout();
+        Application::$app->session->setPop('success', 'Logged out');
         $res->redirect('/');
     }
 

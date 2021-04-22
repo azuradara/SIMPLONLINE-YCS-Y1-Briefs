@@ -25,9 +25,9 @@ $app->on(Application::EV_PRE_REQ, function() {
 });
 
 $app->router->get('/', [AppController::class, '_render_home']);
+$app->router->get('/reservations', [AppController::class, 'reservations']);
 
 $app->router->get('/contact', [AppController::class, 'contact']);
-
 $app->router->post('/contact', [AppController::class, 'contact']);
 
 $app->router->get('/login', [AuthController::class, 'login']);

@@ -39,4 +39,9 @@ class AppController extends Controller
 
         return $this->render('contact', ['model' => $contact]);
     }
+
+    public function reservations(Request $req, Response $res)
+    {
+        return $this->render('reservations');
+    }
 }

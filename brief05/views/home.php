@@ -1,7 +1,7 @@
 <?php
 /** @var $this \app\core\View */
 $this->title = 'Home';
-$this->scripts = ['js/navbar.js'];
+$this->scripts = ['js/navbar.js', 'js/pops.js'];
 use app\core\forms\Form;
 ?>
 
