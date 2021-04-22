@@ -210,33 +210,18 @@ use app\core\Application;
 		{{content}}
 	</main>
 
-	<footer class="bg-white dark:bg-gray-800 w-full py-8 bottom-0 mt-20">
-		<div class="max-w-screen-xl mx-auto px-4">
-			<div class="flex items-center flex-col">
-				<img src="img/logo.svg" class="h-8 w-8" alt="">
-			</div>
-			<ul class="max-w-screen-md mx-auto text-lg font-light flex flex-wrap justify-between">
-				<li class="my-2">
-					<a class="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
-						href="#">
-						Home
-					</a>
-				</li>
-				<li class="my-2">
-					<a class="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
-						href="#">
-						Browse
-					</a>
-				</li>
-				<li class="my-2">
-					<a class="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
-						href="#">
-						Other
-					</a>
-				</li>
-			</ul>
-			<div class="pt-8 flex max-w-xs mx-auto items-center justify-between">
-				<a href="#" class="text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
+	<footer class="text-gray-600 body-font bg-white mt-24">
+		<div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+			<a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+				<img src="/img/logo.svg" class="h-10 w-10" alt="">
+				<span class="ml-3 text-xl font-logo">honeyside</span>
+			</a>
+			<p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2020
+				HONEYSIDE
+			</p>
+			<span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start gap-5">
+				<a href="https://twitter.com/azuradara"
+					class="text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
 					<svg width="20" height="20" fill="currentColor"
 						class="text-xl hover:text-gray-800 dark:hover:text-white transition-colors duration-200"
 						viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
@@ -245,7 +230,8 @@ use app\core\Application;
 						</path>
 					</svg>
 				</a>
-				<a href="#" class="text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
+				<a href="https://github.com/azuradara"
+					class="text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
 					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
 						class="text-xl hover:text-gray-800 dark:hover:text-white transition-colors duration-200"
 						viewBox="0 0 1792 1792">
@@ -254,7 +240,8 @@ use app\core\Application;
 						</path>
 					</svg>
 				</a>
-				<a href="#" class="text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
+				<a href="https://www.linkedin.com/in/aymane-hlamnach-077319203/"
+					class="text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
 					<svg width="20" height="20" fill="currentColor"
 						class="text-xl hover:text-gray-800 dark:hover:text-white transition-colors duration-200"
 						viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
@@ -263,14 +250,10 @@ use app\core\Application;
 						</path>
 					</svg>
 				</a>
-			</div>
-			<div
-				class="text-center text-gray-500 dark:text-gray-200 pt-10 sm:pt-12 font-light flex items-center justify-center">
-				Created by Dara</br>
-			</div>
-			<p class="text-xs text-gray-500 text-center mx-auto font-light">without love</p>
+			</span>
 		</div>
 	</footer>
+
 
 </body>
 

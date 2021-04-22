@@ -16,6 +16,6 @@ mn_btn_open.addEventListener('click', () => {
 const usr_menu_btn = document.querySelector('#usr_menu_btn')
 const usr_menu = document.querySelector('#usr_menu')
 
-usr_menu_btn.addEventListener('click', () => {
+usr_menu_btn && usr_menu_btn.addEventListener('click', () => {
 	usr_menu.classList.toggle('hidden')
 })
