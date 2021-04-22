@@ -35,6 +35,33 @@ $this->scripts = ['js/navbar.js', 'js/reservation.js'];
 							</span></p>
 					</label>
 				</div>
+
+
+				<div id="slc_rm_beds" class="font-regular text-lg flex gap-5 items-center mx-auto w-max">
+
+					<label
+						class="ring-2 shadow-lg ring-gray-200 hover:bg-gray-100 cursor-pointer justify-between rounded-lg h-28 w-28 p-1 px-3 flex flex-col items-center"
+						for="rm_bed_two">
+						<p class="text-sm font-semibold text-gray-400">SINGLE</p>
+						<input class="hidden" type="radio" id="rm_int" name="rm_view" value="single">
+						<img class="h-10 w-10" src="img/res/single-gray.svg" alt="">
+						<p class="text-sm text-center w-full font-bold text-gray-500">$15<span
+								class="text-xs text-gray-400 font-medium"> / day
+							</span></p>
+					</label>
+
+					<label
+						class="ring-2 shadow-lg ring-gray-200 hover:bg-gray-100 cursor-pointer justify-between rounded-lg h-28 w-28 p-1 px-3 flex flex-col items-center"
+						for="rm_bed_dbl">
+						<p class="text-sm font-semibold text-gray-400">DOUBLE</p>
+						<input class="hidden" type="radio" id="rm_ext" name="rm_" value="double">
+						<img class="h-10 w-10" src="img/res/double-gray.svg" alt="">
+						<p class="text-sm text-center w-full font-bold text-gray-500">$45<span
+								class="text-xs text-gray-400 font-medium"> / day
+							</span></p>
+					</label>
+				</div>
+
 			</div>
 
 		</div>
