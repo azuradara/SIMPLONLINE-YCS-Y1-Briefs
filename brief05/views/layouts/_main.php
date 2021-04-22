@@ -212,6 +212,9 @@ use app\core\Application;
 
 	<footer class="bg-white dark:bg-gray-800 w-full py-8 bottom-0 mt-20">
 		<div class="max-w-screen-xl mx-auto px-4">
+			<div class="flex items-center flex-col">
+				<img src="img/logo.svg" class="h-8 w-8" alt="">
+			</div>
 			<ul class="max-w-screen-md mx-auto text-lg font-light flex flex-wrap justify-between">
 				<li class="my-2">
 					<a class="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
