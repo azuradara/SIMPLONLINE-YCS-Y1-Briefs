@@ -10,34 +10,46 @@ class m02_rooms
     {
         $db = Application::$app->db;
         $sql = '
-		create table orders(
-			ord_id int(255) auto_increment primary key,
-			ord_usr_id varchar(255) not null,
+						create table orders (
+							ord_id int(255) primary key auto_increment,
+							ord_usr_id varchar(255) not null,
+							ord_pension varchar(255) not null,
 
-			foreign key (ord_usr_id) references users(usr_id)
-		);
+							foreign key (ord_usr_id) references users(usr_id)
+						);
 
-		create table gst_grps(
-			rm_id int(255) auto_increment primary key,
-			rm_order_id int(255) not null,
-			rm_type varchar(255) not null,
-			rm_bed_upgrade tinyint not null,
-			rm_view tinyint not null,
-			rm_pension varchar(255) not null,
+						create table kids (
+							kd_id int(255) primary key auto_increment,
+							kd_ord_id int(255) not null,
+							kd_age int(255) not null,
 
-			foreign key (rm_order_id) references orders(ord_id)
-		);
+							foreign key (kd_ord_id) references orders(ord_id)
+						);
 
-		create table gremlins (
-			grm_id int(255) auto_increment primary key,
-			grm_rm_id int(255) not null,
-			grm_age int(255) not null,
-			grm_room tinyint not null,
-			grm_bed tinyint not null,
+						create table rooms (
+							rm_id int(255) primary key auto_increment,
+							rm_ord_id int(255) not null,
+							rm_type varchar(255) not null,
+							rm_beds int(255) not null,
+							rm_view tinyint not null,
 
-			foreign key (grm_rm_id) references gst_grps(rm_id)
-		);
-		';
+							foreign key (rm_ord_id) references orders(ord_id)
+						);
+
+						create table rates (
+							restriction enum("") not null,
+						
+							base_single float(24),
+							base_doule float(24),
+							tax_view float(24),
+							tax_kid_1 float(24),
+							tax_kid_2 float(24),
+							tax_kid_3 float(24),
+							pension_none float(24),
+							pension_semi float(24),
+							pension_full float(24)
+						);
+					';
         $db->driver->exec($sql);
     }
 
