@@ -7,7 +7,7 @@ use app\core\Application;
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 
 <head>
 	<meta charset="UTF-8">
@@ -32,7 +32,7 @@ use app\core\Application;
 		rel="stylesheet">
 </head>
 
-<body class="bg-gray-200 antialiased select-non relativee">
+<body class="bg-gray-200 antialiased select-none relative duration-100">
 
 	<?php if(Application::$app->session->getPop('success')): ?>
 	<div
@@ -55,60 +55,6 @@ use app\core\Application;
 	</div>
 
 	<?php endif; ?>
-
-	<!-- <nav class="bg-white shadow-md mx-6 xl:mx-auto max-w-7xl rounded-md text-gray-600 mt-3 mb-20 relative">
-
-		<div class="max-w-7xl mx-auto px-8">
-			<div class="flex items-center justify-center md:justify-between h-16">
-				<div class="flex items-center">
-					<a href="/" class="flex-shink-0 flex items-center gap gap-2">
-						<img src="/img/logo.svg" alt="logo" class="h-12 md:h-8">
-						<p class="hidden md:inline-block text-2xl text-w font-logo font-semibold">honeyside</p>
-					</a>
-				</div>
-				<div class="nav__1 md:block">
-					<div class="ml-10 flex items-baseline space-x-4">
-						<a href="/" class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Home</a>
-						<a href="/" class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Browse</a>
-						<a href="/" class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Other</a>
-					</div>
-				</div>
-				<?php if (Application::guestUser()): ?>
-				<div class="nav__2md:block ml-10 items-baseline space-x-4">
-					<a href="/login" class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Login</a>
-					<a href="/signup"
-						class="px-3 py-2 rounded-md text-md font-medium bg-yellow-500 text-gray-50 hover:bg-yellow-600 duration-200">Sign
-						Up</a>
-				</div>
-				<?php endif; ?>
-
-				<?php if (!Application::guestUser()): ?>
-				<div class="hidden nav__2 md:flex ml-10 items-center space-x-4 divide-x-2">
-					<a href="/profile" id="logout"
-						class="flex gap-2 nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">
-						<img src="img/profile.svg" alt="">
-						<p><?php echo Application::$app->user->getDisplayName() ?></p>
-					</a>
-					<a href="/logout" id="logout"
-						class="flex gap-2 nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">
-						<img src="img/logout.svg" alt="">
-						<p>Log Out</p>
-					</a>
-				</div>
-				<?php endif; ?>
-				<div id="burger__menu" class="md:hidden absolute left-8 cursor-pointer">
-					<img src="img/mn-cl.svg" class="h-8" alt="">
-				</div>
-				<?php if (!Application::guestUser()): ?>
-				<div id="burger__menu" class="md:hidden absolute right-8 cursor-pointer">
-					<a href="/profile"><img src="img/profile.svg" class="h-8" alt=""></a>
-				</div>
-				<?php endif; ?>
-			</div>
-		</div>
-
-	</nav> -->
-
 	<nav class="bg-white shadow-lg mb-20 max-w-7xl mx-6 xl:mx-auto mt-6 rounded-xl">
 		<div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
 			<div class="relative flex items-center justify-between h-16">
@@ -233,7 +179,7 @@ use app\core\Application;
 		{{content}}
 	</main>
 
-	<footer class="text-gray-600 body-font bg-white mt-24">
+	<footer class="text-gray-600 body-font bg-white mt-24 justify-self-end">
 		<div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
 			<a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
 				<img src="/img/logo-grayscale.svg" class="h-10 w-10" alt="">
