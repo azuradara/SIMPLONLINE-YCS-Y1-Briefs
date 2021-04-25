@@ -36,7 +36,7 @@ use app\core\Application;
 
 	<?php if(Application::$app->session->getPop('success')): ?>
 	<div
-		class="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 top-28 inset-middle"
+		class="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 top-28 inset-middle absolute"
 		id="pop">
 		<div class="flex items-center justify-center w-12 bg-green-500">
 			<svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
@@ -92,8 +92,12 @@ use app\core\Application;
 					<div class="hidden sm:block sm:ml-6">
 						<div class="flex space-x-4">
 							<a href="/" class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Home</a>
+
+							<?php if (!Application::guestUser()) : ?>
 							<a href="/reservations"
 								class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Reservations</a>
+							<?php endif; ?>
+
 							<a href="/" class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Other</a>
 						</div>
 					</div>
@@ -128,6 +132,10 @@ use app\core\Application;
 							<!-- Active: "bg-gray-100", Not Active: "" -->
 							<a href="/profile" class="hover:bg-gray-200 block px-4 py-2 text-sm text-gray-700" role="menuitem"
 								tabindex="-1" id="user-menu-item-1">Profile</a>
+							<?php if (Application::$app->user->getState()) {
+									echo '<a href="/dashboard" class="hover:bg-gray-200 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Admin Dashboard</a>';
+								}
+								?>
 							<a href="/logout" class="hover:bg-gray-200 block px-4 py-2 text-sm text-gray-700" role="menuitem"
 								tabindex="-1" id="user-menu-item-2">Sign out</a>
 						</div>

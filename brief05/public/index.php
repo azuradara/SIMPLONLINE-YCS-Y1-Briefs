@@ -20,12 +20,17 @@ $config = [
 
 $app = new Application(dirname(__DIR__), $config);
 
-$app->on(Application::EV_PRE_REQ, function() {
+$app->on(Application::EV_PRE_REQ, function () {
     // echo 'pre-req';
 });
 
 $app->router->get('/', [AppController::class, '_render_home']);
 $app->router->get('/reservations', [AppController::class, 'reservations']);
+
+$app->router->get('/dashboard', [AppController::class, 'dashboard']);
+$app->router->post('/dashboard', [AppController::class, 'dashboard']);
+
+$app->router->post('/rates', [AppController::class, 'rates']);
 
 $app->router->get('/contact', [AppController::class, 'contact']);
 $app->router->post('/contact', [AppController::class, 'contact']);

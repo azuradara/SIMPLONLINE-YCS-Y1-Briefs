@@ -5,21 +5,22 @@ class Child {
 		{ range: [15, 18], subcat: 3 }
 	]
 
-	static OPTS = {
-		1: [
-			{ imgSrc: 'img/res/bed-baby.svg', title: 'BABY BED ADD-ON', rate: 25, rateMod: '% SINGLE ROOM', val: 'ch_opt_1_bed' },
-			{ imgSrc: 'img/res/nae.svg', title: 'NO ADD-ON', rate: 0, rateMod: 'NO CHARGE', val: 'ch_opt_1_none' }
-		],
-		2: [
-			{ imgSrc: 'img/res/single-gray.svg', title: 'BED ADD-ON', rate: 50, rateMod: '% SINGLE ROOM', val: 'ch_opt_2_bed' },
-		],
-		3: [
-			{ imgSrc: 'img/res/room.svg', title: 'SIMPLE ROOM ADD-ON', rate: 25, rateMod: '$ / day', val: 'ch_opt_3_room' },
-			{ imgSrc: 'img/res/single-gray.svg', title: 'BED ADD-ON', rate: 70, rateMod: '% SINGLE ROOM', val: 'ch_opt_3_bed' }
-		],
-	}
-
 	constructor(el, id) {
+
+		this.OPTS = {
+			1: [
+				{ imgSrc: 'img/res/bed-baby.svg', title: 'BABY BED ADD-ON', rate: Rates.tax_baby_bed, rateMod: '% SINGLE ROOM', val: 'ch_opt_1_bed' },
+				{ imgSrc: 'img/res/nae.svg', title: 'NO ADD-ON', rate: 0, rateMod: 'NO CHARGE', val: 'ch_opt_1_none' }
+			],
+			2: [
+				{ imgSrc: 'img/res/single-gray.svg', title: 'BED ADD-ON', rate: Rates.tax_child_bed, rateMod: '% SINGLE ROOM', val: 'ch_opt_2_bed' },
+			],
+			3: [
+				{ imgSrc: 'img/res/room.svg', title: 'SIMPLE ROOM ADD-ON', rate: Rates.tax_single, rateMod: '$ / day', val: 'ch_opt_3_room' },
+				{ imgSrc: 'img/res/single-gray.svg', title: 'BED ADD-ON', rate: Rates.tax_teen_bed, rateMod: '% SINGLE ROOM', val: 'ch_opt_3_bed' }
+			],
+		}
+
 		this.id = id
 
 		this.field = el
@@ -38,10 +39,8 @@ class Child {
 
 		if (t.matches('input[type="number"]')) {
 			this.age = this.ageEl.value
-			this.renderOpts(Child.OPTS[`${this.subcat()}`])
+			this.renderOpts(this.OPTS[`${this.subcat()}`])
 		}
-
-
 	}
 
 	subcat() {

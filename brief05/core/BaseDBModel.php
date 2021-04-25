@@ -9,15 +9,35 @@ abstract class BaseDBModel extends Model
     public static function fetchOne($loc)
     {
         $table = static::get_table();
-//        call gettable on the class instead of this abstract
+        //        call gettable on the class instead of this abstract
         $attr = array_keys($loc);
-        $sql = implode("AND ", array_map(fn($a) => "$a = :$a", $attr));
+        $sql = implode("AND ", array_map(fn ($a) => "$a = :$a", $attr));
 
         $stmt = self::prepare("SELECT * FROM $table WHERE $sql");
 
         foreach ($loc as $k => $v) {
             $stmt->bindValue(":$k", "$v");
         }
+
+        $stmt->execute();
+
+        return $stmt->fetchObject(static::class);
+        // return object as instance of invoker class (ye it took a few braincells)
+    }
+
+    public static function fetchLatest($loc)
+    {
+        $table = static::get_table();
+        //        call gettable on the class instead of this abstract
+
+        // $attr = array_keys($loc);
+        // $sql = implode("AND ", array_map(fn ($a) => "$a = :$a", $attr));
+        $sql = "$loc=(select max($loc) from $table)";
+        $stmt = self::prepare("SELECT * FROM $table WHERE $sql");
+
+        // foreach ($loc as $k => $v) {
+        //     $stmt->bindValue(":$k", "$v");
+        // }
 
         $stmt->execute();
 
@@ -40,7 +60,7 @@ abstract class BaseDBModel extends Model
         $table = $this->get_table();
         $rows = $this->get_rows();
 
-        $params = array_map(fn($row) => ":$row", $rows);
+        $params = array_map(fn ($row) => ":$row", $rows);
 
         $stmt = self::prepare("INSERT INTO $table (" . implode(',', $rows) . ") VALUES(" . implode(',', $params) . ")");
 

@@ -1,6 +1,6 @@
-<?php 
+<?php
 $this->title = 'Make a reservation';
-$this->scripts = ['js/helper.js', 'js/navbar.js', 'js/childFieldCtrl.js', 'js/renderGuestField.js', 'js/reservation.js'];
+$this->scripts = ['js/helper.js', 'js/fetchPOST.js', 'js/rates.js', 'js/navbar.js', 'js/childFieldCtrl.js', 'js/renderGuestField.js', 'js/reservation.js'];
 ?>
 
 <div class="max-w-7xl mx-6 xl:mx-auto flex flex-col lg:flex-row justify-between gap-5 select-none">

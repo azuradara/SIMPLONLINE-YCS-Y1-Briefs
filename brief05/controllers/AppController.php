@@ -4,16 +4,24 @@
 
 namespace app\controllers;
 
-use app\core\Application;
-use app\core\Controller;
+use reservations;
 use app\core\Request;
+use app\models\Rates;
 use app\core\Response;
+use app\core\Controller;
+use app\core\Application;
 use app\models\ContactForm;
+use app\core\middlewares\AuthMD;
 
 // use \app\core\Application;
 
 class AppController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->setMds(new AuthMD(['reservations', 'dashboard']));
+    }
 
     public function _render_home(): bool|array|string
     {
@@ -43,5 +51,66 @@ class AppController extends Controller
     public function reservations(Request $req, Response $res)
     {
         return $this->render('reservations');
+    }
+
+    public function dashboard(Request $req, Response $res)
+    {
+        $ratesModel = new Rates();
+
+        if ($req->isPOST()) {
+            $ratesModel->getData($req->getReqBody());
+
+            // var_dump($user);
+
+            if ($ratesModel->validate() && $ratesModel->push()) {
+                Application::$app->session->setPop('success', 'Registration successful!');
+                Application::$app->res->redirect('/');
+                exit;
+            }
+
+            // var_dump($user->err);
+
+            return $this->render('signup', ['model' => $ratesModel]);
+        }
+
+        return Application::$app->user->getState() == 1 ? $this->render('dashboard', ['model' => $ratesModel]) : $res->redirect('/');
+    }
+
+    public function rates(Request $req, Response $res)
+    {
+
+        if ($req->isPOST()) {
+            $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+
+            $response = [
+                'value' => 0,
+                'error' => 'All good',
+                'data' => null,
+            ];
+
+            if ($contentType === 'application/json') {
+                $content = trim(file_get_contents('php://input'));
+
+                $decoded = json_decode($content, true);
+
+                if (!is_array($decoded)) {
+                    $decoded = json_decode($decoded, true);
+
+                    $response['data'] = Rates::fetchLatest('rates_id');
+
+                    $response['value'] = 1;
+                    $response['error'] = null;
+                } else {
+                    $response['error'] = 'Bad JSON';
+                }
+            } else {
+                $response['error'] = 'Content-Type must be application/json';
+            }
+
+            echo json_encode($response);
+            return;
+        }
+
+        return $res->redirect('/');
     }
 }

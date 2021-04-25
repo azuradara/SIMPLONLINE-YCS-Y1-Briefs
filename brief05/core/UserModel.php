@@ -8,5 +8,6 @@ abstract class UserModel extends BaseDBModel
 {
 
     abstract public function getDisplayName(): string;
+    abstract public function getState(): string;
 
 }

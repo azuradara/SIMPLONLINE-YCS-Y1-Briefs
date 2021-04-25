@@ -13,6 +13,7 @@ abstract class Model
     public const RL_MAX = 'max';
     public const RL_MATCH = 'match';
     public const RL_UNIQ = 'unique';
+    public const RL_INTEGER = 'integer';
 
     public array $err = [];
 
@@ -58,6 +59,10 @@ abstract class Model
                     $this->resolveRuleErr($attr, self::RL_MATCH, $rule);
                 }
 
+                if ($flag === self::RL_INTEGER && !is_int($val)) {
+                    $this->resolveRuleErr($attr, self::RL_INTEGER, $rule);
+                }
+
                 if ($flag === self::RL_UNIQ) {
                     $srcClass = $rule['class'];
                     $srcAttr = $rule['attr'] ?? $attr;
@@ -93,7 +98,7 @@ abstract class Model
         $this->err[$attr][] = $msg;
     }
 
-    #[ArrayShape([self::RL_REQUIRED => "string", self::RL_EMAIL => "string", self::RL_MIN => "string", self::RL_MAX => "string", self::RL_MATCH => "string", self::RL_UNIQ => "string"])] public function resolveErr(): array
+    public function resolveErr(): array
     {
         return [
             self::RL_REQUIRED => 'This field is required.',
@@ -102,10 +107,11 @@ abstract class Model
             self::RL_MAX => 'This field cannot be longer than {val} characters.',
             self::RL_MATCH => 'This field must match {matches}.',
             self::RL_UNIQ => 'This {input} already exists.',
+            self::RL_INTEGER => 'This field only accepts integers.'
         ];
     }
 
-    #[Pure] public function get_label($attr)
+    public function get_label($attr)
     {
         return $this->inputLabels()[$attr] ?? $attr;
     }
