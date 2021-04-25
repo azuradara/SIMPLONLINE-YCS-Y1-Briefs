@@ -4,14 +4,14 @@
 
 namespace app\controllers;
 
-use reservations;
-use app\core\Request;
-use app\models\Rates;
-use app\core\Response;
-use app\core\Controller;
 use app\core\Application;
-use app\models\ContactForm;
+use app\core\Controller;
 use app\core\middlewares\AuthMD;
+use app\core\Request;
+use app\core\Response;
+use app\models\ContactForm;
+use app\models\Rates;
+use reservations;
 
 // use \app\core\Application;
 

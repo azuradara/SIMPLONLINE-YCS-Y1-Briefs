@@ -2,9 +2,6 @@
 
 namespace app\core;
 
-use JetBrains\PhpStorm\ArrayShape;
-use JetBrains\PhpStorm\Pure;
-
 abstract class Model
 {
     public const RL_REQUIRED = 'required';

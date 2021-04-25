@@ -71,7 +71,7 @@ class User extends UserModel
 
         return $this->usr_fname;
     }
-    
+
     public function getState(): string
     {
         return $this->usr_state;

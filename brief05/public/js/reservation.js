@@ -1,17 +1,15 @@
-
-
 if (typeof Element.prototype.clearChildren === 'undefined') {
-	Object.defineProperty(Element.prototype, 'clearChildren', {
-		configurable: true,
-		enumerable: false,
-		value: function () {
-			while (this.firstChild) this.removeChild(this.lastChild);
-		}
-	});
+    Object.defineProperty(Element.prototype, 'clearChildren', {
+        configurable: true,
+        enumerable: false,
+        value: function () {
+            while (this.firstChild) this.removeChild(this.lastChild);
+        }
+    });
 }
 
 class Reservation {
-	hasGuests = false
+    hasGuests = false
 }
 
 const slc_classlist = ['ring-yellow-500', 'bg-yellow-50', 'hover:bg-yellow-100']
@@ -26,33 +24,33 @@ const res = new Reservation()
 const slc_res_type = Array.from(document.querySelectorAll('input[name="res_guests"]'))
 
 const deeds = e => {
-	const t = e.target
+    const t = e.target
 
 
-	if (t.matches('input[name="res_guests"]')) {
-		slc_res_type.forEach(b => {
-			if (b.checked) {
-				b.closest('label').classList.add(...slc_classlist)
-				renderGuestField()
-				res.hasGuests = Boolean(parseInt(b.value))
-			} else {
-				b.closest('label').classList.remove(...slc_classlist)
-			}
-		})
+    if (t.matches('input[name="res_guests"]')) {
+        slc_res_type.forEach(b => {
+            if (b.checked) {
+                b.closest('label').classList.add(...slc_classlist)
+                renderGuestField()
+                res.hasGuests = Boolean(parseInt(b.value))
+            } else {
+                b.closest('label').classList.remove(...slc_classlist)
+            }
+        })
 
-		purgeGuests()
-	}
+        purgeGuests()
+    }
 
-	console.table(res)
+    console.table(res)
 }
 
 const purgeGuests = () => {
-	if (!res.hasGuests) {
-		gst_ctrl.style.display = 'none'
-		gst_container.clearChildren()
-	} else {
-		gst_ctrl.style.display = 'block'
-	}
+    if (!res.hasGuests) {
+        gst_ctrl.style.display = 'none'
+        gst_container.clearChildren()
+    } else {
+        gst_ctrl.style.display = 'block'
+    }
 }
 
 form.addEventListener('input', deeds)

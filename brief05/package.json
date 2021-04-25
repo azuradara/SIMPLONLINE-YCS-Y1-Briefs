@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tw:build" : "tailwindcss build ./src/css/tailwind.css -o ./public/css/tailwind.css",
-    "tw:watch" : "onchange 'tailind.config.js' 'src/**/*.css' -- npm run tw:build"
+    "tw:build": "tailwindcss build ./src/css/tailwind.css -o ./public/css/tailwind.css",
+    "tw:watch": "onchange 'tailind.config.js' 'src/**/*.css' -- npm run tw:build"
   },
   "keywords": [],
   "author": "",

@@ -3,7 +3,6 @@
 namespace app\core\forms;
 
 use app\core\Model;
-use JetBrains\PhpStorm\Pure;
 
 class Form
 {

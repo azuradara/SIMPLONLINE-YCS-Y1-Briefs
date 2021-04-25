@@ -10,12 +10,8 @@ class Application
 {
     const EV_PRE_REQ = 'preReq';
     const EV_POST_REQ = 'postReq';
-
-    protected array $eventListeners = [];
-
     public static string $ROOT_DIR;
     public static Application $app;
-
     public string $userClass;
     public string $layout = 'main';
     public Database $db;
@@ -26,6 +22,7 @@ class Application
     public Session $session;
     public ?BaseDBModel $user;
     public View $view;
+    protected array $eventListeners = [];
 
     public function __construct($root, array $config)
     {
@@ -88,6 +85,14 @@ class Application
 //    }
 // --Commented out by Inspection STOP (4/17/2021 5:15 AM)
 
+    private function trigger(string $event)
+    {
+        $callbacks = $this->eventListeners[$event] ?? [];
+
+        foreach ($callbacks as $c) {
+            call_user_func($c);
+        }
+    }
 
     public function login(BaseDBModel $user): bool
     {
@@ -107,16 +112,8 @@ class Application
         $this->session->del('user');
     }
 
-    public function on (string $event, $callback) {
-        $this->eventListeners[$event][] = $callback;
-    }
-
-    private function trigger(string $event)
+    public function on(string $event, $callback)
     {
-        $callbacks = $this->eventListeners[$event] ?? [];
-
-        foreach ($callbacks as $c) {
-            call_user_func($c);
-        }
+        $this->eventListeners[$event][] = $callback;
     }
 }

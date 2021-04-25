@@ -1,68 +1,98 @@
 class Child {
-	static RANGES = [
-		{ range: [0, 2], subcat: 1 },
-		{ range: [3, 14], subcat: 2 },
-		{ range: [15, 18], subcat: 3 }
-	]
+    static RANGES = [
+        {range: [0, 2], subcat: 1},
+        {range: [3, 14], subcat: 2},
+        {range: [15, 18], subcat: 3}
+    ]
 
-	constructor(el, id) {
+    constructor(el, id) {
 
-		this.OPTS = {
-			1: [
-				{ imgSrc: 'img/res/bed-baby.svg', title: 'BABY BED ADD-ON', rate: Rates.tax_baby_bed, rateMod: '% SINGLE ROOM', val: 'ch_opt_1_bed' },
-				{ imgSrc: 'img/res/nae.svg', title: 'NO ADD-ON', rate: 0, rateMod: 'NO CHARGE', val: 'ch_opt_1_none' }
-			],
-			2: [
-				{ imgSrc: 'img/res/single-gray.svg', title: 'BED ADD-ON', rate: Rates.tax_child_bed, rateMod: '% SINGLE ROOM', val: 'ch_opt_2_bed' },
-			],
-			3: [
-				{ imgSrc: 'img/res/room.svg', title: 'SIMPLE ROOM ADD-ON', rate: Rates.tax_single, rateMod: '$ / day', val: 'ch_opt_3_room' },
-				{ imgSrc: 'img/res/single-gray.svg', title: 'BED ADD-ON', rate: Rates.tax_teen_bed, rateMod: '% SINGLE ROOM', val: 'ch_opt_3_bed' }
-			],
-		}
+        this.OPTS = {
+            1: [
+                {
+                    imgSrc: 'img/res/bed-baby.svg',
+                    title: 'BABY BED ADD-ON',
+                    rate: Rates.tax_baby_bed,
+                    rateMod: '% SINGLE ROOM',
+                    val: 'ch_opt_1_bed'
+                },
+                {imgSrc: 'img/res/nae.svg', title: 'NO ADD-ON', rate: 0, rateMod: 'NO CHARGE', val: 'ch_opt_1_none'}
+            ],
+            2: [
+                {
+                    imgSrc: 'img/res/single-gray.svg',
+                    title: 'BED ADD-ON',
+                    rate: Rates.tax_child_bed,
+                    rateMod: '% SINGLE ROOM',
+                    val: 'ch_opt_2_bed'
+                },
+            ],
+            3: [
+                {
+                    imgSrc: 'img/res/room.svg',
+                    title: 'SIMPLE ROOM ADD-ON',
+                    rate: Rates.tax_single,
+                    rateMod: '$ / day',
+                    val: 'ch_opt_3_room'
+                },
+                {
+                    imgSrc: 'img/res/single-gray.svg',
+                    title: 'BED ADD-ON',
+                    rate: Rates.tax_teen_bed,
+                    rateMod: '% SINGLE ROOM',
+                    val: 'ch_opt_3_bed'
+                }
+            ],
+        }
 
-		this.id = id
+        this.id = id
 
-		this.field = el
-		this.ageEl = el.querySelector('input[type="number"]')
-		this.optsEl = el.querySelector('.child_opts')
-		// this.opt1 = field.querySelector('.opt_1')
-		// this.opt2 = field.querySelector('.opt_2')
+        this.field = el
+        this.ageEl = el.querySelector('input[type="number"]')
+        this.optsEl = el.querySelector('.child_opts')
+        // this.opt1 = field.querySelector('.opt_1')
+        // this.opt2 = field.querySelector('.opt_2')
 
-		this.field.addEventListener('input', this.renderField.bind(this))
-	}
+        this.field.addEventListener('input', this.renderField.bind(this))
+    }
 
-	renderField(e) {
-		let t = e.target
+    renderField(e) {
+        let t = e.target
 
-		// console.log(this.field)
+        // console.log(this.field)
 
-		if (t.matches('input[type="number"]')) {
-			this.age = this.ageEl.value
-			this.renderOpts(this.OPTS[`${this.subcat()}`])
-		}
-	}
+        if (t.matches('input[type="number"]')) {
+            this.age = this.ageEl.value
+            this.renderOpts(this.OPTS[`${this.subcat()}`])
+        }
+    }
 
-	subcat() {
-		let s = 0
+    subcat() {
+        let s = 0
 
-		Child.RANGES.forEach(r => {
-			if (Azura.between(this.age, ...r.range)) {
-				s = r.subcat
-			}
-		})
+        Child.RANGES.forEach(r => {
+            if (Azura.between(this.age, ...r.range)) {
+                s = r.subcat
+            }
+        })
 
-		return s
-	}
+        return s
+    }
 
-	renderOpts(args = [{ imgSrc: 'img/res/bed-baby.svg', title: 'BABY BED ADD-ON', rate: 20, rateMod: '% single', val: '' }, {}]) {
-		let div = document.createElement('div')
+    renderOpts(args = [{
+        imgSrc: 'img/res/bed-baby.svg',
+        title: 'BABY BED ADD-ON',
+        rate: 20,
+        rateMod: '% single',
+        val: ''
+    }, {}]) {
+        let div = document.createElement('div')
 
-		args.forEach(a => {
-			let l = document.createElement('label')
-			l.classList.add(...(('opt_1 w-full ring-2 ring-gray-200 hover:bg-gray-200 cursor-pointer justify-center rounded-md p-1 px-3 flex flex-col items-center').split(' ')))
+        args.forEach(a => {
+            let l = document.createElement('label')
+            l.classList.add(...(('opt_1 w-full ring-2 ring-gray-200 hover:bg-gray-200 cursor-pointer justify-center rounded-md p-1 px-3 flex flex-col items-center').split(' ')))
 
-			l.innerHTML = /*html*/ `
+            l.innerHTML = /*html*/ `
 				<p class="text-sm font-semibold text-gray-400">${a.title}</p>
 				<img class="h-6 w-6" src="${a?.imgSrc}" alt="">
 				<input class="hidden" type="radio" name="${this.id}" value='${a.val}'>
@@ -71,24 +101,24 @@ class Child {
 				</p>
 				`
 
-			div.appendChild(l)
-		})
+            div.appendChild(l)
+        })
 
-		this.optsEl.innerHTML = div.innerHTML
+        this.optsEl.innerHTML = div.innerHTML
 
-		let opts = Array.from(this.optsEl.querySelectorAll('input[type="radio"]'))
+        let opts = Array.from(this.optsEl.querySelectorAll('input[type="radio"]'))
 
-		this.optsEl.addEventListener('input', () => {
-			console.log('ye')
-			opts.forEach(o => {
-				if (o.checked) {
-					o.closest('label').classList.add(...slc_classlist)
-				} else {
-					o.closest('label').classList.remove(...slc_classlist)
-				}
-			})
-		})
-	}
+        this.optsEl.addEventListener('input', () => {
+            console.log('ye')
+            opts.forEach(o => {
+                if (o.checked) {
+                    o.closest('label').classList.add(...slc_classlist)
+                } else {
+                    o.closest('label').classList.remove(...slc_classlist)
+                }
+            })
+        })
+    }
 
 
 }

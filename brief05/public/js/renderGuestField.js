@@ -1,12 +1,12 @@
 const renderGuestField = () => {
-	let uniqName = `ch_${Date.now()}`
+    let uniqName = `ch_${Date.now()}`
 
-	let field = document.createElement('div')
+    let field = document.createElement('div')
 
-	field.classList.add(...(('child_field bg-white my-4 shadow-lg rounded-xl p-3 flex flex-col items-center gap-3').split(' ')))
-	field.id = uniqName
+    field.classList.add(...(('child_field bg-white my-4 shadow-lg rounded-xl p-3 flex flex-col items-center gap-3').split(' ')))
+    field.id = uniqName
 
-	field.innerHTML = /*html*/ `
+    field.innerHTML = /*html*/ `
 	<div class="flex items-center justify-between w-full">
 		<p class="text-sm font-bold text-gray-600">CHILD AGE</p>
 		<div
@@ -23,41 +23,41 @@ const renderGuestField = () => {
 	</div>
 	`
 
-	gst_container.appendChild(field)
+    gst_container.appendChild(field)
 
-	child = new Child(field, uniqName)
+    child = new Child(field, uniqName)
 
-	field.querySelector('input[type="number"]').onkeypress = e => e.preventDefault()
-	field.querySelector('input[type="number"]').onkeydown = e => {
-		if (e.keyCode != 38 && e.keyCode != 40) {
-			e.preventDefault()
-		}
-	}
-	if (document.addEventListener)
-		field.addEventListener('contextmenu', e => {
-			e.preventDefault
-		}, false);
+    field.querySelector('input[type="number"]').onkeypress = e => e.preventDefault()
+    field.querySelector('input[type="number"]').onkeydown = e => {
+        if (e.keyCode != 38 && e.keyCode != 40) {
+            e.preventDefault()
+        }
+    }
+    if (document.addEventListener)
+        field.addEventListener('contextmenu', e => {
+            e.preventDefault
+        }, false);
 
-	let btn_del = field.querySelector('.btn_del')
+    let btn_del = field.querySelector('.btn_del')
 
-	btn_del.addEventListener('click', () => btn_del.closest('.child_field').remove())
-	btn_del.addEventListener('mouseover', () => btn_del.querySelector('img').src = 'img/res/dlt-white.svg')
-	btn_del.addEventListener('mouseout', () => btn_del.querySelector('img').src = 'img/res/dlt.svg')
+    btn_del.addEventListener('click', () => btn_del.closest('.child_field').remove())
+    btn_del.addEventListener('mouseover', () => btn_del.querySelector('img').src = 'img/res/dlt-white.svg')
+    btn_del.addEventListener('mouseout', () => btn_del.querySelector('img').src = 'img/res/dlt.svg')
 
 
-	let radio = Array.from(field.querySelectorAll(`input[name="${uniqName}"]`))
+    let radio = Array.from(field.querySelectorAll(`input[name="${uniqName}"]`))
 
-	field.addEventListener('input', e => {
-		let t = e.target
+    field.addEventListener('input', e => {
+        let t = e.target
 
-		if (t.matches(`input[name="${uniqName}"]`)) {
-			radio.forEach(b => {
-				if (b.checked) {
-					b.closest('label').classList.add(...slc_classlist)
-				} else {
-					b.closest('label').classList.remove(...slc_classlist)
-				}
-			})
-		}
-	})
+        if (t.matches(`input[name="${uniqName}"]`)) {
+            radio.forEach(b => {
+                if (b.checked) {
+                    b.closest('label').classList.add(...slc_classlist)
+                } else {
+                    b.closest('label').classList.remove(...slc_classlist)
+                }
+            })
+        }
+    })
 }
