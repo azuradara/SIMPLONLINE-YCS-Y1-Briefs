@@ -1,8 +1,8 @@
 class Child {
     static RANGES = [
-        {range: [0, 2], subcat: 1},
-        {range: [3, 14], subcat: 2},
-        {range: [15, 18], subcat: 3}
+        { range: [0, 2], subcat: 1 },
+        { range: [3, 14], subcat: 2 },
+        { range: [15, 18], subcat: 3 }
     ]
 
     constructor(el, id) {
@@ -16,7 +16,13 @@ class Child {
                     rateMod: '% SINGLE ROOM',
                     val: 'ch_opt_1_bed'
                 },
-                {imgSrc: 'img/res/nae.svg', title: 'NO ADD-ON', rate: 0, rateMod: 'NO CHARGE', val: 'ch_opt_1_none'}
+                {
+                    imgSrc: 'img/res/nae.svg',
+                    title: 'NO ADD-ON',
+                    rate: 0,
+                    rateMod: 'NO CHARGE',
+                    val: 'ch_opt_1_none'
+                }
             ],
             2: [
                 {
@@ -30,7 +36,7 @@ class Child {
             3: [
                 {
                     imgSrc: 'img/res/room.svg',
-                    title: 'SIMPLE ROOM ADD-ON',
+                    title: 'SIMPLE ROOM',
                     rate: Rates.tax_single,
                     rateMod: '$ / day',
                     val: 'ch_opt_3_room'
@@ -50,9 +56,6 @@ class Child {
         this.field = el
         this.ageEl = el.querySelector('input[type="number"]')
         this.optsEl = el.querySelector('.child_opts')
-        // this.opt1 = field.querySelector('.opt_1')
-        // this.opt2 = field.querySelector('.opt_2')
-
         this.field.addEventListener('input', this.renderField.bind(this))
     }
 
@@ -94,7 +97,7 @@ class Child {
 
             l.innerHTML = /*html*/ `
 				<p class="text-sm font-semibold text-gray-400">${a.title}</p>
-				<img class="h-6 w-6" src="${a?.imgSrc}" alt="">
+				<img class="h-10 w-10" src="${a?.imgSrc}" alt="">
 				<input class="hidden" type="radio" name="${this.id}" value='${a.val}'>
 				<p class="text-sm text-center w-full font-bold text-gray-500">+${a.rate}
 				<span class="text-xs text-gray-400 font-medium"> ${a.rateMod} </span>
@@ -109,7 +112,6 @@ class Child {
         let opts = Array.from(this.optsEl.querySelectorAll('input[type="radio"]'))
 
         this.optsEl.addEventListener('input', () => {
-            console.log('ye')
             opts.forEach(o => {
                 if (o.checked) {
                     o.closest('label').classList.add(...slc_classlist)
