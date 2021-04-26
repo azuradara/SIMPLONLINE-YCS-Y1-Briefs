@@ -12,10 +12,12 @@ class Reservation {
 		this.children = []
 
 		let set = Array.from(this.form.querySelectorAll('.child_field'))
-
 		set.forEach(c => {
-			let data = {
-				kd_opt: Azura.getChecked(c)
+			let arr = Azura.getChecked(c)?.split('-')
+
+
+			data = {
+				[arr[0]]: arr[1]
 			}
 
 			this.children.push(data)
