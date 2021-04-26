@@ -1,8 +1,8 @@
 class Child {
     static RANGES = [
-        {range: [0, 2], subcat: 1},
-        {range: [3, 14], subcat: 2},
-        {range: [15, 18], subcat: 3}
+        { range: [0, 2], subcat: 1 },
+        { range: [3, 14], subcat: 2 },
+        { range: [15, 18], subcat: 3 }
     ]
 
     constructor(el, id) {
@@ -14,14 +14,14 @@ class Child {
                     title: 'BABY BED ADD-ON',
                     rate: Rates.tax_baby_bed,
                     rateMod: '% SINGLE ROOM',
-                    val: 'ch_opt_1_bed'
+                    val: 'ch_opt-baby_bed'
                 },
                 {
                     imgSrc: 'img/res/nae.svg',
                     title: 'NO ADD-ON',
                     rate: 0,
                     rateMod: 'NO CHARGE',
-                    val: 'ch_opt_1_none'
+                    val: 'ch_opt-none'
                 }
             ],
             2: [
@@ -30,7 +30,7 @@ class Child {
                     title: 'BED ADD-ON',
                     rate: Rates.tax_child_bed,
                     rateMod: '% SINGLE ROOM',
-                    val: 'ch_opt_2_bed'
+                    val: 'ch_opt-child_bed'
                 },
             ],
             3: [
@@ -39,14 +39,14 @@ class Child {
                     title: 'SIMPLE ROOM',
                     rate: Rates.tax_single,
                     rateMod: '$ / day',
-                    val: 'ch_opt_3_room'
+                    val: 'ch_opt-simple_room'
                 },
                 {
                     imgSrc: 'img/res/single-gray.svg',
                     title: 'BED ADD-ON',
                     rate: Rates.tax_teen_bed,
                     rateMod: '% SINGLE ROOM',
-                    val: 'ch_opt_3_bed'
+                    val: 'ch_opt-teen_bed'
                 }
             ],
         }

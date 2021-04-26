@@ -19,7 +19,7 @@ const renderRoomField = () => {
                 title: 'SIMPLE ROOM',
                 img: 'img/res/single-gray.svg',
                 name: 'type',
-                val: 'simple',
+                val: 'rm_type-simple',
                 rate: Rates.tax_single,
                 rateMod: '$ / day'
             },
@@ -27,28 +27,32 @@ const renderRoomField = () => {
                 title: 'DOUBLE ROOM',
                 img: 'img/res/double-gray.svg',
                 name: 'type',
-                val: 'double',
+                val: 'rm_type-double',
                 rate: Rates.tax_double,
                 rateMod: '$ / day'
             },
         ]
     }).innerHTML
 
+    let doubleRad = containers.rm_type.querySelector('input[value="rm_type-double"]')
+
     containers.rm_upg.innerHTML = renderOptRadio({
         title: 'BED UPGRADE',
         id: uniqName,
         opts: [
-            {title: '2 SIMPLE BEDS', name: 'bed', val: '0', rate: 0, rateMod: 'NO CHARGE'},
-            {title: '1 KING-SIZED BED', name: 'bed', val: '1', rate: 0, rateMod: 'NO CHARGE'},
+            { title: '2 SIMPLE BEDS', name: 'bed', val: 'rm_beds-two', rate: 0, rateMod: 'NO CHARGE' },
+            { title: '1 KING-SIZED BED', name: 'bed', val: 'rm_beds-king', rate: 0, rateMod: 'NO CHARGE' },
         ]
     }).innerHTML
+
+    let doubleBed = containers.rm_upg.querySelector('input[value="rm_beds-king"') ?? undefined
 
     containers.rm_view.innerHTML = renderOptRadio({
         title: 'VIEW',
         id: uniqName,
         opts: [
-            {title: 'NO VIEW', name: 'view', val: '0', rate: 0, rateMod: 'NO CHARGE'},
-            {title: 'EXTERIOR VIEW', name: 'view', val: '1', rate: Rates.tax_view, rateMod: '% ROOM'},
+            { title: 'NO VIEW', name: 'view', val: 'rm_view-int', rate: 0, rateMod: 'NO CHARGE' },
+            { title: 'EXTERIOR VIEW', name: 'view', val: 'rm_view-ext', rate: Rates.tax_view, rateMod: '% ROOM' },
         ]
     }).innerHTML
 
@@ -65,10 +69,22 @@ const renderRoomField = () => {
                     o.closest('label').classList.remove(...slc_classlist)
                 }
             })
+
+            if (doubleBed.checked) {
+                containers.rm_view.querySelector('input[value="rm_view-ext"]').disabled = true
+                containers.rm_view.querySelector('input[value="rm_view-ext"]').closest('label').classList.add('cursor-not-allowed', 'opacity-50')
+            } else {
+                containers.rm_view.querySelector('input[value="rm_view-ext"]').disabled = false
+                containers.rm_view.querySelector('input[value="rm_view-ext"]').closest('label').classList.remove('cursor-not-allowed', 'opacity-50')
+            }
+
+            doubleRad.checked ? field.appendChild(containers.rm_upg) : containers.rm_upg.remove()
         })
 
         field.appendChild(containers[c])
     }
+
+    containers.rm_upg.remove()
 
     rm_container.appendChild(field)
 
@@ -85,7 +101,7 @@ const renderOptRadio = data => {
     data.opts.forEach(o => {
         subcontainer.innerHTML += /*html*/
             `
-		<label class="opt_1 w-full ring-2 ring-gray-200 hover:bg-gray-200 cursor-pointer justify-center rounded-md p-1 px-3 flex flex-col items-center">
+		<label class="opt_1 w-full ring-2 ring-gray-200 hover:bg-gray-200 cursor-pointer justify-center rounded-md p-1 px-3 flex flex-col items-center disabled:opacity-50">
 				<p class="text-sm font-semibold text-gray-400">${o.title}</p>
 				${o.img ? `<img class="h-10 w-10" src="${o.img}" alt="">` : ''}
 				<input class="hidden" type="radio" name="${data.id}_${o.name}" value='${o.val}'>

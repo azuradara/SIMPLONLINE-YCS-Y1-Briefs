@@ -20,7 +20,7 @@ const pn_container = document.querySelector('#pension_container')
 const gst_add = document.querySelector('#add_gst')
 const rm_add = document.querySelector('#add_rm')
 
-const res = new Reservation()
+const res = new Reservation(form)
 
 const slc_res_type = Array.from(document.querySelectorAll('input[name="res_guests"]'))
 
@@ -42,9 +42,11 @@ const deeds = e => {
         })
 
         purgeGuests()
-    }
 
-    console.table(res)
+    }
+    res.refresh()
+    console.log(res)
+
 }
 
 const purgeGuests = () => {

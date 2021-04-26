@@ -4,7 +4,8 @@ module.exports = {
     purge: {
         // enabled: true,
         content: [
-            './views/**/*.php'
+            './views/**/*.php',
+            './public/**/*.js'
         ]
     },
     darkMode: false, // or 'media' or 'class'
@@ -27,6 +28,8 @@ module.exports = {
             },
             brightness: ['hover', 'focus'],
             ring: ['hover'],
+            opacity: ['disabled'],
+            hidden: ['disabled'],
         }
     },
     variants: {
