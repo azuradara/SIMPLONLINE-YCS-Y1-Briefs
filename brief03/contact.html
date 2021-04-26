@@ -2,95 +2,96 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Contact</title>
-	<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Contact</title>
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body class="contact">
 
-	<nav class="sidebar">
+<nav class="sidebar">
 
 
-		<div class="sidebar__logo"><img src="res/logo.png" alt=""></div>
+    <div class="sidebar__logo"><img alt="" src="res/logo.png"></div>
 
-		<div class="sidebar__socials">
-			<a href="#"><img src="res/instagram.png" alt="" class="social-link"></a>
-			<a href="#"><img src="res/twitter.png" alt="" class="social-link"></a>
-			<a href="#"><img src="res/pinterest.png" alt="" class="social-link"></a>
-			<a href="#"><img src="res/facebook.png" alt="" class="social-link"></a>
-		</div>
-	</nav>
+    <div class="sidebar__socials">
+        <a href="#"><img alt="" class="social-link" src="res/instagram.png"></a>
+        <a href="#"><img alt="" class="social-link" src="res/twitter.png"></a>
+        <a href="#"><img alt="" class="social-link" src="res/pinterest.png"></a>
+        <a href="#"><img alt="" class="social-link" src="res/facebook.png"></a>
+    </div>
+</nav>
 
-	<nav class="navbar">
-		<ul class="nav__links">
-			<li><a href="./index.html">Home</a></li>
-			<li><a href="./gallery.html">Gallery</a></li>
-			<li><a href="./reservation.html">Reservation</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
+<nav class="navbar">
+    <ul class="nav__links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./gallery.html">Gallery</a></li>
+        <li><a href="./reservation.html">Reservation</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
 
-		<div class="burger">
-			<div class="line1"></div>
-			<div class="line2"></div>
-			<div class="line3"></div>
-		</div>
-	</nav>
+    <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
 
-	<main class="contact-disp">
-		<h1>Contact<span>.</span></h1>
-		<form onsubmit="return false">
-			<div class="contact__twocol">
-				<div class="contact__userinfo">
-					<label for="frm__Name">
-						<!-- <p>yep</p> -->
-						<input type="text" placeholder="Name" id="frm__Name" />
-					</label>
-					<label for="frm__Email">
-						<input type="text" placeholder="E-mail" id="frm__Email" />
-					</label>
-					<label for="frm__Subject">
-						<input type="text" placeholder="Subject" id="frm__Subject" />
-					</label>
-				</div>
-				<label>
-					<textarea id="frm__Message" placeholder="Message"></textarea>
-				</label>
-			</div>
+<main class="contact-disp">
+    <h1>Contact<span>.</span></h1>
+    <form onsubmit="return false">
+        <div class="contact__twocol">
+            <div class="contact__userinfo">
+                <label for="frm__Name">
+                    <!-- <p>yep</p> -->
+                    <input id="frm__Name" placeholder="Name" type="text"/>
+                </label>
+                <label for="frm__Email">
+                    <input id="frm__Email" placeholder="E-mail" type="text"/>
+                </label>
+                <label for="frm__Subject">
+                    <input id="frm__Subject" placeholder="Subject" type="text"/>
+                </label>
+            </div>
+            <label>
+                <textarea id="frm__Message" placeholder="Message"></textarea>
+            </label>
+        </div>
 
 
-			<label class="checktainer">I agree to receive monthly newsletter.
-				<input type="checkbox" id="frm__Newsletter" />
-				<span class="checkmark"></span>
-			</label>
-			<button onclick="vAndCreate();">Send</button>
-		</form>
-	</main>
+        <label class="checktainer">I agree to receive monthly newsletter.
+            <input id="frm__Newsletter" type="checkbox"/>
+            <span class="checkmark"></span>
+        </label>
+        <button onclick="vAndCreate();">Send</button>
+    </form>
+</main>
 
-	<div id="modal">
-		<div class="content">
-			<h class="thanks">Thanks for contacting us<span>!</span></br>We'll get back to you soon<span>.</span></h>
-			<span class="close">&times;</span>
-			<label for="">Name:
-				<p id="disp-name">Lorem ipsum dolor sit.</p>
-			</label>
-			<label for="">E-Mail:
-				<p id="disp-email">Lorem ipsum dolor sit.</p>
-			</label>
-			<label for="">Subject:
-				<p id="disp-subject">Lorem ipsum dolor sit.</p>
-			</label>
-			<label for="">Message:
-				<p id="disp-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quasi repudiandae ratione incidunt nihil
-					quia sapiente dignissimos, suscipit vitae vel.</p>
-			</label>
-		</div>
-	</div>
+<div id="modal">
+    <div class="content">
+        <h class="thanks">Thanks for contacting us<span>!</span></br>We'll get back to you soon<span>.</span></h>
+        <span class="close">&times;</span>
+        <label for="">Name:
+            <p id="disp-name">Lorem ipsum dolor sit.</p>
+        </label>
+        <label for="">E-Mail:
+            <p id="disp-email">Lorem ipsum dolor sit.</p>
+        </label>
+        <label for="">Subject:
+            <p id="disp-subject">Lorem ipsum dolor sit.</p>
+        </label>
+        <label for="">Message:
+            <p id="disp-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quasi repudiandae ratione
+                incidunt nihil
+                quia sapiente dignissimos, suscipit vitae vel.</p>
+        </label>
+    </div>
+</div>
 
-	<script src="js/formValidator.js"></script>
-	<script src="js/app.js"></script>
+<script src="js/formValidator.js"></script>
+<script src="js/app.js"></script>
 </body>
 
 </html>

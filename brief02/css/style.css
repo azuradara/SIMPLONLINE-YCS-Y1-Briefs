@@ -464,8 +464,6 @@ ul.top_icon li a {
 }
 
 
-
-
 .menu-area-main li:hover a,
 .menu-area-main li:focus a {
     color: #b32137;
@@ -491,7 +489,7 @@ ul.top_icon li a {
     padding: 18px 0 0;
 }
 
-.main-menu ul>li nth:child(5) a {
+.main-menu ul > li nth:child(5) a {
     padding-right: 0px;
 }
 
@@ -608,7 +606,7 @@ ul.top_icon li a {
     top: 25px;
 }
 
-.dropdown-bar.right-dropdown-language>a::after {
+.dropdown-bar.right-dropdown-language > a::after {
     font-family: 'FontAwesome';
     content: "\f107";
     text-decoration: none;
@@ -616,7 +614,7 @@ ul.top_icon li a {
     color: #ffffff;
 }
 
-.right-dropdown-language>a {
+.right-dropdown-language > a {
     line-height: 10px;
     padding: 5px 5px;
     cursor: pointer;
@@ -664,7 +662,7 @@ ul.top_icon li a {
     margin-left: 12px;
 }
 
-.dropdown-bar.right-dropdown-currency>a::after {
+.dropdown-bar.right-dropdown-currency > a::after {
     font-family: 'FontAwesome';
     content: "\f107";
     text-decoration: none;
@@ -672,7 +670,7 @@ ul.top_icon li a {
     color: #ffffff;
 }
 
-.right-dropdown-currency>a {
+.right-dropdown-currency > a {
     line-height: 10px;
     padding: 5px 5px;
     cursor: pointer;
@@ -1041,12 +1039,12 @@ ul.top_icon li a {
     list-style-type: none;
 }
 
-.main-menu ul>li {
+.main-menu ul > li {
     display: inline-block;
     position: relative;
 }
 
-.main-menu ul>li a {
+.main-menu ul > li a {
     padding: 15px 18px;
     line-height: 20px;
     font-size: 16px;
@@ -1064,7 +1062,7 @@ ul.top_icon li a {
     background: #ffffff;
 }
 
-.main-menu ul>li .sub-down li a {
+.main-menu ul > li .sub-down li a {
     color: #114c7d;
     font-size: 15px;
     text-transform: capitalize;
@@ -1074,19 +1072,21 @@ ul.top_icon li a {
     border-bottom: solid #eee 1px;
 }
 
-.main-menu ul>li .sub-down li a::before {}
+.main-menu ul > li .sub-down li a::before {
+}
 
-.main-menu ul>li .sub-down li a:hover {
+.main-menu ul > li .sub-down li a:hover {
     color: #111111;
 }
 
-.main-menu ul>li .sub-down li a:hover::before {}
+.main-menu ul > li .sub-down li a:hover::before {
+}
 
 .main-menu ul li:first-child {
     margin-left: 0;
 }
 
-.main-menu ul>li>ul {
+.main-menu ul > li > ul {
     opacity: 0;
     position: absolute;
     text-align: left;
@@ -1105,20 +1105,20 @@ ul.top_icon li a {
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
 
-.main-menu>ul>li:hover>ul {
+.main-menu > ul > li:hover > ul {
     -webkit-transform: scaleY(1);
     transform: scaleY(1);
     visibility: visible;
     opacity: 1;
 }
 
-.main-menu ul>li>ul>li {
+.main-menu ul > li > ul > li {
     margin: 0px;
     position: relative;
     display: block;
 }
 
-.main-menu ul>li>ul>li:hover>ul {
+.main-menu ul > li > ul > li:hover > ul {
     -webkit-transform: scaleY(1);
     transform: scaleY(1);
     visibility: visible;
@@ -1127,7 +1127,7 @@ ul.top_icon li a {
     top: 10px;
 }
 
-.main-menu ul>li>ul>li>a {
+.main-menu ul > li > ul > li > a {
     background: none !important;
 }
 
@@ -1137,17 +1137,17 @@ ul.top_icon li a {
     top: 100%;
 }
 
-.main-menu ul>li {
+.main-menu ul > li {
     position: inherit;
     display: inline-block;
     vertical-align: middle;
 }
 
-.main-menu ul>li:nth-child(6) {
+.main-menu ul > li:nth-child(6) {
     padding-right: 0px;
 }
 
-.nav>li {
+.nav > li {
     position: inherit;
     display: inline-block;
     vertical-align: middle;
@@ -1162,7 +1162,8 @@ ul.top_icon li a {
     padding: 15px 0px;
 }
 
-.sub-full {}
+.sub-full {
+}
 
 .simple-down {
     padding: 15px;
@@ -1619,19 +1620,19 @@ a.slide_banner:hover::before {
     opacity: 1;
 }
 
-input[type="checkbox"].styled:checked+label:after,
-input[type="radio"].styled:checked+label:after {
+input[type="checkbox"].styled:checked + label:after,
+input[type="radio"].styled:checked + label:after {
     font-family: 'FontAwesome';
     content: "\f00c";
 }
 
-input[type="checkbox"] .styled:checked+label::before,
-input[type="radio"] .styled:checked+label::before {
+input[type="checkbox"] .styled:checked + label::before,
+input[type="radio"] .styled:checked + label::before {
     color: #fff;
 }
 
-input[type="checkbox"] .styled:checked+label::after,
-input[type="radio"] .styled:checked+label::after {
+input[type="checkbox"] .styled:checked + label::after,
+input[type="radio"] .styled:checked + label::after {
     color: #fff;
 }
 
@@ -1678,7 +1679,6 @@ input[type="radio"] .styled:checked+label::after {
 }
 
 
-
 .banner-main .carousel-indicators {
     right: inherit;
 }
@@ -1709,7 +1709,6 @@ ul.locat_icon li:last-child {
 ul.locat_icon li a {
     margin-bottom: 23px;
 }
-
 
 
 .about {
@@ -1744,7 +1743,8 @@ ul.locat_icon li a {
     color: #141012
 }
 
-.about .about-box {}
+.about .about-box {
+}
 
 .about .about-box figure {
     margin: 0px;
@@ -1824,7 +1824,6 @@ ul.locat_icon li a {
 }
 
 
-
 .read-more a {
     width: 200px;
     font-size: 17px;
@@ -1886,11 +1885,6 @@ ul.locat_icon li a {
     line-height: 30px;
     text-align: center;
 }
-
-
-
-
-
 
 
 .contact_form {
@@ -2084,7 +2078,6 @@ ul.location_icon span {
 
 .about-bg {
     background-color: #b32137;
-
 
 
     margin-top: 90px;

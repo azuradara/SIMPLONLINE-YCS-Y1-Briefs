@@ -2,87 +2,87 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Reservation</title>
-	<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Reservation</title>
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body class="res-bod">
 
-	<nav class="sidebar">
+<nav class="sidebar">
 
 
-		<div class="sidebar__logo"><img src="res/logo.png" alt=""></div>
+    <div class="sidebar__logo"><img alt="" src="res/logo.png"></div>
 
-		<div class="sidebar__socials">
-			<a href="#"><img src="res/instagram.png" alt="" class="social-link"></a>
-			<a href="#"><img src="res/twitter.png" alt="" class="social-link"></a>
-			<a href="#"><img src="res/pinterest.png" alt="" class="social-link"></a>
-			<a href="#"><img src="res/facebook.png" alt="" class="social-link"></a>
-		</div>
-	</nav>
+    <div class="sidebar__socials">
+        <a href="#"><img alt="" class="social-link" src="res/instagram.png"></a>
+        <a href="#"><img alt="" class="social-link" src="res/twitter.png"></a>
+        <a href="#"><img alt="" class="social-link" src="res/pinterest.png"></a>
+        <a href="#"><img alt="" class="social-link" src="res/facebook.png"></a>
+    </div>
+</nav>
 
-	<nav class="navbar">
-		<ul class="nav__links">
-			<li><a href="./index.html">Home</a></li>
-			<li><a href="./gallery.html">Gallery</a></li>
-			<li><a href="#">Reservation</a></li>
-			<li><a href="./contact.html">Contact</a></li>
-		</ul>
+<nav class="navbar">
+    <ul class="nav__links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./gallery.html">Gallery</a></li>
+        <li><a href="#">Reservation</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+    </ul>
 
-		<div class="burger">
-			<div class="line1"></div>
-			<div class="line2"></div>
-			<div class="line3"></div>
-		</div>
-	</nav>
+    <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
 
-	<main class="res-disp">
-		<h1>Reserve<span>.</span></h1>
+<main class="res-disp">
+    <h1>Reserve<span>.</span></h1>
 
-		<form onsubmit="return false" class="res-calc">
-			<!-- <label class="select-suspension" for="suspension">Suspension
-				<select name="suspension" id="slc-suspension">
-					<option>--</option>
-					<option value="Manual">Manuelle</option>
-					<option value="Auto">Automatique</option>
-					<option value="Other">Autre</option>
-				</select>
-			</label> -->
+    <form class="res-calc" onsubmit="return false">
+        <!-- <label class="select-suspension" for="suspension">Suspension
+            <select name="suspension" id="slc-suspension">
+                <option>--</option>
+                <option value="Manual">Manuelle</option>
+                <option value="Auto">Automatique</option>
+                <option value="Other">Autre</option>
+            </select>
+        </label> -->
 
-			<label class="select-type" for="type">Vehicle Type
-				<select name="type" id="slc-type">
-					<!-- <option value="--">~</option> -->
-				</select>
-			</label>
+        <label class="select-type" for="type">Vehicle Type
+            <select id="slc-type" name="type">
+                <!-- <option value="--">~</option> -->
+            </select>
+        </label>
 
-			<label class="select-engine" for="engine">Engine Type
-				<select name="engine" id="slc-engine">
-					<!-- <option value="--">~</option> -->
-				</select>
-			</label>
+        <label class="select-engine" for="engine">Engine Type
+            <select id="slc-engine" name="engine">
+                <!-- <option value="--">~</option> -->
+            </select>
+        </label>
 
-			<label for="days" class="select-days">Lease Duration
-				<input type="number" min="1" max="90" id="slc-days" placeholder="In days">
-			</label>
+        <label class="select-days" for="days">Lease Duration
+            <input id="slc-days" max="90" min="1" placeholder="In days" type="number">
+        </label>
 
-			<button onclick="concoct();">Get price estimate</button>
-		</form>
-	</main>
+        <button onclick="concoct();">Get price estimate</button>
+    </form>
+</main>
 
-	<div id="modal">
-		<div class="content">
-			<h class="thanks">Your total is<span> : 
+<div id="modal">
+    <div class="content">
+        <h class="thanks">Your total is<span> :
 				<p id="disp-total">13$</p>
 			</span></h>
-			<span class="close">&times;</span>
-		</div>
-	</div>
+        <span class="close">&times;</span>
+    </div>
+</div>
 
-	<script src="js/reservation.js"></script>
-	<script src="js/app.js"></script>
+<script src="js/reservation.js"></script>
+<script src="js/app.js"></script>
 </body>
 
 </html>
