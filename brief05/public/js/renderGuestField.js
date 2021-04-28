@@ -53,9 +53,9 @@ const renderGuestField = () => {
         if (t.matches(`input[name="${uniqName}"]`)) {
             radio.forEach(b => {
                 if (b.checked) {
-                    b.closest('label').classList.add(...slc_classlist)
+                    b.closest('label').classList.add(...slc_classList)
                 } else {
-                    b.closest('label').classList.remove(...slc_classlist)
+                    b.closest('label').classList.remove(...slc_classList)
                 }
             })
         }

@@ -32,6 +32,8 @@ $app->router->post('/dashboard', [AppController::class, 'dashboard']);
 
 $app->router->post('/rates', [AppController::class, 'rates']);
 
+$app->router->post('/validateres', [AppController::class, 'validateres']);
+
 $app->router->get('/contact', [AppController::class, 'contact']);
 $app->router->post('/contact', [AppController::class, 'contact']);
 

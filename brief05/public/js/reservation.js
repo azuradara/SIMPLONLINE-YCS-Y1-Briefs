@@ -1,40 +1,68 @@
 class Reservation {
-	constructor(form) {
-		this.form = form
-		this.refresh()
-	}
+    constructor(form) {
+        this.form = form
+        this.refresh()
+    }
 
-	refresh() {
-		this.setChildren()
-	}
+    refresh() {
+        Rates.refresh().then(() => {
+            this.ratesId = Rates.rates_id
+        })
 
-	setChildren() {
-		this.children = []
+        this.setChildren()
+        this.setRooms()
+    }
 
-		let set = Array.from(this.form.querySelectorAll('.child_field'))
-		set.forEach(c => {
-			let arr = Azura.getChecked(c)?.split('-')
+    setChildren() {
+        this.children = []
+
+        let set = Array.from(this.form.querySelectorAll('.child_field'))
+        set.forEach(c => {
+            let arr = Azura.getChecked(c)?.split('-') ?? []
+
+            let data = {
+                [arr[0]]: arr[1]
+            }
+
+            this.children.push(data)
+        })
+    }
+
+    setRooms() {
+        this.rooms = []
+
+        let rm_set = Array.from(this.form.querySelectorAll('.rm_field'))
 
 
-			data = {
-				[arr[0]]: arr[1]
-			}
+        rm_set.forEach(rm => {
+            let data = {}
+            let opts = Array.from(rm.querySelectorAll('.rm_opts'))
 
-			this.children.push(data)
-		})
-	}
+            opts.forEach(o => {
+                let arr = Azura.getChecked(o)?.split('-') ?? []
+                data[arr[0]] = arr[1]
+            })
 
-	setRooms() {
-		this.rooms = []
+            this.rooms.push(data)
+        })
+    }
 
-		let rm_set = Array.from(this.form.querySelectorAll(''))
+    // setPension() {
+    //     let pn_set = this.form.querySelector('#slc_pension')
+    //     let arr = Azura.getChecked(pn_set)?.split('-') ?? []
+    //     this.pension = { [arr[0]]: arr[1] }
+    // }
 
-		rm_set.forEach(rm => {
+    async setRates() {
+        await Rates.refresh()
+        this.ratesId = Rates.rates_id
+    }
 
-			let opts = Array.from(rm.querySelectorAll('.rm_opts'))
+    async check() {
+        this.refresh()
+        let json = JSON.stringify(this)
+        console.log(json)
 
-			opts.forEach('')
-
-		})
-	}
+        await postData('/validateres', json).then(res => console.log(res))
+    }
 }

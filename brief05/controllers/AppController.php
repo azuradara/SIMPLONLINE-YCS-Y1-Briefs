@@ -11,6 +11,7 @@ use app\core\Request;
 use app\core\Response;
 use app\models\ContactForm;
 use app\models\Rates;
+use app\models\Reservation;
 use reservations;
 
 // use \app\core\Application;
@@ -112,5 +113,42 @@ class AppController extends Controller
         }
 
         return $res->redirect('/');
+    }
+
+    // TODO refactor this later
+
+    public function validateres(Request $req, Response $res)
+    {
+        if ($req->isPOST()) {
+            $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+
+            $response = [
+                'data' => null,
+                'error' => 'All good',
+            ];
+
+            if ($contentType === 'application/json') {
+                $content = trim(file_get_contents('php://input'));
+
+                $decoded = json_decode($content, true);
+//                    var_dump($content);
+//                    exit();
+
+                if (is_array($decoded)) {
+
+                    $reservation = new Reservation();
+                    $response['data'] = $reservation->resolveCart($decoded);
+
+                    $response['error'] = null;
+                } else {
+                    $response['error'] = 'Bad JSON';
+                }
+            } else {
+                $response['error'] = 'Content-Type must be application/json';
+            }
+
+            echo json_encode($response);
+            return;
+        }
     }
 }

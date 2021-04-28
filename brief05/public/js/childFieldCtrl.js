@@ -1,8 +1,8 @@
 class Child {
     static RANGES = [
-        { range: [0, 2], subcat: 1 },
-        { range: [3, 14], subcat: 2 },
-        { range: [15, 18], subcat: 3 }
+        {range: [0, 2], subcat: 1},
+        {range: [3, 14], subcat: 2},
+        {range: [15, 18], subcat: 3}
     ]
 
     constructor(el, id) {
@@ -39,7 +39,7 @@ class Child {
                     title: 'SIMPLE ROOM',
                     rate: Rates.tax_single,
                     rateMod: '$ / day',
-                    val: 'ch_opt-simple_room'
+                    val: 'ch_opt-single'
                 },
                 {
                     imgSrc: 'img/res/single-gray.svg',
@@ -114,9 +114,9 @@ class Child {
         this.optsEl.addEventListener('input', () => {
             opts.forEach(o => {
                 if (o.checked) {
-                    o.closest('label').classList.add(...slc_classlist)
+                    o.closest('label').classList.add(...slc_classList)
                 } else {
-                    o.closest('label').classList.remove(...slc_classlist)
+                    o.closest('label').classList.remove(...slc_classList)
                 }
             })
         })

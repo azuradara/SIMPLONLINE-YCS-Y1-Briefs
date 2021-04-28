@@ -1,4 +1,4 @@
-async function postData(url = '') {
+async function postData(url = '', data = {}) {
     const response = await fetch(
         url,
         {
@@ -7,8 +7,9 @@ async function postData(url = '') {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },
+            body: data
         },
     )
-
+1
     return response.json()
 }

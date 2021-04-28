@@ -9,24 +9,24 @@ const renderRoomField = () => {
         rm_type: document.createElement('div'),
         rm_upg: document.createElement('div'),
         rm_view: document.createElement('div'),
+        rm_pension: document.createElement('div')
     }
 
     containers.rm_type.innerHTML = renderOptRadio({
         title: 'ROOM TYPE',
         id: uniqName,
+        name: 'type',
         opts: [
             {
                 title: 'SIMPLE ROOM',
                 img: 'img/res/single-gray.svg',
-                name: 'type',
-                val: 'rm_type-simple',
+                val: 'rm_type-single',
                 rate: Rates.tax_single,
                 rateMod: '$ / day'
             },
             {
                 title: 'DOUBLE ROOM',
                 img: 'img/res/double-gray.svg',
-                name: 'type',
                 val: 'rm_type-double',
                 rate: Rates.tax_double,
                 rateMod: '$ / day'
@@ -39,34 +39,47 @@ const renderRoomField = () => {
     containers.rm_upg.innerHTML = renderOptRadio({
         title: 'BED UPGRADE',
         id: uniqName,
+        name: 'bed',
         opts: [
-            { title: '2 SIMPLE BEDS', name: 'bed', val: 'rm_beds-two', rate: 0, rateMod: 'NO CHARGE' },
-            { title: '1 KING-SIZED BED', name: 'bed', val: 'rm_beds-king', rate: 0, rateMod: 'NO CHARGE' },
+            { title: '2 SIMPLE BEDS', val: 'rm_beds-two', rate: 0, rateMod: 'NO CHARGE' },
+            { title: '1 KING-SIZED BED', val: 'rm_beds-king', rate: 0, rateMod: 'NO CHARGE' },
         ]
     }).innerHTML
 
-    let doubleBed = containers.rm_upg.querySelector('input[value="rm_beds-king"') ?? undefined
+    let doubleBed = containers.rm_upg.querySelector('input[value="rm_beds-king"]') ?? undefined
 
     containers.rm_view.innerHTML = renderOptRadio({
         title: 'VIEW',
         id: uniqName,
+        name: 'view',
         opts: [
-            { title: 'NO VIEW', name: 'view', val: 'rm_view-int', rate: 0, rateMod: 'NO CHARGE' },
-            { title: 'EXTERIOR VIEW', name: 'view', val: 'rm_view-ext', rate: Rates.tax_view, rateMod: '% ROOM' },
+            { title: 'NO VIEW', val: 'rm_view-int', rate: 0, rateMod: 'NO CHARGE' },
+            { title: 'EXTERIOR VIEW', val: 'rm_view-ext', rate: Rates.tax_view_ext, rateMod: '% ROOM' },
+        ]
+    }).innerHTML
+
+    containers.rm_pension.innerHTML = renderOptRadio({
+        title: 'PENSION',
+        id: uniqName,
+        opts: [
+            {title: 'NONE', val: 'rm_p-pension_none', img: 'img/res/pnone.svg', rate: 0, rateMod: 'NO CHARGE'},
+            {title: 'NONE', val: 'rm_p-pension_semi', img: 'img/res/semi.svg', rate: Rates.tax_pension_semi, rateMod: '$ / day'},
+            {title: 'NONE', val: 'rm_p-pension_full', img: 'img/res/lunch.svg', rate: Rates.tax_pension_full, rateMod: '$ / day'},
+            {title: 'NONE', val: 'rm_p-pension_full', img: 'img/res/dinner.svg', rate: Rates.tax_pension_full, rateMod: '$ / day'},
         ]
     }).innerHTML
 
     for (c in containers) {
-        containers[c].classList.add(...(('rm_opts flex flex-col w-full items-center justify-between rounded-lg gap-5').split(' ')))
+        containers[c].classList.add(...(('flex flex-col w-full items-center justify-between rounded-lg gap-5').split(' ')))
 
         let radios = Array.from(containers[c].querySelectorAll('input[type="radio"]'))
 
         containers[c].addEventListener('input', () => {
             radios.forEach(o => {
                 if (o.checked) {
-                    o.closest('label').classList.add(...slc_classlist)
+                    o.closest('label').classList.add(...slc_classList)
                 } else {
-                    o.closest('label').classList.remove(...slc_classlist)
+                    o.closest('label').classList.remove(...slc_classList)
                 }
             })
 
@@ -104,7 +117,7 @@ const renderOptRadio = data => {
 		<label class="opt_1 w-full ring-2 ring-gray-200 hover:bg-gray-200 cursor-pointer justify-center rounded-md p-1 px-3 flex flex-col items-center disabled:opacity-50">
 				<p class="text-sm font-semibold text-gray-400">${o.title}</p>
 				${o.img ? `<img class="h-10 w-10" src="${o.img}" alt="">` : ''}
-				<input class="hidden" type="radio" name="${data.id}_${o.name}" value='${o.val}'>
+				<input class="hidden" type="radio" name="${data.id}_${data.name}" value='${o.val}'>
 				<p class="text-sm text-center w-full font-bold text-gray-500">+${o.rate}<span class="text-xs text-gray-400 font-medium">  ${o.rateMod}</span></p>
 		</label>
 			`
