@@ -11,7 +11,7 @@ use app\core\Request;
 use app\core\Response;
 use app\models\ContactForm;
 use app\models\Rates;
-use app\models\Reservation;
+use app\models\Order;
 use reservations;
 
 // use \app\core\Application;
@@ -136,8 +136,10 @@ class AppController extends Controller
 
                 if (is_array($decoded)) {
 
-                    $reservation = new Reservation();
-                    $response['data'] = $reservation->resolveCart($decoded);
+                    $order = new Order($decoded);
+                    $response['data'] = Order::orderBreakdown($decoded);
+
+                    $order->push();
 
                     $response['error'] = null;
                 } else {

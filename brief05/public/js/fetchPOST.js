@@ -10,6 +10,5 @@ async function postData(url = '', data = {}) {
             body: data
         },
     )
-1
     return response.json()
 }
