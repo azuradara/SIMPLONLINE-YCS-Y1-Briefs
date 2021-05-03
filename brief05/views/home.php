@@ -1,4 +1,5 @@
 <?php
+
 /** @var $this \app\core\View */
 $this->title = 'Home';
 $this->scripts = ['js/navbar.js', 'js/pops.js'];
@@ -93,6 +94,38 @@ $this->scripts = ['js/navbar.js', 'js/pops.js'];
         </p>
     </div>
 </div>
+
+<div class="max-w-6xl px-6 py-16 mx-auto text-center">
+    <h2 class="text-3xl font-semibold text-gray-800">Lorem ipsum dolor sit amet, <br> consectetur adipiscing</h2>
+    <p class="max-w-prose mx-auto mt-4 text-gray-600">Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum
+        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum.</p>
+
+    <img class="object-cover object-center w-full mt-16 rounded-md shadow h-80" src="img/vidar.jpg">
+</div>
+
+<div class="max-w-6xl px-6 py-16 mx-auto space-y-8 md:flex md:items-center md:space-y-0">
+    <div class="md:w-2/3">
+        <div class="hidden md:flex md:items-center md:space-x-10">
+            <img class="object-cover object-center rounded-md shadow w-72 h-72" src="img/2chair.jpg">
+            <img class="object-cover object-center w-64 rounded-md shadow h-96" src="img/interior.jpg">
+        </div>
+        <h2 class="text-3xl font-semibold text-gray-800 md:mt-6">Lorem ipsum dolor </h2>
+        <p class="max-w-lg mt-4 text-gray-600">
+            Duis aute irure dolor in reprehenderit in voluptate velit esse illum
+            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+            officia
+            deserunt mollit anim id est laborum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+            non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum.
+        </p>
+    </div>
+    <div class="md:w-1/3">
+        <img class="object-cover object-center w-full rounded-md shadow" style="height: 700px;" src="img/motel.jpg">
+    </div>
+</div>
+
 
 <div class="">
     <div class="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20 text-gray-700">

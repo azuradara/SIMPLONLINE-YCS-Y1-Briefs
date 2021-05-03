@@ -31,7 +31,7 @@ module.exports = {
             opacity: ['disabled'],
             hidden: ['disabled'],
             zIndex: {
-                '-10' : '-10'
+                '-10': '-10'
             }
         }
     },

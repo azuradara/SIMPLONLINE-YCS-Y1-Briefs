@@ -32,6 +32,23 @@ abstract class BaseDBModel extends Model
         return Application::$app->db->driver->prepare($sql);
     }
 
+    public static function fetchAll($loc)
+    {
+        $table = static::get_table();
+
+        $attr = array_keys($loc);
+        $sql = implode("AND ", array_map(fn($a) => "$a = :$a", $attr));
+        $stmt = self::prepare("SELECT * FROM $table WHERE $sql");
+
+        foreach ($loc as $k => $v) {
+            $stmt->bindValue(":$k", "$v");
+        }
+
+
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     public static function fetchLatest($loc)
     {
         $table = static::get_table();
