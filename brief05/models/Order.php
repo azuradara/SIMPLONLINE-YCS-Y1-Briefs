@@ -6,6 +6,7 @@ namespace app\models;
 
 use app\core\Application;
 use app\core\BaseDBModel;
+use app\core\exceptions\BadRequestExc;
 use app\models\components\Room;
 
 class Order extends BaseDBModel
@@ -15,7 +16,7 @@ class Order extends BaseDBModel
     public string $ord_usr_id = '';
     public string $ord_rates_id = '';
     public float $ord_total = 0;
-    public array $receipt;
+    public array|bool $receipt;
     public array $order = [];
     public array $body;
 
@@ -30,13 +31,17 @@ class Order extends BaseDBModel
         $this->ord_total = $this->receipt['total'];
     }
 
-    static public function orderBreakdown($arr): array
+    static public function orderBreakdown($arr): array|bool
     {
         list(
             'rooms' => $rooms,
             'children' => $children,
             'ratesId' => $ratesId
             ) = $arr;
+
+        if (!isset($rooms) || count($rooms) == 0) {
+            return false;
+        }
 
         $receipt = [
             'rooms' => [],
@@ -53,6 +58,9 @@ class Order extends BaseDBModel
         $rm_total = 0;
 
         foreach ($rooms as $r) {
+
+            if (!isset($r['rm_type'], $r['rm_beds'], $r['rm_view'], $r['rm_p'])) return false;
+
             $p_base = $rates['tax_' . $r['rm_type']];
             $p_view = $r['rm_view'] === 'ext' ? $p_base * ($rates['tax_view'] / 100) : 0;
             $p_pension = $r['rm_p'] !== 'pension_none' ? $rates['tax_' . $r['rm_p']] : 0;
@@ -70,6 +78,9 @@ class Order extends BaseDBModel
         }
 
         foreach ($children as $c) {
+
+            if (!isset($c['ch_opt'])) return false;
+
             $total = $c['ch_opt'] !== 'none'
                 ? $c['ch_opt'] !== 'single'
                     ? $rates['tax_single'] * ($rates['tax_' . $c['ch_opt']] / 100)
@@ -111,7 +122,10 @@ class Order extends BaseDBModel
 
     public function push(): bool
     {
+        if ($this->receipt === false) return false;
+
         parent::push();
+
         foreach ($this->body['rooms'] as $k => $v) {
             $v['rm_ord_id'] = $this->ord_id;
             $v['rm_id'] = uniqid(rand(), true);
@@ -120,8 +134,8 @@ class Order extends BaseDBModel
 
 
             $r = new Room($v);
-/*            var_dump($r);
-            exit();*/
+            /*            var_dump($r);
+                        exit();*/
 
             $r->push();
         }

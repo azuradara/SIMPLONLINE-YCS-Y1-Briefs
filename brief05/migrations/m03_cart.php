@@ -15,7 +15,8 @@ class m03_cart
                             ord_rates_id int(255) not null,
                             ord_total float(20,2) not null,
                             
-                            foreign key (ord_usr_id) references users(usr_id)
+                            foreign key (ord_usr_id) references users(usr_id),
+                            foreign key (ord_rates_id) references rates(rates_id)
 						);
 
                         create table rooms (

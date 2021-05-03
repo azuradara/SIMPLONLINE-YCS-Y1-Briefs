@@ -130,7 +130,7 @@ use app\core\Application;
               To: "transform opacity-0 scale-95"
                         -->
                         <div
-                                class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-100 ring-1 ring-black ring-opacity-10 focus:outline-none"
+                                class="hidden z-10 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-100 ring-1 ring-black ring-opacity-10 focus:outline-none"
                                 role="menu" id="usr_menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                                 tabindex="-1">
                             <!-- Active: "bg-gray-100", Not Active: "" -->

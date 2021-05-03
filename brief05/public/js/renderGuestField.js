@@ -17,7 +17,7 @@ const renderGuestField = () => {
 
 	<input type="number" min="0" max="18"
 		class="rounded-lg border-transparent my-2 flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-		value="" />
+		value="" placeholder='eg. 17' />
 
 	<div class="child_opts flex w-full items-center justify-between gap-3">
 	</div>

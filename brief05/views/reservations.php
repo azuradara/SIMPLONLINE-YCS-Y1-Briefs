@@ -52,26 +52,24 @@ $this->scripts = ['js/helper.js', 'js/fetchPOST.js', 'js/rates.js', 'js/navbar.j
 					<div id="rm_container">
 					</div>
 				</div>
-
-				<div>
-					<p class="text-3xl font-medium text-gray-600">Pension</p>
-
-					<div id="slc_pension" class="flex flex-col md:flex-row md:items-center md:justify-between">
-						<div id="pension_container" class="flex flex-row gap-5 justify-center md:justify-end mt-4 w-full">
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 
 	</div>
-	<div class="lg:w-4/12 bg-white rounded-lg shadow-2xl p-6">
-		<p class="text-3xl font-medium mb-8 text-gray-600">Reservation Total</p>
-		<div>
-			<button type="button" onclick="res?.check()"
-				class="relative my-4 py-2 px-4 mx-auto lg:mx-0 flex justify-center items-center bg-yellow-500 hover:bg-yellow-600 focus:ring-yellow-500 focus:ring-offset-yellow-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-				CHECK AVAILABILITY
-			</button>
+	<div class="lg:w-4/12">
+		<div class="bg-white rounded-lg shadow-2xl p-6 w-full md:sticky md:top-6 z--10">
+			<p class="text-3xl font-medium mb-8 text-gray-600">Reservation Total</p>
+
+            <div id="cart_total">
+
+            </div>
+
+			<div>
+				<button type="button" onclick="res?.check()"
+					class="relative my-4 py-2 px-4 mx-auto lg:mx-0 flex justify-center items-center bg-yellow-500 hover:bg-yellow-600 focus:ring-yellow-500 focus:ring-offset-yellow-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+					CHECK AVAILABILITY
+				</button>
+			</div>
 		</div>
 	</div>
 </div>

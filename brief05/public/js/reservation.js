@@ -41,6 +41,8 @@ class Reservation {
             opts.forEach(o => {
                 let arr = Azura.getChecked(o)?.split('-') ?? []
                 data[arr[0]] = arr[1]
+
+                data.rm_beds = data.rm_beds ?? 'none'
             })
 
             this.rooms.push(data)
@@ -63,6 +65,17 @@ class Reservation {
         let json = JSON.stringify(this)
         console.log(json)
 
-        await postData('/validateres', json).then(res => console.log(res))
+        await postData('/validateres', json).then(res => {
+            let cart = document.querySelector('#cart_total')
+            if (res.error !== null) {
+                cart.innerHTML = '<div class="text-lg text-center w-prose py-3 text-red-600">There has been an issue with your reservation.</br>Please review your form and try again.</div>'
+            } else {
+                cart.innerHTML =
+                    '<div class="flex items-center justify-between">' +
+                    `<div class="font-bold text-gray-600 text-lg">TOTAL</div>` +
+                    `<div>${res.data.total}</div>` +
+                    '</div>'
+            }
+        });
     }
 }

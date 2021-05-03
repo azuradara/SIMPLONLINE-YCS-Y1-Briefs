@@ -12,7 +12,6 @@ use app\core\Response;
 use app\models\ContactForm;
 use app\models\Rates;
 use app\models\Order;
-use reservations;
 
 // use \app\core\Application;
 
@@ -124,7 +123,7 @@ class AppController extends Controller
 
             $response = [
                 'data' => null,
-                'error' => 'All good',
+                'error' => null,
             ];
 
             if ($contentType === 'application/json') {
@@ -136,12 +135,16 @@ class AppController extends Controller
 
                 if (is_array($decoded)) {
 
-                    $order = new Order($decoded);
-                    $response['data'] = Order::orderBreakdown($decoded);
+//                    $order = new Order($decoded);
 
-                    $order->push();
+                    if (Order::orderBreakdown($decoded) === false) {
+                        $response['error'] = 'Bad Request';
+                    } else {
+                        $response['data'] = Order::orderBreakdown($decoded);
+                    }
 
-                    $response['error'] = null;
+//                    $order->push();
+
                 } else {
                     $response['error'] = 'Bad JSON';
                 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="honeyside@localhost" uuid="fddf1b0f-391c-41f7-87e9-8122e287a1a9">
+    <data-source source="LOCAL" name="honeyside@localhost" uuid="efbbaadb-8b71-4cf0-b80d-7ec53c31cd9c">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/honeyside</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3307/honeyside</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

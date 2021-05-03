@@ -30,6 +30,9 @@ module.exports = {
             ring: ['hover'],
             opacity: ['disabled'],
             hidden: ['disabled'],
+            zIndex: {
+                '-10' : '-10'
+            }
         }
     },
     variants: {
