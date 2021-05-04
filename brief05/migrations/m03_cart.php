@@ -14,6 +14,7 @@ class m03_cart
                             ord_usr_id varchar(255) not null,
                             ord_rates_id int(255) not null,
                             ord_total float(20,2) not null,
+                            ord_creation_date timestamp default current_timestamp,
                             
                             foreign key (ord_usr_id) references users(usr_id),
                             foreign key (ord_rates_id) references rates(rates_id)

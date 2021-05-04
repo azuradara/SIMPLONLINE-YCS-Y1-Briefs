@@ -156,4 +156,44 @@ class AppController extends Controller
             return;
         }
     }
+
+    public function pushres(Request $req, Response $res)
+    {
+        if ($req->isPOST()) {
+            $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+
+            $response = [
+                'data' => null,
+                'error' => null,
+            ];
+
+            if ($contentType === 'application/json') {
+                $content = trim(file_get_contents('php://input'));
+
+                $decoded = json_decode($content, true);
+//                    var_dump($content);
+//                    exit();
+
+                if (is_array($decoded)) {
+                    if (Order::orderBreakdown($decoded) === false) {
+                        $response['error'] = 'Bad Request';
+                    } else {
+                        $response['data'] = Order::orderBreakdown($decoded);
+
+                        $order = new Order($decoded);
+                        $order->push();
+                    }
+
+
+                } else {
+                    $response['error'] = 'Bad JSON';
+                }
+            } else {
+                $response['error'] = 'Content-Type must be application/json';
+            }
+
+            echo json_encode($response);
+            return;
+        }
+    }
 }

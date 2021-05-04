@@ -59,7 +59,7 @@ $this->scripts = ['js/helper.js', 'js/fetchPOST.js', 'js/rates.js', 'js/navbar.j
 
     </div>
     <div class="lg:w-4/12">
-        <div class="bg-white rounded-lg shadow-2xl p-6 w-full md:sticky md:top-6 z--10">
+        <div id="cart__container" class="bg-white rounded-lg shadow-2xl p-6 w-full md:sticky md:top-6 z--10">
             <p class="text-3xl font-medium mb-8 text-gray-600">Reservation Total</p>
 
             <div id="cart_total">
@@ -68,7 +68,7 @@ $this->scripts = ['js/helper.js', 'js/fetchPOST.js', 'js/rates.js', 'js/navbar.j
 
             <div>
                 <button type="button" onclick="res?.check()"
-                        class="relative my-4 py-2 px-4 mx-auto lg:mx-0 flex justify-center items-center bg-yellow-500 hover:bg-yellow-600 focus:ring-yellow-500 focus:ring-offset-yellow-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                        class="relative my-4 py-2 px-4 mx-auto lg:mx-0 flex justify-center items-center bg-white ring-2 ring-gray-200 hover:bg-yellow-600 focus:ring-yellow-500 focus:ring-offset-yellow-200 hover:text-white text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md ">
                     CHECK AVAILABILITY
                 </button>
             </div>

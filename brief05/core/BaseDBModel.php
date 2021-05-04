@@ -46,6 +46,7 @@ abstract class BaseDBModel extends Model
 
 
         $stmt->execute();
+
         return $stmt->fetchAll();
     }
 
