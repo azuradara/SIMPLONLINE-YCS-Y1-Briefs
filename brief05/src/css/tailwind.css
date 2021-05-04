@@ -58,3 +58,18 @@
     margin-right: -10px;
     /* display: inline; */
 }
+
+html {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+footer {
+    margin-top: auto;
+}

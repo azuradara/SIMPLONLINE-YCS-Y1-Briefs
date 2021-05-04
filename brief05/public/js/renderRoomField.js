@@ -145,3 +145,7 @@ const renderOptRadio = data => {
 
     return opt_container
 }
+
+window.addEventListener('load', () => {
+    renderRoomField()
+})

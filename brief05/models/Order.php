@@ -5,6 +5,7 @@ namespace app\models;
 
 
 use app\core\Application;
+use app\models\components\Child;
 use app\models\components\Room;
 
 class Order extends OrderInvalidation
@@ -29,11 +30,11 @@ class Order extends OrderInvalidation
         $this->ord_total = $this->receipt['total'];
     }
 
-//    public static function paraInit()
-//    {
-//        $c = new ReflectionClass(__CLASS__);
-//        return $c->newInstanceWithoutConstructor();
-//    }
+    //    public static function paraInit()
+    //    {
+    //        $c = new ReflectionClass(__CLASS__);
+    //        return $c->newInstanceWithoutConstructor();
+    //    }
 
     public function push(): bool
     {
@@ -43,7 +44,7 @@ class Order extends OrderInvalidation
 
         foreach ($this->body['rooms'] as $k => $v) {
             $v['rm_ord_id'] = $this->ord_id;
-            $v['rm_id'] = uniqid(rand(), true);
+            $v['rm_id'] = 'rm_' . uniqid(rand(), true);
 
             $v['rm_total'] = $this->receipt['rooms'][$k]['total'];
 
@@ -53,6 +54,17 @@ class Order extends OrderInvalidation
                         exit();*/
 
             $r->push();
+        }
+
+        foreach ($this->body['children'] as $k => $v) {
+            $v['ch_ord_id'] = $this->ord_id;
+            $v['ch_id'] = 'ch_' . uniqid(rand(), true);
+
+            $v['ch_total'] = $this->receipt['children'][$k]['total'];
+
+            $c = new Child($v);
+
+            $c->push();
         }
 
         return true;

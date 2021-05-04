@@ -25,10 +25,10 @@ $this->scripts = ['js/navbar.js', 'js/pops.js'];
             a quidem
             numquam nobis? Tenetur, quod.</p>
         <div>
-            <button type="button"
-                    class="relative book_btn my-4 py-2 px-4 md:w-36 mx-auto lg:mx-0 flex justify-center items-center bg-yellow-500 hover:bg-yellow-600 focus:ring-yellow-500 focus:ring-offset-yellow-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+            <a href="/reservations"
+               class="relative book_btn my-4 py-2 px-4 md:w-36 mx-auto lg:mx-0 flex justify-center items-center bg-yellow-500 hover:bg-yellow-600 focus:ring-yellow-500 focus:ring-offset-yellow-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                 Book Now
-            </button>
+            </a>
         </div>
     </div>
 
@@ -135,10 +135,10 @@ $this->scripts = ['js/navbar.js', 'js/pops.js'];
                     class="text-gradient honey-bgrad">.</span>
         </h1>
         <div class="lg:mt-0 lg:flex-shrink-0">
-            <button type="button"
-                    class="mxautorelative book_btn my-6 py-2 px-4 md:w-36 mx-auto flex justify-center items-center bg-yellow-500 hover:bg-yellow-600 focus:ring-yellow-500 focus:ring-offset-yellow-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">
+            <a href="/reservations"
+               class="relative book_btn my-6 py-2 px-4 md:w-36 mx-auto flex justify-center items-center bg-yellow-500 hover:bg-yellow-600 focus:ring-yellow-500 focus:ring-offset-yellow-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">
                 Get Started
-            </button>
+            </a>
         </div>
     </div>
 </div>

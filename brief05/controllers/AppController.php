@@ -130,7 +130,7 @@ class AppController extends Controller
                 $content = trim(file_get_contents('php://input'));
 
                 $decoded = json_decode($content, true);
-//                    var_dump($content);
+//                    var_dump($decoded);
 //                    exit();
 
                 if (is_array($decoded)) {

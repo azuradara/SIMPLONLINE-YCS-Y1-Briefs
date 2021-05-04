@@ -1,4 +1,5 @@
 <?php
+
 /** @var $this \app\core\View */
 
 use app\core\Application;
@@ -34,7 +35,7 @@ use app\core\Application;
 
 <body class="bg-gray-200 antialiased select-none relative duration-100">
 
-<?php if (Application::$app->session->getPop('success')): ?>
+<?php if (Application::$app->session->getPop('success')) : ?>
     <div
             class="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 top-28 inset-middle absolute"
             id="pop">
@@ -55,7 +56,7 @@ use app\core\Application;
     </div>
 
 <?php endif; ?>
-<nav class="bg-white shadow-lg mb-20 max-w-7xl mx-6 xl:mx-auto mt-6 rounded-xl">
+<nav class="bg-white shadow-lg mb-20 xl:w-full max-w-7xl mx-6 xl:mx-auto mt-6 rounded-xl">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -65,20 +66,20 @@ use app\core\Application;
                         aria-controls="mobile-menu" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <!--
-        Icon when menu is closed.
+    Icon when menu is closed.
 
-        Menu open: "hidden", Menu closed: "block"
-      -->
+    Menu open: "hidden", Menu closed: "block"
+  -->
                     <svg class="block h-8 w-8" id="mn_btn_closed" xmlns="http://www.w3.org/2000/svg" fill="none"
                          viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                     <!--
-        Icon when menu is open.
+    Icon when menu is open.
 
-        Menu open: "block", Menu closed: "hidden"
-      -->
+    Menu open: "block", Menu closed: "hidden"
+  -->
                     <svg class="hidden h-8 w-8" id="mn_btn_open" xmlns="http://www.w3.org/2000/svg" fill="none"
                          viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -108,7 +109,7 @@ use app\core\Application;
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
                 <!-- Profile dropdown -->
-                <?php if (!Application::guestUser()): ?>
+                <?php if (!Application::guestUser()) : ?>
                     <div class="ml-3 relative">
                         <div>
                             <button type="button"
@@ -148,7 +149,7 @@ use app\core\Application;
                     </div>
                 <?php endif; ?>
 
-                <?php if (Application::guestUser()): ?>
+                <?php if (Application::guestUser()) : ?>
                     <div class="hidden gap-3 flex-1 sm:flex items-center justify-center sm:items-stretch sm:justify-start">
                         <a href="/login" class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Login</a>
                         <a href="/signup"
@@ -173,7 +174,7 @@ use app\core\Application;
 
             <a href="/"
                class="text-gray-600 hover:bg-yellow-500 hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">Other</a>
-            <?php if (Application::guestUser()): ?>
+            <?php if (Application::guestUser()) : ?>
                 <hr class="border-0 bg-gray-300 text-gray-500 h-px my-4">
                 <a href="/login"
                    class="text-gray-600 hover:bg-yellow-500 hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">Login</a>
