@@ -41,7 +41,7 @@ class OrderInvalidation extends \app\core\BaseDBModel
             $p_view = $r['rm_view'] === 'ext' ? $p_base * ($rates['tax_view'] / 100) : 0;
             $p_pension = $r['rm_p'] !== 'pension_none' ? $rates['tax_' . $r['rm_p']] : 0;
 
-            array_push(x
+            array_push(
                 $receipt['rooms'],
                 [
                     'base' => $p_base,
