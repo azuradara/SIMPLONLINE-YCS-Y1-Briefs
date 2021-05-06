@@ -63,7 +63,7 @@ class AppController extends Controller
             // var_dump($user);
 
             if ($ratesModel->validate() && $ratesModel->push()) {
-                Application::$app->session->setPop('success', 'Registration successful!');
+                Application::$app->session->setPop('success', 'Rates modified successfully!');
                 Application::$app->res->redirect('/');
                 exit;
             }
