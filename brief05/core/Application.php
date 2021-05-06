@@ -37,7 +37,7 @@ class Application
         $this->router = new Router($this->req, $this->res);
         $this->view = new View();
 
-        //        never use external classes inside the core
+//        never use external classes inside the core
 
 
         $pval = $this->session->get('user');
@@ -70,20 +70,20 @@ class Application
         }
     }
 
-    // --Commented out by Inspection START (4/17/2021 5:15 AM):
-    //    public function getController(): Controller
-    //    {
-    //        return $this->controller;
-    //    }
-    // --Commented out by Inspection STOP (4/17/2021 5:15 AM)
+// --Commented out by Inspection START (4/17/2021 5:15 AM):
+//    public function getController(): Controller
+//    {
+//        return $this->controller;
+//    }
+// --Commented out by Inspection STOP (4/17/2021 5:15 AM)
 
 
-    // --Commented out by Inspection START (4/17/2021 5:15 AM):
-    //    public function setController(Controller $controller): void
-    //    {
-    //        $this->controller = $controller;
-    //    }
-    // --Commented out by Inspection STOP (4/17/2021 5:15 AM)
+// --Commented out by Inspection START (4/17/2021 5:15 AM):
+//    public function setController(Controller $controller): void
+//    {
+//        $this->controller = $controller;
+//    }
+// --Commented out by Inspection STOP (4/17/2021 5:15 AM)
 
     private function trigger(string $event)
     {

@@ -57,7 +57,7 @@ final class Value
     public function append(string $chars, bool $var)
     {
         return new self(
-            $this->chars . $chars,
+            $this->chars.$chars,
             $var ? \array_merge($this->vars, [Str::len($this->chars)]) : $this->vars
         );
     }

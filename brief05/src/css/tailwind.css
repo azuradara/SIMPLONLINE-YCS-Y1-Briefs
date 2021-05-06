@@ -7,69 +7,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @layer utilities {
-  .honey-bgrad {
-    background: linear-gradient(223.19deg, #ff4e50 -13.57%, #f9d423 85.48%);
-  }
+    .honey-bgrad {
+        background: linear-gradient(223.19deg, #ff4e50 -13.57%, #f9d423 85.48%);
+    }
 
-  .text-gradient {
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+    .text-gradient {
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-  .inset-middle {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+    .inset-middle {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 .hero__img {
-  width: 25rem;
-  object-fit: cover;
-  height: 30rem;
-  border-radius: 8px;
+    width: 25rem;
+    object-fit: cover;
+    height: 30rem;
+    border-radius: 8px;
 }
 
 .nav__link {
-  position: relative;
+    position: relative;
 }
 
 .nav__link::after {
-  content: '';
-  height: 2px;
-  border-radius: 5px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin-left: auto;
-  margin-right: auto;
-  transition: all 200ms ease-out;
-  width: 0%;
+    content: '';
+    height: 2px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 200ms ease-out;
+    width: 0%;
 }
 
 .nav__link:hover::after {
-  width: 90%;
-  background-color: #f59e0b;
+    width: 90%;
+    background-color: #f59e0b;
 }
 
 .book_btn:hover::after {
-  width: 24px;
-  margin-right: -10px;
-  /* display: inline; */
+    width: 24px;
+    margin-right: -10px;
+    /* display: inline; */
 }
 
 html {
-  min-height: 100vh;
+    min-height: 100vh;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
 }
 
 footer {
-  margin-top: auto;
+    margin-top: auto;
 }

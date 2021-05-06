@@ -6,10 +6,10 @@ use app\core\Application;
 
 class m02_rates
 {
-	public function export()
-	{
-		$db = Application::$app->db;
-		$sql = '
+    public function export()
+    {
+        $db = Application::$app->db;
+        $sql = '
 						create table rates (
 							rates_id int(255) auto_increment primary key,
 							tax_single int(255),
@@ -22,15 +22,15 @@ class m02_rates
 							tax_pension_full int(255)
 						);
 					';
-		$db->driver->exec($sql);
-	}
+        $db->driver->exec($sql);
+    }
 
-	public function drop()
-	{
-		$db = Application::$app->db;
-		$sql = '
+    public function drop()
+    {
+        $db = Application::$app->db;
+        $sql = '
 		drop table if exists rates;
 		';
-		$db->driver->exec($sql);
-	}
+        $db->driver->exec($sql);
+    }
 }

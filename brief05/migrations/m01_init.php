@@ -6,10 +6,10 @@ use app\core\Application;
 
 class m01_init
 {
-	public function export()
-	{
-		$db = Application::$app->db;
-		$sql = '
+    public function export()
+    {
+        $db = Application::$app->db;
+        $sql = '
 				create table users (
 					usr_id varchar(255) primary key,
 					usr_state int not null,
@@ -20,15 +20,15 @@ class m01_init
 					usr_creation_date timestamp default current_timestamp
 				);
 		';
-		$db->driver->exec($sql);
-	}
+        $db->driver->exec($sql);
+    }
 
-	public function drop()
-	{
-		$db = Application::$app->db;
-		$sql = '
+    public function drop()
+    {
+        $db = Application::$app->db;
+        $sql = '
 		drop table if exists users;
 		';
-		$db->driver->exec($sql);
-	}
+        $db->driver->exec($sql);
+    }
 }

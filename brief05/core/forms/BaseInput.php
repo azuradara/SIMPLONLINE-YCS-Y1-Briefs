@@ -19,8 +19,7 @@ abstract class BaseInput
 
     public function __toString(): string
     {
-        return sprintf(
-            '
+        return sprintf('
 			<div class="mb-2">
 				<label for="%s" class="block text-md text-gray-600 font-medium">%s</label>
 				%s

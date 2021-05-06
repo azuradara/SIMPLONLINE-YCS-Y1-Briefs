@@ -6,69 +6,69 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitdd6f5e7e911d306a0a916c11dfd4eef1
 {
-    public static $files = array(
+    public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
     );
 
-    public static $prefixLengthsPsr4 = array(
-        'a' =>
-        array(
+    public static $prefixLengthsPsr4 = array (
+        'a' => 
+        array (
             'app\\' => 4,
         ),
-        'S' =>
-        array(
+        'S' => 
+        array (
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
         ),
-        'P' =>
-        array(
+        'P' => 
+        array (
             'PhpOption\\' => 10,
         ),
-        'G' =>
-        array(
+        'G' => 
+        array (
             'GrahamCampbell\\ResultType\\' => 26,
         ),
-        'D' =>
-        array(
+        'D' => 
+        array (
             'Dotenv\\' => 7,
         ),
     );
 
-    public static $prefixDirsPsr4 = array(
-        'app\\' =>
-        array(
+    public static $prefixDirsPsr4 = array (
+        'app\\' => 
+        array (
             0 => __DIR__ . '/../..' . '/',
         ),
-        'Symfony\\Polyfill\\Php80\\' =>
-        array(
+        'Symfony\\Polyfill\\Php80\\' => 
+        array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
         ),
-        'Symfony\\Polyfill\\Mbstring\\' =>
-        array(
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
-        'Symfony\\Polyfill\\Ctype\\' =>
-        array(
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-        'PhpOption\\' =>
-        array(
+        'PhpOption\\' => 
+        array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
-        'GrahamCampbell\\ResultType\\' =>
-        array(
+        'GrahamCampbell\\ResultType\\' => 
+        array (
             0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
         ),
-        'Dotenv\\' =>
-        array(
+        'Dotenv\\' => 
+        array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
     );
 
-    public static $classMap = array(
+    public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
@@ -82,6 +82,7 @@ class ComposerStaticInitdd6f5e7e911d306a0a916c11dfd4eef1
             $loader->prefixLengthsPsr4 = ComposerStaticInitdd6f5e7e911d306a0a916c11dfd4eef1::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitdd6f5e7e911d306a0a916c11dfd4eef1::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInitdd6f5e7e911d306a0a916c11dfd4eef1::$classMap;
+
         }, null, ClassLoader::class);
     }
 }
