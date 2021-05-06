@@ -42,7 +42,7 @@ final class Lexer
         static $regex;
 
         if ($regex === null) {
-            $regex = '(('.\implode(')|(', self::PATTERNS).'))A';
+            $regex = '((' . \implode(')|(', self::PATTERNS) . '))A';
         }
 
         $tokens = [];

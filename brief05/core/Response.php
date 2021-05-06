@@ -14,5 +14,4 @@ class Response
     {
         header('Location: ' . $string);
     }
-
 }

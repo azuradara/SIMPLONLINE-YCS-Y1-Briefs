@@ -1,4 +1,6 @@
-<?php /** @noinspection PhpUnnecessaryCurlyVarSyntaxInspection */
+<?php
+
+/** @noinspection PhpUnnecessaryCurlyVarSyntaxInspection */
 
 namespace app\core;
 

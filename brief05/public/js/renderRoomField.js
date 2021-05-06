@@ -41,8 +41,8 @@ const renderRoomField = () => {
         id: uniqName,
         name: 'bed',
         opts: [
-            {title: '2 SIMPLE BEDS', val: 'rm_beds-two', rate: 0, rateMod: 'NO CHARGE'},
-            {title: '1 KING-SIZED BED', val: 'rm_beds-king', rate: 0, rateMod: 'NO CHARGE'},
+            { title: '2 SIMPLE BEDS', val: 'rm_beds-two', rate: 0, rateMod: 'NO CHARGE' },
+            { title: '1 KING-SIZED BED', val: 'rm_beds-king', rate: 0, rateMod: 'NO CHARGE' },
         ]
     }).innerHTML
 
@@ -53,8 +53,8 @@ const renderRoomField = () => {
         id: uniqName,
         name: 'view',
         opts: [
-            {title: 'NO VIEW', val: 'rm_view-int', rate: 0, rateMod: 'NO CHARGE'},
-            {title: 'EXTERIOR VIEW', val: 'rm_view-ext', rate: Rates.tax_view_ext, rateMod: '% ROOM'},
+            { title: 'NO VIEW', val: 'rm_view-int', rate: 0, rateMod: 'NO CHARGE' },
+            { title: 'EXTERIOR VIEW', val: 'rm_view-ext', rate: Rates.tax_view_ext, rateMod: '% ROOM' },
         ]
     }).innerHTML
 
@@ -62,7 +62,7 @@ const renderRoomField = () => {
         title: 'PENSION',
         id: uniqName,
         opts: [
-            {title: 'NONE', val: 'rm_p-pension_none', img: 'img/res/pnone.svg', rate: 0, rateMod: 'NO CHARGE'},
+            { title: 'NONE', val: 'rm_p-pension_none', img: 'img/res/pnone.svg', rate: 0, rateMod: 'NO CHARGE' },
             {
                 title: 'NONE',
                 val: 'rm_p-pension_semi',

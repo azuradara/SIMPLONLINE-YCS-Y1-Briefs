@@ -19,12 +19,12 @@ abstract class Controller
         return Application::$app->view->renderView($view, $crumbs);
     }
 
-// --Commented out by Inspection START (4/17/2021 5:15 AM):
-//    public function socketView($layout)
-//    {
-//        $this->layout = $layout;
-//    }
-// --Commented out by Inspection STOP (4/17/2021 5:15 AM)
+    // --Commented out by Inspection START (4/17/2021 5:15 AM):
+    //    public function socketView($layout)
+    //    {
+    //        $this->layout = $layout;
+    //    }
+    // --Commented out by Inspection STOP (4/17/2021 5:15 AM)
 
 
     public function getMds(): array

@@ -114,12 +114,12 @@ class AppController extends Controller
                 $content = trim(file_get_contents('php://input'));
 
                 $decoded = json_decode($content, true);
-//                    var_dump($decoded);
-//                    exit();
+                //                    var_dump($decoded);
+                //                    exit();
 
                 if (is_array($decoded)) {
 
-//                    $order = new Order($decoded);
+                    //                    $order = new Order($decoded);
 
                     if (Order::orderBreakdown($decoded) === false) {
                         $response['error'] = 'Bad Request';
@@ -127,7 +127,7 @@ class AppController extends Controller
                         $response['data'] = Order::orderBreakdown($decoded);
                     }
 
-//                    $order->push();
+                    //                    $order->push();
 
                 } else {
                     $response['error'] = 'Bad JSON';
@@ -155,8 +155,8 @@ class AppController extends Controller
                 $content = trim(file_get_contents('php://input'));
 
                 $decoded = json_decode($content, true);
-//                    var_dump($content);
-//                    exit();
+                //                    var_dump($content);
+                //                    exit();
 
                 if (is_array($decoded)) {
                     if (Order::orderBreakdown($decoded) === false) {
@@ -167,8 +167,6 @@ class AppController extends Controller
                         $order = new Order($decoded);
                         $order->push();
                     }
-
-
                 } else {
                     $response['error'] = 'Bad JSON';
                 }

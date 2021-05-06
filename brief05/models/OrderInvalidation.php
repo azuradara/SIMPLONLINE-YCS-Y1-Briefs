@@ -13,7 +13,7 @@ class OrderInvalidation extends \app\core\BaseDBModel
             'rooms' => $rooms,
             'children' => $children,
             'ratesId' => $ratesId
-            ) = $arr;
+        ) = $arr;
 
         if (!isset($rooms) || count($rooms) == 0) {
             return false;
@@ -60,8 +60,8 @@ class OrderInvalidation extends \app\core\BaseDBModel
 
             $total = $c['ch_opt'] !== 'none'
                 ? $c['ch_opt'] !== 'single'
-                    ? $rates['tax_single'] * ($rates['tax_' . $c['ch_opt']] / 100)
-                    : $rates['tax_single']
+                ? $rates['tax_single'] * ($rates['tax_' . $c['ch_opt']] / 100)
+                : $rates['tax_single']
                 : 0;
 
             array_push($receipt['children'], ['total' => $total]);

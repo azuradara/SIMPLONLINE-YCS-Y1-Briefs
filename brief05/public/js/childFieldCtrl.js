@@ -1,8 +1,8 @@
 class Child {
     static RANGES = [
-        {range: [0, 2], subcat: 1},
-        {range: [3, 14], subcat: 2},
-        {range: [15, 18], subcat: 3}
+        { range: [0, 2], subcat: 1 },
+        { range: [3, 14], subcat: 2 },
+        { range: [15, 18], subcat: 3 }
     ]
 
     constructor(el, id) {

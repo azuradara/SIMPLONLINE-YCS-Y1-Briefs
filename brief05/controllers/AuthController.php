@@ -42,7 +42,7 @@ class AuthController extends Controller
     public function signup(Request $req): bool|array|string
     {
         $user = new User();
-//        $err = [];
+        //        $err = [];
 
         if ($req->isPOST()) {
             $user->getData($req->getReqBody());

@@ -1,4 +1,6 @@
-<?php /** @noinspection PhpIncludeInspection */
+<?php
+
+/** @noinspection PhpIncludeInspection */
 
 /** @noinspection PhpIncludeInspection */
 
@@ -45,10 +47,10 @@ class View
         return ob_get_clean();
     }
 
-//    public function renderContent($content)
-//    {
-//        $layoutContent = $this->layoutContent();
-//
-//        return str_replace('{{content}}', $content, $layoutContent);
-//    }
+    //    public function renderContent($content)
+    //    {
+    //        $layoutContent = $this->layoutContent();
+    //
+    //        return str_replace('{{content}}', $content, $layoutContent);
+    //    }
 }

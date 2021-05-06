@@ -91,7 +91,10 @@ class Reservation {
         cart.innerHTML =
             '<div class="flex items-center justify-between">' +
             `<div class="font-bold text-gray-600 text-lg">TOTAL</div>` +
-            `<div>${new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(res.data.total)} / day</div>` +
+            `<div>${new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(res.data.total)} / day</div>` +
             '</div>'
         this.renderPushBtn()
         return true
