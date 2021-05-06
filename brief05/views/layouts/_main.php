@@ -100,9 +100,6 @@ use app\core\Application;
                             <a href="/reservations"
                                class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Reservations</a>
                         <?php endif; ?>
-
-                        <a href="/"
-                           class="nav__link px-3 py-2 rounded-md text-md font-medium hover:bg-gray-50">Other</a>
                     </div>
                 </div>
             </div>
@@ -171,9 +168,6 @@ use app\core\Application;
 
             <a href="/reservations"
                class="text-gray-600 hover:bg-yellow-500 hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">Reservations</a>
-
-            <a href="/"
-               class="text-gray-600 hover:bg-yellow-500 hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">Other</a>
             <?php if (Application::guestUser()) : ?>
                 <hr class="border-0 bg-gray-300 text-gray-500 h-px my-4">
                 <a href="/login"

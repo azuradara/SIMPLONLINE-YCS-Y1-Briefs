@@ -15,6 +15,7 @@ class AuthController extends Controller
 
     // $this->socketView('blank');
     // this method to socket content in a different view
+    // nvm don't need this
 
     public function __construct()
     {

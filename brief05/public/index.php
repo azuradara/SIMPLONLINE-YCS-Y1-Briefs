@@ -20,10 +20,6 @@ $config = [
 
 $app = new Application(dirname(__DIR__), $config);
 
-$app->on(Application::EV_PRE_REQ, function () {
-    // echo 'pre-req';
-});
-
 $app->router->get('/', [AppController::class, '_render_home']);
 $app->router->get('/reservations', [AppController::class, 'reservations']);
 
@@ -34,9 +30,6 @@ $app->router->post('/rates', [AppController::class, 'rates']);
 
 $app->router->post('/validateres', [AppController::class, 'validateres']);
 $app->router->post('/pushres', [AppController::class, 'pushres']);
-
-$app->router->get('/contact', [AppController::class, 'contact']);
-$app->router->post('/contact', [AppController::class, 'contact']);
 
 $app->router->get('/login', [AuthController::class, 'login']);
 $app->router->get('/signup', [AuthController::class, 'signup']);

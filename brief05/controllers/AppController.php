@@ -32,22 +32,6 @@ class AppController extends Controller
         return $this->render('home', $crumbs);
     }
 
-    public function contact(Request $req, Response $res): bool|array|string
-    {
-        $contact = new ContactForm();
-
-        if ($req->isPOST()) {
-            $contact->getData($req->getReqBody());
-
-            if ($contact->validate() && $contact->push()) {
-                Application::$app->session->setPop('success', 'Thanks for contacting us, we\'ll get back to you soon!');
-                return $res->redirect('/contact');
-            }
-        }
-
-        return $this->render('contact', ['model' => $contact]);
-    }
-
     public function reservations(Request $req, Response $res)
     {
         return $this->render('reservations');
