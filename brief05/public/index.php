@@ -1,9 +1,10 @@
 <?php
 
+use app\models\User;
+use app\core\Application;
 use app\controllers\AppController;
 use app\controllers\AuthController;
-use app\core\Application;
-use app\models\User;
+use app\controllers\OrderController;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
@@ -26,10 +27,10 @@ $app->router->get('/reservations', [AppController::class, 'reservations']);
 $app->router->get('/dashboard', [AppController::class, 'dashboard']);
 $app->router->post('/dashboard', [AppController::class, 'dashboard']);
 
-$app->router->post('/rates', [AppController::class, 'rates']);
+$app->router->post('/rates', [OrderController::class, 'getRates']);
 
-$app->router->post('/validateres', [AppController::class, 'validateres']);
-$app->router->post('/pushres', [AppController::class, 'pushres']);
+$app->router->post('/validateres', [OrderController::class, 'checkReservation']);
+$app->router->post('/pushres', [OrderController::class, 'pushReservation']);
 
 $app->router->get('/login', [AuthController::class, 'login']);
 $app->router->get('/signup', [AuthController::class, 'signup']);

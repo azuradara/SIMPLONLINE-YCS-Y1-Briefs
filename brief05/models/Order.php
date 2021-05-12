@@ -3,7 +3,7 @@
 
 namespace app\models;
 
-
+use app\controllers\OrderController;
 use app\core\Application;
 use app\models\components\Child;
 use app\models\components\Room;
@@ -19,10 +19,10 @@ class Order extends OrderInvalidation
     public array $order = [];
     public array $body;
 
-    public function __construct(array $order)
+    public function __construct(array $order, array $receipt)
     {
         $this->body = $order;
-        $this->receipt = self::orderBreakdown($order);
+        $this->receipt = $receipt;
 
         $this->ord_id = uniqid(rand(), true);
         $this->ord_usr_id = Application::$app?->user->usr_id;
