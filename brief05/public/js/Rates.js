@@ -3,7 +3,7 @@ class Rates {
     static data = {}
 
     static async refresh() {
-        await postData('/rates').then(res => {
+        await postData('/rates', '[]').then(res => {
             let d = res.data
 
             Rates.tax_single = d.tax_single

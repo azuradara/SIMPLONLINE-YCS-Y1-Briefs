@@ -25,24 +25,24 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'dev-main',
-    'version' => 'dev-main',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => '01b2a34009bf073883debdb418edf821e385ab2c',
+    'reference' => '463e71b57543da7e521fe8c03d9611c72262c9f7',
     'name' => 'dara/mvc-framework-php',
   ),
   'versions' => 
   array (
     'dara/mvc-framework-php' => 
     array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => '01b2a34009bf073883debdb418edf821e385ab2c',
+      'reference' => '463e71b57543da7e521fe8c03d9611c72262c9f7',
     ),
     'graham-campbell/result-type' => 
     array (

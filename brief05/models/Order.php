@@ -3,12 +3,13 @@
 
 namespace app\models;
 
-
+use app\controllers\OrderController;
 use app\core\Application;
+use app\core\BaseDBModel;
 use app\models\components\Child;
 use app\models\components\Room;
 
-class Order extends OrderInvalidation
+class Order extends BaseDBModel
 {
 
     public string $ord_id = '';
@@ -19,16 +20,18 @@ class Order extends OrderInvalidation
     public array $order = [];
     public array $body;
 
-    public function __construct(array $order)
+    public function __construct(array $order, array $receipt)
     {
         $this->body = $order;
-        $this->receipt = self::orderBreakdown($order);
+        $this->receipt = $receipt;
 
         $this->ord_id = uniqid(rand(), true);
         $this->ord_usr_id = Application::$app?->user->usr_id;
         $this->ord_rates_id = $order['ratesId'];
         $this->ord_total = $this->receipt['total'];
     }
+
+
 
     //    public static function paraInit()
     //    {
@@ -68,5 +71,25 @@ class Order extends OrderInvalidation
         }
 
         return true;
+    }
+
+    public static function get_table(): string
+    {
+        return 'orders';
+    }
+
+    public static function get_pk(): string
+    {
+        return 'ord_id';
+    }
+
+    public function get_rows(): array
+    {
+        return ['ord_id', 'ord_usr_id', 'ord_rates_id', 'ord_total'];
+    }
+
+    public function ruleset(): array
+    {
+        return [];
     }
 }
