@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'af2910ee7831f1c72b9b02c1657ef0ff30f3c134',
+    'reference' => '463e71b57543da7e521fe8c03d9611c72262c9f7',
     'name' => 'dara/mvc-framework-php',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'af2910ee7831f1c72b9b02c1657ef0ff30f3c134',
+      'reference' => '463e71b57543da7e521fe8c03d9611c72262c9f7',
     ),
     'graham-campbell/result-type' => 
     array (
