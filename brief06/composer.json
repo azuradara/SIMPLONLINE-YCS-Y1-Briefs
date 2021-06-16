@@ -1,0 +1,19 @@
+{
+  "name": "dara/mvc-framework-php",
+  "description": "mvc framework for php",
+  "authors": [
+    {
+      "name": "Dara",
+      "email": "dara-@outlook.jp"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "app\\": "./"
+    }
+  },
+  "require": {
+    "vlucas/phpdotenv": "^5.3",
+    "ext-pdo": "*"
+  }
+}
