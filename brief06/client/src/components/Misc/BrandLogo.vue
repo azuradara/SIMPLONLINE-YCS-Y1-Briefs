@@ -1,7 +1,6 @@
 <template>
   <svg
-    width="189"
-    height="191"
+    :width="size"
     viewBox="0 0 189 191"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -116,5 +115,7 @@
 <script>
 export default {
   name: "BrandLogo",
+  props: ["size"],
+  setup() {},
 };
 </script>

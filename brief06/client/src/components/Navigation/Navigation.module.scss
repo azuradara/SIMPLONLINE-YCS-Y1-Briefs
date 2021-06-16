@@ -1,3 +1,62 @@
-.yae {
-  width: 1px;
+.navbar {
+  display: flex;
+  // background-color: #ccc;
+  height: 64px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  a {
+    text-decoration: none;
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navigation {
+  flex-grow: 1;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  padding: 0 40px;
+  display: flex;
+  max-width: 600px;
+  flex-grow: 1;
+  box-pack: justify;
+  justify-content: space-between;
+  a {
+    color: #414141;
+    transition: color 150ms ease-out;
+    &:hover {
+      color: #166d70;
+    }
+  }
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    flex-shrink: 0;
+    border-radius: 4px;
+    text-shadow: rgba(0, 0, 0, 0.25) 0px 3px 8px;
+    border: medium none;
+    transition: all 500ms ease 0s;
+    display: grid;
+    place-items: center;
+    font-weight: 500;
+    color: white !important;
+    height: 2rem;
+    padding: 0px 1rem;
+    background: #166d70;
+  }
 }
