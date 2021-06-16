@@ -1,0 +1,28 @@
+.parallax {
+  background: url('../../../assets/Home/hero.jpg') no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+
+  .textarea {
+    position: absolute;
+    bottom: 10rem;
+    left: 7rem;
+    h1 {
+      color: white;
+      // font-size: 3rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      letter-spacing: 0px;
+      line-height: 98px;
+      font-size: 92px;
+      margin-bottom: 2rem;
+    }
+    p {
+      color: rgba($color: #fff, $alpha: 0.8);
+      font-size: 18px;
+      font-weight: lighter;
+      max-width: 750px;
+    }
+  }
+}

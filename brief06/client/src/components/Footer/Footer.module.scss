@@ -1,0 +1,26 @@
+.footer {
+  background: #166d70;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: white;
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      color: rgba($color: #fff, $alpha: 0.5);
+    }
+  }
+}

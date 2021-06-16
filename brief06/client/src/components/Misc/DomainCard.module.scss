@@ -1,0 +1,47 @@
+.domaincard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  .imgcontainer {
+    height: 50px;
+    display: grid;
+    place-items: center;
+
+    img {
+      transition: all 400ms ease-out;
+    }
+  }
+
+  h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 2rem;
+    position: relative;
+    transition: all 250ms ease-out;
+    // color: white;
+  }
+
+  p {
+    // color: white;
+    font-size: 16px;
+    transition: all 250ms ease-out;
+  }
+
+  &:hover {
+    .imgcontainer img {
+      opacity: 0;
+      transform: scale(0);
+      transform-origin: bottom;
+    }
+
+    h4 {
+      transform: translateY(-3rem);
+    }
+
+    p {
+      transform: translateY(-3rem);
+    }
+  }
+}

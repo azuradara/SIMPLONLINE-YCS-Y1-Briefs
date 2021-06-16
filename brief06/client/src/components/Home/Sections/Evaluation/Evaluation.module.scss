@@ -1,0 +1,40 @@
+.parallax {
+  background: url('../../../../assets/Home/scale.jpg') no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 40rem;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  .content {
+    margin: auto;
+    grid-column: 1 / span 2;
+    max-width: 1200px;
+    padding: 2rem;
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+    }
+    p {
+      max-width: 600px;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      font-size: 18px;
+      font-weight: lighter;
+      color: rgba($color: #fff, $alpha: 0.8);
+    }
+    .ctabutton {
+      color: white;
+      background: #166d70;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 1rem 2rem;
+      width: max-content;
+      transition: 250ms all ease-in-out;
+
+      &:hover {
+        background: #135f61;
+      }
+    }
+  }
+}
