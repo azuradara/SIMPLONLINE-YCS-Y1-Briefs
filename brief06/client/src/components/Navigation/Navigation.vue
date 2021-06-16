@@ -46,8 +46,9 @@ export default {
     let bgDark = ref(false);
     document.addEventListener("scroll", () => {
       let pos = document.body.getBoundingClientRect().top;
+      let threshold = window.innerWidth <= 1200 ? 100 : window.innerHeight;
 
-      bgDark.value = pos < -window.innerHeight ? true : false;
+      bgDark.value = pos < -threshold ? true : false;
     });
 
     return {

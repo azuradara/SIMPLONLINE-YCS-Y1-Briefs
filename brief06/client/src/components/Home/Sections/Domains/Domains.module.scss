@@ -10,3 +10,12 @@
     padding: 5rem 0;
   }
 }
+
+@media only screen and (max-width: 1200px) {
+  .domains .wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+}

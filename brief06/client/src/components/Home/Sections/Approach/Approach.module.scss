@@ -66,3 +66,21 @@
     }
   }
 }
+
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    .section {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+
+      h3 {
+        text-align: center;
+      }
+
+      .footertext {
+        display: none;
+      }
+    }
+  }
+}
