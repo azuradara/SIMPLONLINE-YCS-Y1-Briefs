@@ -35,17 +35,15 @@ class AuthController extends Controller
                 return true;
             }
         }
-
-        return $this->render('login', ['model' => $login]);
     }
 
-    public function signup(Request $req): bool|array|string
+    public function signup(Request $req, Response $res)
     {
         $user = new User();
         //        $err = [];
 
         if ($req->isPOST()) {
-            $user->getData($req->getReqBody());
+            $user->getData($req->getJSON());
 
             // var_dump($user);
 
@@ -55,13 +53,10 @@ class AuthController extends Controller
                 exit;
             }
 
-            // var_dump($user->err);
-
-            return $this->render('signup', ['model' => $user]);
+            return $res->sendJSON($user);
         }
 
-
-        return $this->render('signup', ['model' => $user]);
+        return $res->sendJSON([], 'error');
     }
 
     public function logout(Request $req, Response $res)
@@ -69,10 +64,5 @@ class AuthController extends Controller
         Application::$app->logout();
         Application::$app->session->setPop('success', 'Logged out');
         $res->redirect('/');
-    }
-
-    public function profile(): bool|array|string
-    {
-        return $this->render('profile');
     }
 }

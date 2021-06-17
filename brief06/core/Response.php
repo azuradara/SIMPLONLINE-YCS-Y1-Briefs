@@ -15,4 +15,16 @@ class Response
         header('Location: ' . $string);
     }
 
+    public function sendJSON($data, $error = null)
+    {
+        $body = [
+            'error' => $error,
+            'data' => null
+        ];
+
+        $body['data'] = $data;
+
+        echo json_encode($body);
+        return;
+    }
 }

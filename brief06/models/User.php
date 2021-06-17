@@ -12,9 +12,12 @@ class User extends UserModel
 
 
     public string $usr_id = '';
-    public string $usr_fname = '';
-    public string $usr_lname = '';
+    public string $usr_name = '';
     public string $usr_email = '';
+    public string $usr_bday = '';
+    public string $usr_address = '';
+    public string $usr_profession = '';
+    public string $usr_pnum = '';
     public string $usr_pwd = '';
     public string $usr_pwd_rpt = '';
 
@@ -40,14 +43,17 @@ class User extends UserModel
 
     public function get_rows(): array
     {
-        return ['usr_id', 'usr_fname', 'usr_lname', 'usr_email', 'usr_pwd', 'usr_state'];
+        return ['usr_id', 'usr_name', 'usr_bday', 'usr_email', 'usr_pwd', 'usr_state', 'usr_address', 'usr_profession', 'usr_pnum'];
     }
 
     public function ruleset(): array
     {
         return [
-            'usr_fname' => [self::RL_REQUIRED],
-            'usr_lname' => [self::RL_REQUIRED],
+            'usr_name' => [self::RL_REQUIRED],
+            'usr_bday' => [self::RL_REQUIRED, self::RL_DATE],
+            'usr_address' => [self::RL_REQUIRED],
+            'usr_profession' => [self::RL_REQUIRED],
+            'usr_pnum' => [self::RL_REQUIRED, self::RL_PHONE],
             'usr_email' => [self::RL_REQUIRED, self::RL_EMAIL, [self::RL_UNIQ, 'class' => self::class]],
             'usr_pwd' => [self::RL_REQUIRED],
             'usr_pwd_rpt' => [self::RL_REQUIRED, [self::RL_MATCH, 'matches' => 'usr_pwd']],

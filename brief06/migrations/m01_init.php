@@ -13,10 +13,13 @@ class m01_init
 				create table users (
 					usr_id varchar(255) primary key,
 					usr_state int not null,
-					usr_fname varchar(255) not null,
-					usr_lname varchar(255) not null,
+					usr_name varchar(255) not null,
 					usr_email varchar(255) unique not null,
 					usr_pwd varchar(255) not null,
+                    usr_profession varchar(255) not null,
+                    usr_address varchar(255) not null,
+                    usr_pnum varchar(255) not null,
+                    usr_bday date not null,
 					usr_creation_date timestamp default current_timestamp
 				);
 		';

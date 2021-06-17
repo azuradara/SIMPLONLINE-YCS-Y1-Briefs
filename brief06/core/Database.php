@@ -67,7 +67,7 @@ class Database
 			id serial primary key,
 			mig varchar(128),
 			creation_date timestamp default current_timestamp
-		) ENGINE=INNODB;
+		);
 		');
     }
 
@@ -81,7 +81,7 @@ class Database
 
     public function saveMigs(array $migs)
     {
-        $vals = implode(',', array_map(fn($m) => "('$m')", $migs));
+        $vals = implode(',', array_map(fn ($m) => "('$m')", $migs));
 
         $stmt = $this->driver->prepare("insert into migs (mig) values $vals");
         $stmt->execute();

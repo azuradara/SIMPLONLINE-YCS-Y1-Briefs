@@ -23,6 +23,8 @@ $app = new Application(dirname(__DIR__), $config);
 
 $app->router->get('/', [AppController::class, 'ye']);
 
+$app->router->post('/api/signup', [AuthController::class, 'signup']);
+
 // $app->router->get('/', [AppController::class, '_render_home']);
 // $app->router->get('/reservations', [AppController::class, 'reservations']);
 

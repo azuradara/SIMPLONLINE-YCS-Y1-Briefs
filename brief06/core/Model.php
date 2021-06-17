@@ -1,4 +1,6 @@
-<?php /** @noinspection PhpUnnecessaryCurlyVarSyntaxInspection */
+<?php
+
+/** @noinspection PhpUnnecessaryCurlyVarSyntaxInspection */
 
 namespace app\core;
 
@@ -11,6 +13,8 @@ abstract class Model
     public const RL_MATCH = 'match';
     public const RL_UNIQ = 'unique';
     public const RL_INTEGER = 'integer';
+    public const RL_PHONE = 'phone';
+    public const RL_DATE = 'date';
 
     public array $err = [];
 
@@ -37,6 +41,17 @@ abstract class Model
 
                 if ($flag === self::RL_REQUIRED && !$val) {
                     $this->resolveRuleErr($attr, self::RL_REQUIRED);
+                }
+
+                if ($flag === self::RL_PHONE && !preg_match('/^[0-9]{8,15}/', $val)) {
+                    $this->resolveRuleErr($attr, self::RL_PHONE);
+                }
+
+                if ($flag === self::RL_DATE) {
+                    $dateArr = explode('/', $val);
+                    if ((count($dateArr) !== 3) || !checkdate(...$dateArr)) {
+                        $this->resolveRuleErr($attr, self::RL_DATE);
+                    }
                 }
 
                 if ($flag === self::RL_EMAIL && !filter_var($val, FILTER_VALIDATE_EMAIL)) {
@@ -86,9 +101,10 @@ abstract class Model
 
     private function resolveRuleErr(string $attr, string $flag, $par = [])
     {
+        $param = (array) $par;
         $msg = $this->resolveErr()[$flag] ?? '';
 
-        foreach ($par as $k => $val) {
+        foreach ($param as $k => $val) {
             $msg = str_replace("{{$k}}", $val, $msg);
         }
 
@@ -104,7 +120,9 @@ abstract class Model
             self::RL_MAX => 'This field cannot be longer than {val} characters.',
             self::RL_MATCH => 'This field must match {matches}.',
             self::RL_UNIQ => 'This {input} already exists.',
-            self::RL_INTEGER => 'This field only accepts integers.'
+            self::RL_INTEGER => 'This field only accepts integers.',
+            self::RL_DATE => 'Invalid Date.',
+            self::RL_PHONE => 'Invalid Phone Number.'
         ];
     }
 

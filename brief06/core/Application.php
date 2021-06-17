@@ -62,7 +62,7 @@ class Application
             echo $this->router->resolve();
         } catch (Exception $e) {
             $this->res->setStatusCode($e->getCode());
-            echo json_encode(['error' => $e->getCode()]);
+            echo json_encode(['error' => $e->getMessage()]);
         }
     }
 
