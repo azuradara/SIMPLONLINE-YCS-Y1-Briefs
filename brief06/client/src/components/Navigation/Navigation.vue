@@ -3,7 +3,13 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div> -->
-  <header :class="[styles.header, bgDark ? styles.headerwithbg : '']">
+  <header
+    :class="[
+      styles.header,
+      bgDark ? styles.headerwithbg : '',
+      !isHome ? styles.notHome : '',
+    ]"
+  >
     <div :class="[styles.navbar]">
       <div :class="[styles.logo]">
         <BrandLogo size="32" />
@@ -20,9 +26,13 @@
         </div>
       </div>
 
-      <div :class="[styles.cta]">
+      <div v-if="!user" :class="[styles.cta]">
         <router-link to="/login">Log in</router-link>
         <button>Sign up</button>
+      </div>
+      <div v-if="user" :class="[styles.cta]">
+        <a href="javascript:void(0)" @click="logOut">Log out</a>
+        <button>Get Evaluation</button>
       </div>
     </div>
   </header>
@@ -32,7 +42,9 @@
 import styles from "./Navigation.module.scss";
 import BrandLogo from "../Misc/BrandLogo.vue";
 import BrandText from "../Misc/BrandText.vue";
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 export default {
   name: "Navigation",
@@ -43,7 +55,12 @@ export default {
   },
 
   setup() {
+    const router = useRouter();
+    const store = useStore();
     let bgDark = ref(false);
+
+    const user = computed(() => store.getters.user);
+
     document.addEventListener("scroll", () => {
       let pos = document.body.getBoundingClientRect().top;
       let threshold = window.innerWidth <= 1200 ? 100 : window.innerHeight;
@@ -51,9 +68,22 @@ export default {
       bgDark.value = pos < -threshold ? true : false;
     });
 
+    const isHome = computed(() => {
+      return useRoute().name === "Home" ? true : false;
+    });
+
+    const logOut = () => {
+      localStorage.removeItem("token");
+      store.dispatch("logout");
+      router.push({ path: "/" });
+    };
+
     return {
       styles,
       bgDark,
+      isHome,
+      logOut,
+      user,
     };
   },
 };

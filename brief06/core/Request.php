@@ -79,7 +79,7 @@ class Request
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
 
-    public function getJSON(): stdClass
+    public function getJSON(): stdClass|null
     {
         return json_decode(file_get_contents("php://input"));
     }

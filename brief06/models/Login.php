@@ -13,7 +13,7 @@ class Login extends Model
 {
     public string $usr_email = '';
     public string $usr_pwd = '';
-    public string $jwt = '';
+    public string $token = '';
 
     public function ruleset(): array
     {
@@ -60,7 +60,7 @@ class Login extends Model
 
         );
 
-        $this->jwt = JWT::encode($payload, Application::$SECRET, 'HS512');
+        $this->token = JWT::encode($payload, Application::$SECRET, 'HS512');
 
         // var_dump($user);
         return true;

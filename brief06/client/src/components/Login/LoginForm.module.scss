@@ -1,0 +1,85 @@
+.bg {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    background: url('../../assets/Login/bg.jpg') no-repeat center;
+    background-size: contain;
+    background-attachment: fixed;
+
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+
+    max-width: 500px;
+    border-radius: 4px;
+    width: 100%;
+    margin: auto;
+    height: fit-content;
+
+    padding: 3rem;
+
+    div {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+
+      h3 {
+        font-family: 'Cormorant Garamond', sans-serif;
+        font-weight: 400;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #414141;
+      }
+
+      label {
+        font-size: 1.1rem;
+        font-weight: lighter;
+        color: #414141;
+      }
+
+      input {
+        width: 100%;
+        margin: 0.5rem 0;
+        padding: 0.7rem;
+        border: 1px solid rgba($color: #000000, $alpha: 0.2);
+        border-radius: 4px;
+
+        &:focus,
+        &:hover {
+          outline: 2px solid #166d70;
+        }
+      }
+    }
+  }
+}
+
+.sep {
+  display: block;
+  height: 1px;
+  border-radius: 2px;
+  width: 90%;
+  margin: 0 auto;
+  margin: 1rem;
+  background: rgba($color: #000000, $alpha: 0.3);
+}
+
+.btn {
+  width: 100%;
+  background: #166d70;
+  color: white;
+  font-family: 'Karla', sans-serif;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none;
+
+  &:hover,
+  &:focus {
+    background: #135d5f;
+    cursor: pointer;
+  }
+}

@@ -20,7 +20,7 @@ class Application
     public Response $res;
     public ?Controller $controller = null;
     public Session $session;
-    public ?BaseDBModel $user;
+    public ?UserModel $user;
     protected array $eventListeners = [];
 
     public static string $SECRET = '';

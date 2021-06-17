@@ -31,11 +31,10 @@ class AuthController extends Controller
             $login->getData($req->getJSON());
 
             if ($login->validate() && $login->login()) {
-                Application::$app->session->setPop('success', "Logged in as " . Application::$app->user->getDisplayName());
+                return $res->sendJSON($login);
             }
-            return $res->sendJSON($login);
         }
-        return $res->sendJSON([], 'error');
+        return $res->sendJSON([], 'Invalid Credentials.');
     }
 
     public function signup(Request $req, Response $res)
@@ -64,7 +63,7 @@ class AuthController extends Controller
             $login = new Login();
             if (!$login->authenticate($req)) return $res->sendJSON('Unauthenticated');
 
-            return $res->sendJSON('ye');
+            return $res->sendJSON(Application::$app->user);
         }
     }
 }

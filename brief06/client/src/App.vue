@@ -7,12 +7,29 @@
 <script>
 import Navigation from "./components/Navigation/Navigation.vue";
 import Footer from "./components/Footer/Footer.vue";
+import { onMounted, computed } from "vue";
+import axios from "axios";
+import { useStore } from "vuex";
 
 export default {
-  setup() {},
   components: {
     Navigation,
     Footer,
+  },
+  setup() {
+    const store = useStore();
+
+    const user = computed(() => store.getters.user);
+
+    onMounted(async () => {
+      const res = await axios.get("/api/user");
+      store.dispatch("user", res.data.data);
+      console.log(user.value);
+    });
+
+    return {
+      user,
+    };
   },
 };
 </script>
