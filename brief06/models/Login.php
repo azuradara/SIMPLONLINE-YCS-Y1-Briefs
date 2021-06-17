@@ -69,11 +69,14 @@ class Login extends Model
 
     public function authenticate(Request $req)
     {
-        $data = $req->getJSON();
+        $token = $req->auth;
 
-        if (!property_exists($data, 'token') || empty($data->token)) return false;
+        // var_dump($token);
+        // exit();
 
-        $auth = JWT::decode($data->token, Application::$SECRET, array('HS512'));
+        if (is_null($token)) return false;
+
+        $auth = JWT::decode($token, Application::$SECRET, array('HS512'));
 
         $usr_data = (array) $auth->data;
 
@@ -82,15 +85,10 @@ class Login extends Model
         $user = User::fetchOne(['usr_email' => $this->usr_email]);
 
 
-        if (!$user) {
-            return false;
-        }
-
-        if ($this->usr_pwd !== $user->usr_pwd) {
-            return false;
-        }
+        if (!$user || $this->usr_pwd !== $user->usr_pwd) return false;
 
         Application::$app->login($user);
+
         return true;
     }
 }
