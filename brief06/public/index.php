@@ -12,6 +12,7 @@ $dotenv->load();
 
 $config = [
     'userClass' => User::class,
+    'SECRET' => $_ENV['JWT_SECRET'],
     'db' => [
         'dsn' => $_ENV['DB_DSN'],
         'user' => $_ENV['DB_USER'],
@@ -24,6 +25,9 @@ $app = new Application(dirname(__DIR__), $config);
 $app->router->get('/', [AppController::class, 'ye']);
 
 $app->router->post('/api/signup', [AuthController::class, 'signup']);
+$app->router->post('/api/login', [AuthController::class, 'login']);
+
+$app->router->get('/api/user', [AuthController::class, 'user']);
 
 // $app->router->get('/', [AppController::class, '_render_home']);
 // $app->router->get('/reservations', [AppController::class, 'reservations']);

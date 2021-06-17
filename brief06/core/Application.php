@@ -23,9 +23,12 @@ class Application
     public ?BaseDBModel $user;
     protected array $eventListeners = [];
 
+    public static string $SECRET = '';
+
     public function __construct($root, array $config)
     {
         self::$ROOT_DIR = $root;
+        self::$SECRET = $config['SECRET'];
         self::$app = $this;
 
         $this->db = new Database($config['db']);

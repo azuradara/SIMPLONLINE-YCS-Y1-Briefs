@@ -21,12 +21,10 @@ class Request
         return substr($path, 0, $pos);
     }
 
-    // --Commented out by Inspection START (4/17/2021 5:15 AM):
-    //    #[Pure] public function isGET(): bool
-    //    {
-    //        return $this->method() === 'get';
-    //    }
-    // --Commented out by Inspection STOP (4/17/2021 5:15 AM)
+    #[Pure] public function isGET(): bool
+    {
+        return $this->method() === 'get';
+    }
 
 
     // HELPERS

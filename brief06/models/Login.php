@@ -3,13 +3,17 @@
 
 namespace app\models;
 
-use app\core\Application;
 use app\core\Model;
+use app\models\User;
+use app\core\Request;
+use Firebase\JWT\JWT;
+use app\core\Application;
 
 class Login extends Model
 {
     public string $usr_email = '';
     public string $usr_pwd = '';
+    public string $jwt = '';
 
     public function ruleset(): array
     {
@@ -40,8 +44,53 @@ class Login extends Model
             return false;
         }
 
-        // var_dump($user);
+        $currtime = time();
 
-        return Application::$app->login($user);
+        $payload = array(
+            "iss" => "sanctum",
+            "iat" => $currtime,
+            "nbf" => $currtime,
+            "exp" => $currtime + 604800,
+            "aud" => "users",
+            "data" => array(
+                "id" => $user->usr_id,
+                "usr_email" => $user->usr_email,
+                "usr_pwd" => $user->usr_pwd
+            )
+
+        );
+
+        $this->jwt = JWT::encode($payload, Application::$SECRET, 'HS512');
+
+        // var_dump($user);
+        return true;
+    }
+
+
+    public function authenticate(Request $req)
+    {
+        $data = $req->getJSON();
+
+        if (!property_exists($data, 'token') || empty($data->token)) return false;
+
+        $auth = JWT::decode($data->token, Application::$SECRET, array('HS512'));
+
+        $usr_data = (array) $auth->data;
+
+        $this->getData($usr_data);
+
+        $user = User::fetchOne(['usr_email' => $this->usr_email]);
+
+
+        if (!$user) {
+            return false;
+        }
+
+        if ($this->usr_pwd !== $user->usr_pwd) {
+            return false;
+        }
+
+        Application::$app->login($user);
+        return true;
     }
 }

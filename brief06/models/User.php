@@ -3,7 +3,10 @@
 namespace app\models;
 
 //use app\core\BaseDBModel;
+use app\core\Request;
+use Firebase\JWT\JWT;
 use app\core\UserModel;
+use app\core\Application;
 
 class User extends UserModel
 {
@@ -75,7 +78,7 @@ class User extends UserModel
     {
         // TODO: Implement getDisplayName() method.
 
-        return $this->usr_fname;
+        return $this->usr_name;
     }
 
     public function getState(): string

@@ -2,13 +2,14 @@
 
 namespace app\controllers;
 
-use app\core\Application;
-use app\core\Controller;
-use app\core\middlewares\AuthMD;
-use app\core\Request;
-use app\core\Response;
-use app\models\Login;
 use app\models\User;
+use app\core\Request;
+use app\models\Login;
+use Firebase\JWT\JWT;
+use app\core\Response;
+use app\core\Controller;
+use app\core\Application;
+use app\core\middlewares\AuthMD;
 
 class AuthController extends Controller
 {
@@ -22,19 +23,19 @@ class AuthController extends Controller
         $this->setMds(new AuthMD(['profile']));
     }
 
-    public function login(Request $req, Response $res): bool|array|string
+    public function login(Request $req, Response $res)
     {
         $login = new Login();
 
         if ($req->isPOST()) {
-            $login->getData($req->getReqBody());
+            $login->getData($req->getJSON());
 
             if ($login->validate() && $login->login()) {
                 Application::$app->session->setPop('success', "Logged in as " . Application::$app->user->getDisplayName());
-                $res->redirect('/');
-                return true;
             }
+            return $res->sendJSON($login);
         }
+        return $res->sendJSON([], 'error');
     }
 
     public function signup(Request $req, Response $res)
@@ -49,8 +50,6 @@ class AuthController extends Controller
 
             if ($user->validate() && $user->push()) {
                 Application::$app->session->setPop('success', 'Registration successful!');
-                Application::$app->res->redirect('/');
-                exit;
             }
 
             return $res->sendJSON($user);
@@ -59,10 +58,13 @@ class AuthController extends Controller
         return $res->sendJSON([], 'error');
     }
 
-    public function logout(Request $req, Response $res)
+    public function user(Request $req, Response $res)
     {
-        Application::$app->logout();
-        Application::$app->session->setPop('success', 'Logged out');
-        $res->redirect('/');
+        if ($req->isGET()) {
+            $login = new Login();
+            if (!$login->authenticate($req)) return $res->sendJSON('Unauthenticated');
+
+            return $res->sendJSON('ye');
+        }
     }
 }
