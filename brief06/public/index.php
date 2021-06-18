@@ -54,7 +54,7 @@ $app->router->get('/api/user', [AuthController::class, 'user']);
 
 $app->router->get('/api/all_slots', [SlotController::class, 'allSlots']);
 $app->router->get('/api/user_slots', [SlotController::class, 'userSlots']);
-$app->router->post('/api/save_slot', [SlotController::class, 'saveSlot']);
+$app->router->post('/api/slots', [SlotController::class, 'saveSlot']);
 
 // $app->router->get('/', [AppController::class, '_render_home']);
 // $app->router->get('/reservations', [AppController::class, 'reservations']);

@@ -12,11 +12,12 @@ class Slot extends BaseDBModel
     public string $slt_usr_id = '';
     public string $slt_date = '';
     public string $slt_timeslot = '';
-    public bool $slt_isactive = false;
+    public int $slt_isactive = 1;
 
     public function push(): bool
     {
         $this->slt_id = uniqid(rand(), true);
+        $this->slt_usr_id = Application::$app->user->usr_id;
         return parent::push();
     }
 
@@ -37,6 +38,9 @@ class Slot extends BaseDBModel
 
     public function ruleset(): array
     {
-        return [];
+        return [
+            "slt_date" => [self::RL_DATE, self::RL_REQUIRED],
+            "slt_timeslot" => [self::RL_REQUIRED]
+        ];
     }
 }

@@ -53,7 +53,7 @@ class AuthController extends Controller
             return $res->sendJSON($user);
         }
 
-        return $res->sendJSON([], 'error');
+        return $res->sendJSON([], 'Try a different method.');
     }
 
     public function user(Request $req, Response $res)

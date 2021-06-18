@@ -84,4 +84,19 @@ class SlotController extends Controller
 
         return $res->sendJSON($arr);
     }
+
+    public function saveSlot(Request $req, Response $res)
+    {
+        $slot = new Slot();
+
+        if ($req->isPOST()) {
+            $slot->getData($req->getJSON());
+
+            if ($slot->validate() && $slot->push()) {
+                return $res->sendJSON(["slt_id" => $slot->slt_id, "slt_date" => $slot->slt_date, "slt_timeslot" => $slot->slt_timeslot]);
+            }
+
+            return $res->sendJSON($slot, 1);
+        }
+    }
 }
