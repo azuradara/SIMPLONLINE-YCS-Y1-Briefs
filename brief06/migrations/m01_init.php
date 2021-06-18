@@ -20,7 +20,8 @@ class m01_init
                     usr_address varchar(255) not null,
                     usr_pnum varchar(255) not null,
                     usr_bday date not null,
-					usr_creation_date timestamp default current_timestamp
+					usr_creation_date timestamp default current_timestamp,
+                    usr_active_slot datetime default null,
 				);
 		';
         $db->driver->exec($sql);

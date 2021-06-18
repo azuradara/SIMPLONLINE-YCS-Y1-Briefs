@@ -5,7 +5,6 @@ namespace app\controllers;
 use app\models\User;
 use app\core\Request;
 use app\models\Login;
-use Firebase\JWT\JWT;
 use app\core\Response;
 use app\core\Controller;
 use app\core\Application;
