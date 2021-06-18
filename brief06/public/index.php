@@ -56,26 +56,4 @@ $app->router->get('/api/all_slots', [SlotController::class, 'allSlots']);
 $app->router->get('/api/user_slots', [SlotController::class, 'userSlots']);
 $app->router->post('/api/slots', [SlotController::class, 'saveSlot']);
 
-// $app->router->get('/', [AppController::class, '_render_home']);
-// $app->router->get('/reservations', [AppController::class, 'reservations']);
-
-// $app->router->get('/dashboard', [AppController::class, 'dashboard']);
-// $app->router->post('/dashboard', [AppController::class, 'dashboard']);
-
-// $app->router->post('/rates', [OrderController::class, 'getRates']);
-
-// $app->router->post('/validateres', [OrderController::class, 'checkReservation']);
-// $app->router->post('/pushres', [OrderController::class, 'pushReservation']);
-
-// $app->router->get('/login', [AuthController::class, 'login']);
-// $app->router->get('/signup', [AuthController::class, 'signup']);
-
-// $app->router->post('/login', [AuthController::class, 'login']);
-// $app->router->post('/signup', [AuthController::class, 'signup']);
-
-// // TODO: make logout method POST instead of GET for security reasons
-// $app->router->get('/logout', [AuthController::class, 'logout']);
-
-// $app->router->get('/profile', [AuthController::class, 'profile']);
-
 $app->run();
