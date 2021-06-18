@@ -103,7 +103,7 @@ abstract class Model
 
     private function resolveRuleErr(string $attr, string $flag, $par = [])
     {
-        $param = (array) $par;
+        $param = (array)$par;
         $msg = $this->resolveErr()[$flag] ?? '';
 
         foreach ($param as $k => $val) {

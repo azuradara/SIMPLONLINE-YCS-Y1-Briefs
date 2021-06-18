@@ -1,15 +1,15 @@
 <template>
-  <Navigation />
-  <router-view />
-  <Footer />
+  <Navigation/>
+  <router-view/>
+  <Footer/>
 </template>
 
 <script>
 import Navigation from "./components/Navigation/Navigation.vue";
 import Footer from "./components/Footer/Footer.vue";
-import { onMounted, computed } from "vue";
+import {computed, onMounted} from "vue";
 import axios from "axios";
-import { useStore } from "vuex";
+import {useStore} from "vuex";
 
 export default {
   components: {
@@ -37,6 +37,7 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap");
+
 *,
 *::after,
 *::before {
@@ -49,6 +50,7 @@ export default {
 #app {
   font-family: Karla, sans-serif;
 }
+
 .no-scroll {
   overflow: hidden;
 }
@@ -56,6 +58,7 @@ export default {
 #whitespace {
   height: 7rem;
 }
+
 /* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

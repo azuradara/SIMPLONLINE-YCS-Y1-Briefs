@@ -1,10 +1,10 @@
 <template>
-  <Hero />
-  <Whitespace />
-  <Approach />
-  <Whitespace />
-  <Domains />
-  <Evaluation />
+  <Hero/>
+  <Whitespace/>
+  <Approach/>
+  <Whitespace/>
+  <Domains/>
+  <Evaluation/>
   <!-- <div class="home">ye</div> -->
 </template>
 

@@ -2,7 +2,6 @@
 
 namespace app\core;
 
-use app\core\Request;
 use app\core\middlewares\RootMD;
 
 abstract class Controller

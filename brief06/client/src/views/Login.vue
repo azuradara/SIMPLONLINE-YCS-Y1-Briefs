@@ -1,5 +1,5 @@
 <template>
-  <LoginForm />
+  <LoginForm/>
 </template>
 
 <script>
@@ -9,7 +9,8 @@ import Whitespace from "@/components/Misc/Whitespace.vue";
 export default {
   name: "Login",
 
-  components: { LoginForm, Whitespace },
-  setup() {},
+  components: {LoginForm, Whitespace},
+  setup() {
+  },
 };
 </script>

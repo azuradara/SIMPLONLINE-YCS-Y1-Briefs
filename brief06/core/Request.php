@@ -16,28 +16,17 @@ class Request
         $this->auth = $this->getBearer();
     }
 
-    public function getPath()
+    public function getBearer()
     {
-        $path = $_SERVER['REQUEST_URI'] ?? '/';
-        $pos = strpos($path, '?');
-        if ($pos === false) {
-            return $path;
+        $headers = $this->getAuthHeader();
+
+        if (!empty($headers)) {
+            if (preg_match('/Bearer\s(\S+)/', $headers, $matches)) {
+                return $matches[1];
+            }
         }
 
-        return substr($path, 0, $pos);
-    }
-
-    #[Pure] public function isGET(): bool
-    {
-        return $this->method() === 'get';
-    }
-
-
-    // HELPERS
-
-    #[Pure] public function isPOST(): bool
-    {
-        return $this->method() === 'post';
+        return null;
     }
 
     public function getAuthHeader()
@@ -61,22 +50,33 @@ class Request
         return $headers;
     }
 
-    public function getBearer()
-    {
-        $headers = $this->getAuthHeader();
 
-        if (!empty($headers)) {
-            if (preg_match('/Bearer\s(\S+)/', $headers, $matches)) {
-                return $matches[1];
-            }
+    // HELPERS
+
+    public function getPath()
+    {
+        $path = $_SERVER['REQUEST_URI'] ?? '/';
+        $pos = strpos($path, '?');
+        if ($pos === false) {
+            return $path;
         }
 
-        return null;
+        return substr($path, 0, $pos);
+    }
+
+    #[Pure] public function isGET(): bool
+    {
+        return $this->method() === 'get';
     }
 
     public function method(): string
     {
         return strtolower($_SERVER['REQUEST_METHOD']);
+    }
+
+    #[Pure] public function isPOST(): bool
+    {
+        return $this->method() === 'post';
     }
 
     public function getJSON(): stdClass|null

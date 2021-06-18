@@ -1,7 +1,7 @@
 <template>
   <div :class="styles.domaincard">
     <div :class="styles.imgcontainer">
-      <img :src="img" alt="" />
+      <img :src="img" alt=""/>
     </div>
     <h4>{{ dom.name }}</h4>
     <p>{{ dom.desc }}</p>
@@ -10,6 +10,7 @@
 
 <script>
 import styles from "./DomainCard.module.scss";
+
 export default {
   props: ["dom"],
   name: "DomainCard",

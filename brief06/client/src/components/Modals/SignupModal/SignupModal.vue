@@ -8,49 +8,49 @@
 
         <label>
           <p>Full Name</p>
-          <input type="text" v-model="usr_data.usr_name" />
+          <input v-model="usr_data.usr_name" type="text"/>
         </label>
 
         <label>
           <p>Date of Birth</p>
-          <input type="date" v-model="usr_data.usr_bday" />
+          <input v-model="usr_data.usr_bday" type="date"/>
         </label>
 
         <label>
           <p>Profession</p>
-          <input type="text" v-model="usr_data.usr_profession" />
+          <input v-model="usr_data.usr_profession" type="text"/>
         </label>
 
         <label>
           <p>Phone</p>
-          <input type="text" v-model="usr_data.usr_pnum" />
+          <input v-model="usr_data.usr_pnum" type="text"/>
         </label>
 
         <label>
           <p>Address</p>
-          <input type="text" v-model="usr_data.usr_address" />
+          <input v-model="usr_data.usr_address" type="text"/>
         </label>
 
         <span :class="styles.sep"></span>
 
         <label>
           <p>E-Mail</p>
-          <input type="text" v-model="usr_data.usr_email" />
+          <input v-model="usr_data.usr_email" type="text"/>
         </label>
 
         <label>
           <p>Password</p>
-          <input type="password" v-model="usr_data.usr_pwd" />
+          <input v-model="usr_data.usr_pwd" type="password"/>
         </label>
 
         <label>
           <p>Confirm Password</p>
-          <input type="password" v-model="usr_data.usr_pwd_rpt" />
+          <input v-model="usr_data.usr_pwd_rpt" type="password"/>
         </label>
 
         <span :class="styles.sep"></span>
         <button :class="styles.btn">Submit</button>
-        <p :class="styles.erre" v-if="!isValid">Invalid Data.</p>
+        <p v-if="!isValid" :class="styles.erre">Invalid Data.</p>
       </div>
     </form>
   </div>
@@ -58,16 +58,16 @@
 
 <script>
 import styles from "./SignupModal.module.scss";
-import { ref } from "vue";
+import {ref} from "vue";
 import axios from "axios";
 import "@/lib/axios";
-import { useRouter } from "vue-router";
-import { useStore } from "vuex";
+import {useRouter} from "vue-router";
+import {useStore} from "vuex";
 
 export default {
   name: "SignupModal",
 
-  setup(props, { emit }) {
+  setup(props, {emit}) {
     const store = useStore();
     const router = useRouter();
     const usr_data = ref({
@@ -84,7 +84,7 @@ export default {
     const isValid = ref(true);
 
     const handleSubmit = async () => {
-      let signup_data = { ...usr_data.value };
+      let signup_data = {...usr_data.value};
 
       const res = await axios.post("/api/signup", signup_data);
 
@@ -94,7 +94,7 @@ export default {
 
       isValid.value = true;
 
-      router.push({ path: "/" });
+      router.push({path: "/"});
       emit("close");
     };
 

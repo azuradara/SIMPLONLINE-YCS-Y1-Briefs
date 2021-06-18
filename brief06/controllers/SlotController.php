@@ -2,14 +2,13 @@
 
 namespace app\controllers;
 
-use DateTime;
-use app\models\Slot;
-use app\models\User;
-use app\core\Request;
-use app\models\Login;
-use app\core\Response;
-use app\core\Controller;
 use app\core\Application;
+use app\core\Controller;
+use app\core\Request;
+use app\core\Response;
+use app\models\Login;
+use app\models\Slot;
+use DateTime;
 
 class SlotController extends Controller
 {

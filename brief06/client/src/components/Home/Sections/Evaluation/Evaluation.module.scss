@@ -6,15 +6,18 @@
   color: white;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+
   .content {
     margin: auto;
     grid-column: 1 / span 2;
     max-width: 1200px;
     padding: 2rem;
+
     h3 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 4rem;
     }
+
     p {
       max-width: 600px;
       margin-top: 1rem;
@@ -23,6 +26,7 @@
       font-weight: lighter;
       color: rgba($color: #fff, $alpha: 1);
     }
+
     .ctabutton {
       color: white;
       background: #166d70;

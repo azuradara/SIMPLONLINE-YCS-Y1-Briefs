@@ -1,9 +1,13 @@
 {
-  "include": ["./src/**/*"],
+  "include": [
+    "./src/**/*"
+  ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "components/*": ["src/components/*"]
+      "components/*": [
+        "src/components/*"
+      ]
     }
   }
 }

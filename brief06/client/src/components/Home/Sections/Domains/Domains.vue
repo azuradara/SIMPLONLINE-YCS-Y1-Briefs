@@ -2,7 +2,7 @@
   <div :class="styles.domains">
     <div :class="styles.wrapper">
       <div v-for="dom in doms" v-bind:key="dom.name">
-        <DomainCard :dom="dom" />
+        <DomainCard :dom="dom"/>
       </div>
     </div>
   </div>
@@ -11,6 +11,7 @@
 <script>
 import styles from "./Domains.module.scss";
 import DomainCard from "@/components/Misc/DomainCard.vue";
+
 export default {
   name: "Domains",
   components: {

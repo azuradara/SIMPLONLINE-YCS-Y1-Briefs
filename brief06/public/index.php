@@ -20,11 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
         header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
 }
 
-use app\models\User;
-use app\core\Application;
 use app\controllers\AppController;
 use app\controllers\AuthController;
 use app\controllers\SlotController;
+use app\core\Application;
+use app\models\User;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));

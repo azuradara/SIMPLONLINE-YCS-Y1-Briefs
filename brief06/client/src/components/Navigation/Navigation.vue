@@ -1,10 +1,10 @@
 <template>
   <!-- Modal -->
-  <Modal v-if="modalOn" @close="toggleModal" modalContent="SignupModal" />
+  <Modal v-if="modalOn" modalContent="SignupModal" @close="toggleModal"/>
   <!-- Modal -->
 
   <header
-    :class="[
+      :class="[
       styles.header,
       bgDark ? styles.headerwithbg : '',
       !isHome ? styles.notHome : '',
@@ -12,8 +12,8 @@
   >
     <div :class="[styles.navbar]">
       <div :class="[styles.logo]">
-        <BrandLogo size="32" />
-        <BrandText size="100" />
+        <BrandLogo size="32"/>
+        <BrandText size="100"/>
       </div>
 
       <div :class="[styles.navigation]">
@@ -44,9 +44,9 @@ import BrandLogo from "../Misc/BrandLogo.vue";
 import BrandText from "../Misc/BrandText.vue";
 import Modal from "@/components/Misc/Modal.vue";
 
-import { ref, computed } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import { useStore } from "vuex";
+import {computed, ref} from "vue";
+import {useRoute, useRouter} from "vue-router";
+import {useStore} from "vuex";
 
 export default {
   name: "Navigation",
@@ -84,7 +84,7 @@ export default {
     const logOut = () => {
       localStorage.removeItem("token");
       store.dispatch("logout");
-      router.push({ path: "/" });
+      router.push({path: "/"});
     };
 
     return {

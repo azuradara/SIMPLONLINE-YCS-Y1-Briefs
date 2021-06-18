@@ -3,11 +3,10 @@
 
 namespace app\models;
 
+use app\core\Application;
 use app\core\Model;
-use app\models\User;
 use app\core\Request;
 use Firebase\JWT\JWT;
-use app\core\Application;
 
 class Login extends Model
 {
@@ -78,7 +77,7 @@ class Login extends Model
 
         $auth = JWT::decode($token, Application::$SECRET, array('HS512'));
 
-        $usr_data = (array) $auth->data;
+        $usr_data = (array)$auth->data;
 
         $this->getData($usr_data);
 

@@ -5,6 +5,7 @@
   max-width: 1200px;
   margin: auto;
   padding: 2rem;
+
   a {
     text-decoration: none;
   }
@@ -49,6 +50,7 @@
 a {
   color: #fff;
   transition: color 150ms ease-out;
+
   &:hover {
     color: #166d70;
   }
@@ -59,6 +61,7 @@ a {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+
   button {
     flex-shrink: 0;
     // border-radius: 4px;
@@ -105,12 +108,14 @@ a {
       height: fit-content;
       flex-direction: column;
       gap: 1rem;
+
       .logo {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
       }
+
       .content {
         gap: 0.5rem;
       }
@@ -123,10 +128,12 @@ a {
       height: 60px;
       align-items: center;
       justify-content: center;
+
       .logo {
         flex-direction: row;
       }
     }
+
     .content,
     .cta {
       display: none;

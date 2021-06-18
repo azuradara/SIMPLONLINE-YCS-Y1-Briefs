@@ -12,6 +12,7 @@ class Application
     const EV_POST_REQ = 'postReq';
     public static string $ROOT_DIR;
     public static Application $app;
+    public static string $SECRET = '';
     public string $userClass;
     public string $layout = 'main';
     public Database $db;
@@ -22,8 +23,6 @@ class Application
     public Session $session;
     public ?UserModel $user;
     protected array $eventListeners = [];
-
-    public static string $SECRET = '';
 
     public function __construct($root, array $config)
     {
