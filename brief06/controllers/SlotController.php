@@ -9,6 +9,7 @@ use app\core\Request;
 use app\models\Login;
 use app\core\Response;
 use app\core\Controller;
+use app\core\Application;
 
 class SlotController extends Controller
 {
@@ -39,8 +40,6 @@ class SlotController extends Controller
                 return $res->sendJSON([], "Invalid date format.");
             }
 
-            // validate date here ~
-
             $slots = Slot::fetchAll(['slt_date' => $date]);
 
             $arr = [
@@ -65,7 +64,24 @@ class SlotController extends Controller
                 }
             }
 
-            return $res->sendJSON($data);
+            return $res->sendJSON($arr);
         }
+    }
+
+    public function userSlots(Request $req, Response $res)
+    {
+        $login = new Login();
+
+        if (!$login->authenticate($req))
+            return $res->sendJSON([], 'Unauthenticated.');
+
+        $arr = [
+            "data" => [],
+            "err" => null
+        ];
+
+        $arr["data"] = Slot::fetchAll(['slt_usr_id' => Application::$app->user->usr_id]);
+
+        return $res->sendJSON($arr);
     }
 }
