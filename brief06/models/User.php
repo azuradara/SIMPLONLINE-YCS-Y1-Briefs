@@ -2,11 +2,9 @@
 
 namespace app\models;
 
-//use app\core\BaseDBModel;
-use app\core\Request;
-use Firebase\JWT\JWT;
+
 use app\core\UserModel;
-use app\core\Application;
+
 
 class User extends UserModel
 {

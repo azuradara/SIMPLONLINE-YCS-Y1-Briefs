@@ -21,7 +21,7 @@ class m01_init
                     usr_pnum varchar(255) not null,
                     usr_bday date not null,
 					usr_creation_date timestamp default current_timestamp,
-                    usr_active_slot datetime default null,
+                    usr_has_slot boolean default FALSE
 				);
 		';
         $db->driver->exec($sql);

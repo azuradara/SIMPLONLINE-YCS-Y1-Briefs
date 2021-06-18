@@ -24,11 +24,14 @@ use app\models\User;
 use app\core\Application;
 use app\controllers\AppController;
 use app\controllers\AuthController;
-use app\controllers\OrderController;
+use app\controllers\SlotController;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
+
+// var_dump(User::class);
+// exit();
 
 $config = [
     'userClass' => User::class,
@@ -48,6 +51,10 @@ $app->router->post('/api/signup', [AuthController::class, 'signup']);
 $app->router->post('/api/login', [AuthController::class, 'login']);
 
 $app->router->get('/api/user', [AuthController::class, 'user']);
+
+$app->router->get('/api/all_slots', [SlotController::class, 'allSlots']);
+$app->router->get('/api/user_slots', [SlotController::class, 'userSlots']);
+$app->router->post('/api/save_slot', [SlotController::class, 'saveSlot']);
 
 // $app->router->get('/', [AppController::class, '_render_home']);
 // $app->router->get('/reservations', [AppController::class, 'reservations']);

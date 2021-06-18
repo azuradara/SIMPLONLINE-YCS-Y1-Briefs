@@ -60,7 +60,7 @@ class AuthController extends Controller
     {
         if ($req->isGET()) {
             $login = new Login();
-            if (!$login->authenticate($req)) return $res->sendJSON('Unauthenticated');
+            if (!$login->authenticate($req)) return $res->sendJSON([], 'Unauthenticated');
 
             return $res->sendJSON(Application::$app->user);
         }
