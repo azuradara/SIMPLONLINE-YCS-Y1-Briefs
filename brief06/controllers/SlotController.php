@@ -2,12 +2,13 @@
 
 namespace app\controllers;
 
+use DateTime;
+use app\models\Slot;
 use app\models\User;
 use app\core\Request;
-use app\core\Response;
 use app\models\Login;
+use app\core\Response;
 use app\core\Controller;
-use app\models\Slot;
 
 class SlotController extends Controller
 {
@@ -29,9 +30,14 @@ class SlotController extends Controller
                 return $res->sendJSON([], 'Unauthenticated.');
 
             if (!array_key_exists('date', $req->getReqBody()) || is_null($req->getReqBody()['date']))
-                return $res->sendJSON([], 'Invalid date format');
+                return $res->sendJSON([], 'Invalid date format.');
 
             $date = $req->getReqBody()['date'];
+
+            $dt = DateTime::createFromFormat('Y-m-d', $date);
+            if ($dt === false) {
+                return $res->sendJSON([], "Invalid date format.");
+            }
 
             // validate date here ~
 
