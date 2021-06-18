@@ -1,8 +1,8 @@
 <template>
-  <!-- <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div> -->
+  <!-- Modal -->
+  <Modal v-if="modalOn" @close="toggleModal" modalContent="SignupModal" />
+  <!-- Modal -->
+
   <header
     :class="[
       styles.header,
@@ -28,7 +28,7 @@
 
       <div v-if="!user" :class="[styles.cta]">
         <router-link to="/login">Log in</router-link>
-        <button>Sign up</button>
+        <button @click="toggleModal">Sign up</button>
       </div>
       <div v-if="user" :class="[styles.cta]">
         <a href="javascript:void(0)" @click="logOut">Log out</a>
@@ -42,6 +42,8 @@
 import styles from "./Navigation.module.scss";
 import BrandLogo from "../Misc/BrandLogo.vue";
 import BrandText from "../Misc/BrandText.vue";
+import Modal from "@/components/Misc/Modal.vue";
+
 import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
@@ -52,14 +54,21 @@ export default {
   components: {
     BrandLogo,
     BrandText,
+    Modal,
   },
 
   setup() {
     const router = useRouter();
     const store = useStore();
     let bgDark = ref(false);
+    let modalOn = ref(false);
 
     const user = computed(() => store.getters.user);
+
+    const toggleModal = () => {
+      // console.log(modalOn.value);
+      modalOn.value = !modalOn.value;
+    };
 
     document.addEventListener("scroll", () => {
       let pos = document.body.getBoundingClientRect().top;
@@ -84,6 +93,8 @@ export default {
       isHome,
       logOut,
       user,
+      modalOn,
+      toggleModal,
     };
   },
 };

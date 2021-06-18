@@ -1,11 +1,11 @@
 .bg {
-  min-height: 80vh;
+  //   min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
 
   form {
-    background: url('../../assets/Login/bg.jpg') no-repeat center;
+    // background: url('../../assets/Login/bg.jpg') no-repeat center;
     background-size: contain;
     background-attachment: fixed;
 
@@ -14,13 +14,13 @@
     // justify-content: center;
     // align-items: center;
 
-    max-width: 500px;
+    // max-width: 500px;
     border-radius: 4px;
     width: 100%;
     margin: auto;
     height: fit-content;
 
-    padding: 3rem;
+    // padding: 3rem;
 
     div {
       background: white;
@@ -84,22 +84,11 @@
   padding: 0.5rem;
   font-size: 1rem;
   border: none;
-  cursor: pointer;
 
   &:hover,
   &:focus {
     background: #135d5f;
-  }
-
-  &:disabled {
-    cursor: default;
-    background: #ccc;
-    color: #717171;
-
-    &:hover,
-    &:focus {
-      background: #ccc;
-    }
+    cursor: pointer;
   }
 }
 

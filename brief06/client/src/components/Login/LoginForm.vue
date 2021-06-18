@@ -1,6 +1,6 @@
 <template>
   <div :class="styles.bg">
-    <form @submit.prevent="handleSubmit">
+    <form @submit.prevent="handleSubmit" @input="validateInputs">
       <div>
         <h3>Log in</h3>
 
@@ -9,15 +9,18 @@
         <label>
           <p>E-Mail</p>
           <input type="text" v-model="usr_data.usr_email" />
+          <p v-if="!email_valid" :class="styles.err">Invalid E-Mail</p>
         </label>
 
         <label>
           <p>Password</p>
           <input type="password" v-model="usr_data.usr_pwd" />
+          <p v-if="!pwd_valid" :class="styles.err">Invalid Password</p>
         </label>
 
         <span :class="styles.sep"></span>
-        <button :class="styles.btn">Log in</button>
+        <button :disabled="!isValid" :class="styles.btn">Log in</button>
+        <p :class="styles.erre" v-if="authFailed">Invalid Credentials.</p>
       </div>
     </form>
   </div>
@@ -38,6 +41,25 @@ export default {
     const router = useRouter();
     const usr_data = ref({ usr_email: "", usr_pwd: "" });
 
+    const email_valid = ref(true);
+    const pwd_valid = ref(true);
+    const isValid = ref(false);
+
+    const authFailed = ref(false);
+
+    const validateInputs = () => {
+      const re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+      email_valid.value =
+        re.test(String(usr_data.value.usr_email).toLowerCase()) &&
+        usr_data.value.usr_email;
+
+      pwd_valid.value = usr_data.value.usr_pwd ? true : false;
+
+      isValid.value = pwd_valid.value && email_valid.value;
+    };
+
     const handleSubmit = async () => {
       let login_data = {
         usr_email: usr_data.value.usr_email,
@@ -45,6 +67,12 @@ export default {
       };
 
       const res = await axios.post("/api/login", login_data);
+
+      if (res.data.error) {
+        return (authFailed.value = true);
+      }
+
+      authFailed.value = true;
 
       localStorage.setItem("token", res.data.data.token);
 
@@ -56,6 +84,11 @@ export default {
       styles,
       handleSubmit,
       usr_data,
+      isValid,
+      email_valid,
+      pwd_valid,
+      validateInputs,
+      authFailed,
     };
   },
 };

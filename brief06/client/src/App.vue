@@ -49,6 +49,9 @@ export default {
 #app {
   font-family: Karla, sans-serif;
 }
+.no-scroll {
+  overflow: hidden;
+}
 
 #whitespace {
   height: 7rem;

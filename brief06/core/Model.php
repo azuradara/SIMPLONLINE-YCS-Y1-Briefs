@@ -4,6 +4,8 @@
 
 namespace app\core;
 
+use DateTime;
+
 abstract class Model
 {
     public const RL_REQUIRED = 'required';
@@ -48,8 +50,8 @@ abstract class Model
                 }
 
                 if ($flag === self::RL_DATE) {
-                    $dateArr = explode('/', $val);
-                    if ((count($dateArr) !== 3) || !checkdate(...$dateArr)) {
+                    $dt = DateTime::createFromFormat('Y-m-d', $val);
+                    if ($dt === false) {
                         $this->resolveRuleErr($attr, self::RL_DATE);
                     }
                 }

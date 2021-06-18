@@ -12,7 +12,14 @@ const routes = [
     name: 'Home',
     component: Home,
   },
-  { path: '/login', name: 'Login', component: Login },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+    beforeEnter: (to, from, next) => {
+      store.state.user === null ? next('/') : next();
+    },
+  },
   {
     path: '/about',
     name: 'About',
