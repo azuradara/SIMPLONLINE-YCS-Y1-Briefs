@@ -1,4 +1,13 @@
 .booking {
+  h3 {
+    font-family: 'Cormorant Garamond', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #414141;
+  }
+
   .timeslot_container {
     .datepicker {
       display: flex;

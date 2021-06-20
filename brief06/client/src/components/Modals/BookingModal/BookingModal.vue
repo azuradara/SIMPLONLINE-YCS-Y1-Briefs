@@ -1,8 +1,10 @@
 <template>
   <div :class="styles.booking">
     <div :class="styles.timeslot_container">
+      <h3>Appointment</h3>
+      <span :class="styles.sep"></span>
       <div :class="styles.datepicker">
-        <label>Date of appointment :</label>
+        <label>Appointment date :</label>
         <input
           type="date"
           name="slt_date"

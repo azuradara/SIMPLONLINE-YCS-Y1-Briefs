@@ -78,6 +78,16 @@ class SlotController extends Controller
 
         $arr["data"] = Slot::fetchAll(['slt_usr_id' => Application::$app->user->usr_id]);
 
+        $now = new DateTime();
+
+        foreach ($arr["data"] as $k => $v) {
+            $date = DateTime::createFromFormat('Y-m-d', $arr["data"][$k]["slt_date"]);
+
+            if ($date < $now) {
+                $arr["data"][$k]["slt_isactive"] = false;
+            }
+        }
+
         return $res->sendJSON($arr);
     }
 

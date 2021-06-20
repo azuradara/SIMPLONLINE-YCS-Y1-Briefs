@@ -1,15 +1,15 @@
 <template>
-  <Navigation/>
-  <router-view/>
-  <Footer/>
+  <Navigation />
+  <router-view />
+  <Footer />
 </template>
 
 <script>
 import Navigation from "./components/Navigation/Navigation.vue";
 import Footer from "./components/Footer/Footer.vue";
-import {computed, onMounted} from "vue";
+import { computed, onMounted } from "vue";
 import axios from "axios";
-import {useStore} from "vuex";
+import { useStore } from "vuex";
 
 export default {
   components: {
@@ -23,6 +23,9 @@ export default {
 
     onMounted(async () => {
       const res = await axios.get("/api/user");
+
+      if (res.data.err) return store.dispatch("logout");
+
       store.dispatch("user", res.data.data);
       console.log(user.value);
     });
@@ -49,6 +52,10 @@ export default {
 
 #app {
   font-family: Karla, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
 }
 
 .no-scroll {

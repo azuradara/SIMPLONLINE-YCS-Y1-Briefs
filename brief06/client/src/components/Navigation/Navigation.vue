@@ -21,8 +21,8 @@
           <router-link to="/">Home</router-link>
           <router-link to="/about">About</router-link>
           <router-link to="/team">Team</router-link>
-          <router-link to="/expertise">Expertise</router-link>
           <router-link to="/contact">Contact</router-link>
+          <router-link v-if="user" to="/profile">Profile</router-link>
         </div>
       </div>
 
