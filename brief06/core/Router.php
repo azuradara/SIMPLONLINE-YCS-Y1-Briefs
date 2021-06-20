@@ -29,6 +29,16 @@ class Router
         $this->routes['post'][$path] = $callback;
     }
 
+    public function put($path, $callback)
+    {
+        $this->routes['put'][$path] = $callback;
+    }
+
+    public function delete($path, $callback)
+    {
+        $this->routes['delete'][$path] = $callback;
+    }
+
     /**
      * @throws \app\core\exceptions\NotFoundExc
      */

@@ -2,18 +2,15 @@
 
 // Allow from any origin
 if (isset($_SERVER['HTTP_ORIGIN'])) {
-    // Decide if the origin in $_SERVER['HTTP_ORIGIN'] is one
-    // you want to allow, and if so:
     header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
     header('Access-Control-Allow-Credentials: true');
     header('Access-Control-Max-Age: 86400');    // cache for 1 day
 }
 
-// Access-Control headers are received during OPTIONS requests
+
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
     if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
-        // may also be using PUT, PATCH, HEAD etc
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 
     if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
@@ -50,10 +47,12 @@ $app->router->get('/', [AppController::class, 'ye']);
 $app->router->post('/api/signup', [AuthController::class, 'signup']);
 $app->router->post('/api/login', [AuthController::class, 'login']);
 
-$app->router->get('/api/user', [AuthController::class, 'user']);
-
-$app->router->get('/api/all_slots', [SlotController::class, 'allSlots']);
-$app->router->get('/api/user_slots', [SlotController::class, 'userSlots']);
+$app->router->get('/api/slots', [SlotController::class, 'allSlots']);
 $app->router->post('/api/slots', [SlotController::class, 'saveSlot']);
+$app->router->put('/api/slots', [SlotController::class, 'updateSlot']);
+$app->router->delete('/api/slots', [SlotController::class, 'deleteSlot']);
+
+$app->router->get('/api/user', [AuthController::class, 'user']);
+$app->router->get('/api/user/slots', [SlotController::class, 'userSlots']);
 
 $app->run();

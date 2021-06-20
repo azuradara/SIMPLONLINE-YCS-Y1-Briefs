@@ -1,6 +1,6 @@
 <template>
   <!-- Modal -->
-  <Modal v-if="modalOn" modalContent="SignupModal" @close="toggleModal" />
+  <Modal v-if="modalOn" :modalContent="modalContent" @close="toggleModal" />
   <!-- Modal -->
 
   <header
@@ -28,11 +28,11 @@
 
       <div v-if="!user" :class="[styles.cta]">
         <router-link to="/login">Log in</router-link>
-        <button @click="toggleModal">Sign up</button>
+        <button @click="toggleModal('SignupModal')">Sign up</button>
       </div>
       <div v-if="user" :class="[styles.cta]">
         <a href="javascript:void(0)" @click="logOut">Log out</a>
-        <button>Get Evaluation</button>
+        <button @click="toggleModal('BookingModal')">Get Evaluation</button>
       </div>
     </div>
   </header>
@@ -62,11 +62,12 @@ export default {
     const store = useStore();
     let bgDark = ref(false);
     let modalOn = ref(false);
+    let modalContent = ref("BookingModal");
 
     const user = computed(() => store.getters.user);
 
-    const toggleModal = () => {
-      // console.log(modalOn.value);
+    const toggleModal = (modal) => {
+      modalContent.value = modal;
       modalOn.value = !modalOn.value;
     };
 
@@ -95,6 +96,7 @@ export default {
       user,
       modalOn,
       toggleModal,
+      modalContent,
     };
   },
 };

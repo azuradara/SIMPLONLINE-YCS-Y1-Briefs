@@ -7,16 +7,18 @@
 </template>
 
 <script>
-import {onMounted, onUnmounted} from "@vue/runtime-core";
+import { onMounted, onUnmounted } from "@vue/runtime-core";
 import styles from "./Modal.module.scss";
 
 import SignupModal from "@/components/Modals/SignupModal/SignupModal.vue";
+import BookingModal from "@/components/Modals/BookingModal/BookingModal.vue";
 
 export default {
   name: "Modal",
   props: ["modalContent"],
   components: {
     SignupModal,
+    BookingModal,
   },
   setup() {
     onMounted(() => {
@@ -27,7 +29,7 @@ export default {
       document.body.classList.remove("no-scroll");
     });
 
-    return {styles};
+    return { styles };
   },
 };
 </script>

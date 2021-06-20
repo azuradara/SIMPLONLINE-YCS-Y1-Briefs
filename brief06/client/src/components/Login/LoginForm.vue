@@ -8,13 +8,13 @@
 
         <label>
           <p>E-Mail</p>
-          <input v-model="usr_data.usr_email" type="text"/>
+          <input v-model="usr_data.usr_email" type="text" />
           <p v-if="!email_valid" :class="styles.err">Invalid E-Mail</p>
         </label>
 
         <label>
           <p>Password</p>
-          <input v-model="usr_data.usr_pwd" type="password"/>
+          <input v-model="usr_data.usr_pwd" type="password" />
           <p v-if="!pwd_valid" :class="styles.err">Invalid Password</p>
         </label>
 
@@ -28,18 +28,18 @@
 
 <script>
 import styles from "./LoginForm.module.scss";
-import {ref} from "vue";
+import { ref } from "vue";
 import axios from "axios";
 import "@/lib/axios";
-import {useRouter} from "vue-router";
-import {useStore} from "vuex";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 export default {
   name: "LoginForm",
   setup() {
     const store = useStore();
     const router = useRouter();
-    const usr_data = ref({usr_email: "", usr_pwd: ""});
+    const usr_data = ref({ usr_email: "", usr_pwd: "" });
 
     const email_valid = ref(true);
     const pwd_valid = ref(true);
@@ -49,11 +49,11 @@ export default {
 
     const validateInputs = () => {
       const re =
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
       email_valid.value =
-          re.test(String(usr_data.value.usr_email).toLowerCase()) &&
-          usr_data.value.usr_email;
+        re.test(String(usr_data.value.usr_email).toLowerCase()) &&
+        usr_data.value.usr_email;
 
       pwd_valid.value = usr_data.value.usr_pwd ? true : false;
 
@@ -77,7 +77,7 @@ export default {
       localStorage.setItem("token", res.data.data.token);
 
       store.dispatch("user", res.data.data);
-      router.push({path: "/"});
+      router.push({ path: "/" });
     };
 
     return {

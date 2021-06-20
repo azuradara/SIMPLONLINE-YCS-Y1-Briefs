@@ -41,17 +41,13 @@ class SlotController extends Controller
 
             $slots = Slot::fetchAll(['slt_date' => $date]);
 
-            $arr = [
-                "data" => ["date" => $date, "slots" => []],
-                "err" => null
-            ];
-
-            $data = $arr["data"];
+            $data = ["date" => $date, "slots" => []];
 
             foreach (self::SLOTS as $k => $v) {
                 $data["slots"][$k] = [
                     "S" => $v["S"],
                     "E" => $v["E"],
+                    "slt_timeslot" => $k,
                     "status" => 0,
                 ];
 
@@ -63,7 +59,8 @@ class SlotController extends Controller
                 }
             }
 
-            return $res->sendJSON($arr);
+
+            return $res->sendJSON($data);
         }
     }
 
@@ -86,16 +83,60 @@ class SlotController extends Controller
 
     public function saveSlot(Request $req, Response $res)
     {
+        $login = new Login();
+
+        if (!$login->authenticate($req))
+            return $res->sendJSON([], 'Unauthenticated.');
+
         $slot = new Slot();
 
         if ($req->isPOST()) {
             $slot->getData($req->getJSON());
 
+            $slotExists = Slot::fetchOne([
+                "slt_date" => $slot->slt_date,
+                "slt_timeslot" => $slot->slt_timeslot
+            ]);
+
+
+            if ($slotExists) return $res->sendJSON([], "Slot already reserved.");
+
             if ($slot->validate() && $slot->push()) {
-                return $res->sendJSON(["slt_id" => $slot->slt_id, "slt_date" => $slot->slt_date, "slt_timeslot" => $slot->slt_timeslot]);
+                return $res->sendJSON([
+                    "slt_id" => $slot->slt_id,
+                    "slt_date" => $slot->slt_date,
+                    "slt_timeslot" => $slot->slt_timeslot,
+                    "slt_sub" => $slot->slt_sub,
+                    "slt_desc" => $slot->slt_desc,
+                ]);
             }
 
-            return $res->sendJSON($slot, 1);
+            return $res->sendJSON($slot);
+        }
+    }
+
+    public function deleteSlot(Request $req, Response $res)
+    {
+        $login = new Login();
+
+        if (!$login->authenticate($req))
+            return $res->sendJSON([], 'Unauthenticated.');
+
+        if ($req->isDELETE()) {
+            $slot = $req->getJSON();
+
+            $slotExists = Slot::fetchOne(["slt_id" => $slot->slt_id]);
+
+            if (!($slotExists && $slotExists->slt_isactive)) return $res->sendJSON([], "Slot doesn't exist.");
+
+            $slt_date = DateTime::createFromFormat('Y-m-d', $slotExists->slt_date);
+            $now = new DateTime();
+
+            if ($slt_date < $now) return $res->sendJSON([], 'Cannot mutate past timeslots.');
+
+            if (Slot::destroyOne(["slt_id" => $slot->slt_id])) {
+                return $res->sendJSON("Slot deleted successfully.");
+            }
         }
     }
 }

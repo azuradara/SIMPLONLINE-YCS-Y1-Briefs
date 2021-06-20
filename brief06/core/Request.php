@@ -79,6 +79,16 @@ class Request
         return $this->method() === 'post';
     }
 
+    #[Pure] public function isPUT(): bool
+    {
+        return $this->method() === 'put';
+    }
+
+    #[Pure] public function isDELETE(): bool
+    {
+        return $this->method() === 'delete';
+    }
+
     public function getJSON(): stdClass|null
     {
         return json_decode(file_get_contents("php://input"));

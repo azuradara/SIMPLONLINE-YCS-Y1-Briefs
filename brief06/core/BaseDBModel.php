@@ -12,7 +12,10 @@ abstract class BaseDBModel extends Model
         $table = static::get_table();
         //        call gettable on the class instead of this abstract
         $attr = array_keys($loc);
-        $sql = implode("AND ", array_map(fn($a) => "$a = :$a", $attr));
+        $sql = implode(" AND ", array_map(fn ($a) => "$a = :$a", $attr));
+
+        // var_dump($sql);
+        // exit();
 
         $stmt = self::prepare("SELECT * FROM $table WHERE $sql");
 
@@ -38,7 +41,7 @@ abstract class BaseDBModel extends Model
         $table = static::get_table();
 
         $attr = array_keys($loc);
-        $sql = implode("AND ", array_map(fn($a) => "$a = :$a", $attr));
+        $sql = implode("AND ", array_map(fn ($a) => "$a = :$a", $attr));
         $stmt = self::prepare("SELECT * FROM $table WHERE $sql");
 
         foreach ($loc as $k => $v) {
@@ -49,6 +52,21 @@ abstract class BaseDBModel extends Model
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function destroyOne($loc)
+    {
+        $table = static::get_table();
+        $attr = array_keys($loc);
+        $sql = implode(" AND ", array_map(fn ($a) => "$a = :$a", $attr));
+
+        $stmt = self::prepare("DELETE FROM $table WHERE $sql");
+
+        foreach ($loc as $k => $v) {
+            $stmt->bindValue(":$k", "$v");
+        }
+
+        return $stmt->execute();
     }
 
     public static function fetchLatest($loc)
@@ -79,7 +97,7 @@ abstract class BaseDBModel extends Model
         $table = $this->get_table();
         $rows = $this->get_rows();
 
-        $params = array_map(fn($row) => ":$row", $rows);
+        $params = array_map(fn ($row) => ":$row", $rows);
 
         $stmt = self::prepare("INSERT INTO $table (" . implode(',', $rows) . ") VALUES(" . implode(',', $params) . ")");
 
