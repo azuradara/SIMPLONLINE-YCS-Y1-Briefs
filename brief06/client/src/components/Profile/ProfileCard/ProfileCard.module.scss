@@ -1,0 +1,35 @@
+.profilecard {
+  max-width: 1200px;
+  background: #166d70;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  border-radius: 4px;
+
+  .usr_info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .profession {
+      color: #ccc;
+      font-weight: lighter;
+      font-size: 14px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #ccc;
+    }
+  }
+
+  .add_info {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #ccc;
+  }
+}

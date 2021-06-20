@@ -104,7 +104,7 @@ class Request
         // filter_input ( int $type , string $var_name , int $filter = FILTER_DEFAULT , array|int $options = 0 ) : mixed
         // Idk how it works but it just does
 
-        if ($this->method() === 'get') {
+        if ($this->method() === 'get' || $this->method() === 'delete') {
             foreach ($_GET as $k => $val) {
                 $reqBody[$k] = filter_input(INPUT_GET, $k, FILTER_SANITIZE_SPECIAL_CHARS);
             }

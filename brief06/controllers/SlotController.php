@@ -71,20 +71,17 @@ class SlotController extends Controller
         if (!$login->authenticate($req))
             return $res->sendJSON([], 'Unauthenticated.');
 
-        $arr = [
-            "data" => [],
-            "err" => null
-        ];
-
-        $arr["data"] = Slot::fetchAll(['slt_usr_id' => Application::$app->user->usr_id]);
+        $arr = Slot::fetchAll(['slt_usr_id' => Application::$app->user->usr_id]);
 
         $now = new DateTime();
 
-        foreach ($arr["data"] as $k => $v) {
-            $date = DateTime::createFromFormat('Y-m-d', $arr["data"][$k]["slt_date"]);
+        foreach ($arr as $k => $v) {
+            $date = DateTime::createFromFormat('Y-m-d', $arr[$k]["slt_date"]);
+
+            $arr[$k]["S"] = self::SLOTS[$arr[$k]["slt_timeslot"]]["S"];
 
             if ($date < $now) {
-                $arr["data"][$k]["slt_isactive"] = false;
+                $arr[$k]["slt_isactive"] = false;
             }
         }
 
@@ -133,9 +130,12 @@ class SlotController extends Controller
             return $res->sendJSON([], 'Unauthenticated.');
 
         if ($req->isDELETE()) {
-            $slot = $req->getJSON();
+            if (!array_key_exists('slt_id', $req->getReqBody()) || is_null($req->getReqBody()['slt_id']))
+                return $res->sendJSON([], 'Invalid ID.');
 
-            $slotExists = Slot::fetchOne(["slt_id" => $slot->slt_id]);
+            $slt_id = $req->getReqBody()['slt_id'];
+
+            $slotExists = Slot::fetchOne(["slt_id" => $slt_id]);
 
             if (!($slotExists && $slotExists->slt_isactive)) return $res->sendJSON([], "Slot doesn't exist.");
 
@@ -144,7 +144,7 @@ class SlotController extends Controller
 
             if ($slt_date < $now) return $res->sendJSON([], 'Cannot mutate past timeslots.');
 
-            if (Slot::destroyOne(["slt_id" => $slot->slt_id])) {
+            if (Slot::destroyOne(["slt_id" => $slt_id])) {
                 return $res->sendJSON("Slot deleted successfully.");
             }
         }
