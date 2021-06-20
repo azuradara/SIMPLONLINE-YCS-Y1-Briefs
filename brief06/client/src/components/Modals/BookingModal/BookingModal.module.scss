@@ -52,3 +52,25 @@
   color: red;
   margin-top: 0.5rem;
 }
+
+.noslots {
+  font-weight: bold;
+  text-align: center;
+  color: #717171;
+  font-size: 1.1rem;
+}
+
+.pickedSlot {
+  background-color: #ffaa00;
+  color: #414141;
+
+  span {
+    color: #414141 !important;
+  }
+
+  &:hover,
+  &:focus {
+    background: #ffaa00;
+    transform: none;
+  }
+}

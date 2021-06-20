@@ -10,22 +10,28 @@
           name="slt_date"
           :min="offset"
           v-model="slt_date"
-          @input="checkDate($event)"
+          @input="checkDate"
         />
       </div>
 
       <span :class="styles.sep"></span>
 
-      <div :class="styles.slots" v-if="isvalid_date">
+      <div ref="slotsElement" :class="styles.slots" v-if="isvalid_date">
         <TimeSlot
           v-for="slot in slotData.slots"
           :key="slot.slt_id"
           :date="slotData.slt_date"
           :timeslot="slot"
-          @picked="pickSlot(slot)"
+          @picked="pickSlot($event, slot)"
         />
-        <span :class="styles.sep"></span>
       </div>
+      <div :class="styles.noslots" v-if="isvalid_date === false">
+        No timeslots are available on this day :(
+      </div>
+      <div :class="styles.noslots" v-if="isvalid_date === null">
+        Pick a date to proceed
+      </div>
+      <span :class="styles.sep"></span>
       <p v-if="!isvalid" :class="styles.erre">All fields are required :(</p>
       <TimeSlotDesc @validate="checkDesc" @update="updateDesc" />
     </div>
@@ -50,6 +56,7 @@ export default {
 
   setup(props, { emit }) {
     const router = useRouter();
+    const slotsElement = ref(null);
 
     // BASE DATE OFFSET
 
@@ -62,20 +69,22 @@ export default {
     // PICKED DATE VALIDATION
 
     const slt_date = ref("");
-    const isvalid_date = ref(false);
+    const isvalid_date = ref(null);
 
-    const checkDate = (e) => {
+    const checkDate = () => {
       const day = new Date(slt_date.value).getDay();
       pickedSlot.value = null;
 
       if ([6, 0].includes(day)) {
-        e.preventDefault();
-        slt_date.value = "";
         return (isvalid_date.value = false);
       }
 
       isvalid_date.value = true;
       getSlots(slt_date.value);
+
+      slotsElement.value
+        .querySelectorAll("div")
+        .forEach((d) => d.classList.remove(styles.pickedSlot));
     };
 
     // SLOT FETCHING
@@ -85,16 +94,20 @@ export default {
     const getSlots = async (date) => {
       const res = await axios.get(`/api/slots?date=${date}`);
       slotData.value = res.data.data;
-      console.log(slotData.value);
     };
 
     // SLOT CHOICE
 
     const pickedSlot = ref(null);
 
-    const pickSlot = (slot) => {
+    const pickSlot = (e, slot) => {
       pickedSlot.value = slot;
-      console.log(pickedSlot.value);
+
+      slotsElement.value
+        .querySelectorAll("div")
+        .forEach((d) => d.classList.remove(styles.pickedSlot));
+
+      e.classList.add(styles.pickedSlot);
     };
 
     // DESC
@@ -126,8 +139,6 @@ export default {
         ...desc.value,
       };
 
-      console.log(newSlot);
-
       const res = await axios.post("/api/slots", newSlot);
 
       if (!res.data.error) {
@@ -151,6 +162,7 @@ export default {
       updateDesc,
       handleSubmit,
       isvalid,
+      slotsElement,
     };
   },
 };
