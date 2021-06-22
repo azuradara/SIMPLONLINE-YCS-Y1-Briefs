@@ -82,6 +82,8 @@ export default {
       isvalid_date.value = true;
       getSlots(slt_date.value);
 
+      console.log(slotsElement.value);
+
       slotsElement.value
         .querySelectorAll("div")
         .forEach((d) => d.classList.remove(styles.pickedSlot));

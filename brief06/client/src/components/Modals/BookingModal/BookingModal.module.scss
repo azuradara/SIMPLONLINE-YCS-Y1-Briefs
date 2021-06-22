@@ -61,8 +61,8 @@
 }
 
 .pickedSlot {
-  background-color: #ffaa00;
-  color: #414141;
+  background-color: #ffaa00 !important;
+  color: #414141 !important;
 
   span {
     color: #414141 !important;
@@ -70,7 +70,7 @@
 
   &:hover,
   &:focus {
-    background: #ffaa00;
-    transform: none;
+    background: #ffaa00 !important;
+    transform: none !important;
   }
 }
