@@ -1,0 +1,270 @@
+/*
+ * Theme Name: GridNext RTL CSS
+ * Description: Adds support for languages written in a Right To Left (RTL) direction.
+ */
+
+body{direction:rtl;unicode-bidi:embed;}
+
+/* Typography & Elements
+-------------------------------------------------------------- */
+blockquote{text-align:right;}
+blockquote cite{text-align:right;}
+ul,ol{margin:0 2em 1.5em 0;}
+li > ul,li > ol{margin-left:0;margin-right:1em;}
+dd{margin:0 1.5em 1.5em;}
+th,td,caption{padding:4px 5px 4px 10px;}
+
+/* Forms
+-------------------------------------------------------------- */
+textarea{padding-right:3px;}
+
+/* Layout
+-------------------------------------------------------------- */
+.gridnext-content-wrapper{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-webkit-flex-direction:row-reverse;-moz-box-orient:horizontal;-moz-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse;}
+
+/* Header
+-------------------------------------------------------------- */
+.gridnext-header-inside-container{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-webkit-flex-direction:row-reverse;-moz-box-orient:horizontal;-moz-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse;}
+.gridnext-logo{float:right;text-align:right;}
+.gridnext-header-menu{float:right;}
+.gridnext-header-social{float:right;text-align:left;}
+.gridnext-header-banner-active .gridnext-logo{float:right;text-align:right;}
+.gridnext-header-banner-active .gridnext-header-banner{float:right;text-align:left;}
+.gridnext-header-banner-active .gridnext-header-menu{float:none;}
+.gridnext-header-banner-active .gridnext-header-social{float:none;text-align:right;}
+.gridnext-header-full-active .gridnext-logo{float:none;text-align:right;}
+.gridnext-header-full-active .gridnext-header-menu{float:none;}
+.gridnext-header-full-active .gridnext-header-social{float:none;text-align:right;}
+.gridnext-custom-logo-active .gridnext-custom-logo-info{padding-left:0;padding-right:10px;}
+.gridnext-header-full-active.gridnext-custom-logo-active .site-branding{margin:0;}
+
+@media only screen and (max-width: 1112px) {
+.gridnext-logo{float:none;text-align:right;}
+.gridnext-header-menu{float:none;}
+.gridnext-header-social{float:none;text-align:right;}
+.gridnext-header-banner-active .gridnext-logo{float:none;text-align:right;}
+.gridnext-header-banner-active .gridnext-header-banner{float:none;text-align:right;}
+.gridnext-header-banner-active .gridnext-header-menu{float:none;}
+.gridnext-header-banner-active .gridnext-header-social{float:none;text-align:right;}
+.gridnext-custom-logo-active .site-branding{margin:0;}
+}
+
+.gridnext-header-image-info{text-align:right;}
+
+/* Primary Menu
+-------------------------------------------------------------- */
+.gridnext-primary-nav-menu li{text-align:right;float:right;}
+.gridnext-primary-nav-menu .sub-menu,.gridnext-primary-nav-menu .children{left:0;right:-9999px;}
+.gridnext-primary-nav-menu .sub-menu .sub-menu,.gridnext-primary-nav-menu .children .children{margin:-47px 189px 0 0}
+.gridnext-primary-nav-menu li:hover > .sub-menu,.gridnext-primary-nav-menu li:hover > .children,.gridnext-primary-nav-menu li.gridnext-focus > .sub-menu,.gridnext-primary-nav-menu li.gridnext-focus > .children{right:auto;}
+.gridnext-primary-responsive-menu-icon{margin:0;text-align:right;}
+.gridnext-primary-responsive-menu-icon::before{margin:0 0 0 6px;}
+.gridnext-primary-nav-menu{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-webkit-flex-direction:row-reverse;-moz-box-orient:horizontal;-moz-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse;}
+@media only screen and (min-width: 1113px) {
+.gridnext-header-full-active .gridnext-primary-nav-menu{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-webkit-flex-direction:row-reverse;-moz-box-orient:horizontal;-moz-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse;-webkit-box-pack:end;-webkit-justify-content:flex-end;-moz-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;}
+.gridnext-primary-nav-menu > li.menu-item-has-children > a:after{margin-left:0;margin-right:8px;}
+.gridnext-primary-nav-menu .sub-menu li.menu-item-has-children > a:after,.gridnext-primary-nav-menu .children li.menu-item-has-children > a:after{margin-left:0;margin-right:8px;right:auto;left:8px;}
+}
+@media only screen and (max-width: 1112px) {
+.gridnext-primary-mobile-menu-inactive.gridnext-header-full-active .gridnext-primary-nav-menu{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-webkit-flex-direction:row-reverse;-moz-box-orient:horizontal;-moz-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse;-webkit-box-pack:end;-webkit-justify-content:flex-end;-moz-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;}
+.gridnext-primary-mobile-menu-inactive .gridnext-primary-nav-menu > li.menu-item-has-children > a:after{margin-left:0;margin-right:8px;}
+.gridnext-primary-mobile-menu-inactive .gridnext-primary-nav-menu .sub-menu li.menu-item-has-children > a:after,.gridnext-primary-mobile-menu-inactive .gridnext-primary-nav-menu .children li.menu-item-has-children > a:after{margin-left:0;margin-right:8px;right:auto;left:8px;}
+}
+@media only screen and (max-width: 1112px) {
+.gridnext-primary-mobile-menu-active .gridnext-nav-primary{float:none;}
+.gridnext-primary-mobile-menu-active .gridnext-primary-nav-menu li{float:none;}
+.gridnext-primary-mobile-menu-active .gridnext-primary-nav-menu.gridnext-primary-responsive-menu .menu-item-has-children > a,.gridnext-primary-mobile-menu-active .gridnext-primary-nav-menu.gridnext-primary-responsive-menu .page_item_has_children > a{margin-right:0;margin-left:50px;}
+.gridnext-primary-mobile-menu-active .gridnext-primary-nav-menu.gridnext-primary-responsive-menu > .menu-item-has-children:before,.gridnext-primary-mobile-menu-active .gridnext-primary-nav-menu.gridnext-primary-responsive-menu > .page_item_has_children:before{float:left;right:auto;left:0;text-align:left;}
+.gridnext-primary-mobile-menu-active .gridnext-primary-nav-menu.gridnext-primary-responsive-menu > li > .sub-menu,.gridnext-primary-mobile-menu-active .gridnext-primary-nav-menu.gridnext-primary-responsive-menu > li > .children{margin:0;padding:0;left:0;right:-9999px;}
+.gridnext-primary-mobile-menu-active .gridnext-primary-nav-menu.gridnext-primary-responsive-menu > li.gridnext-focus > .sub-menu,.gridnext-primary-mobile-menu-active .gridnext-primary-nav-menu.gridnext-primary-responsive-menu > li.gridnext-focus > .children{right:auto;}
+.gridnext-primary-mobile-menu-active .gridnext-primary-nav-menu.gridnext-primary-responsive-menu > li > .sub-menu.gridnext-submenu-toggle,.gridnext-primary-mobile-menu-active .gridnext-primary-nav-menu.gridnext-primary-responsive-menu > li > .children.gridnext-submenu-toggle{right:auto;}
+.gridnext-primary-mobile-menu-active .gridnext-primary-nav-menu.gridnext-primary-responsive-menu .sub-menu,.gridnext-primary-mobile-menu-active .gridnext-primary-nav-menu.gridnext-primary-responsive-menu .children{right:auto;margin:0;}
+.gridnext-primary-mobile-menu-active .gridnext-primary-nav-menu.gridnext-primary-responsive-menu .sub-menu .sub-menu,.gridnext-primary-mobile-menu-active .gridnext-primary-nav-menu.gridnext-primary-responsive-menu .children .children{margin:0;padding-left:0;padding-right:15px;}
+}
+
+/* Secondary Menu
+-------------------------------------------------------------- */
+.gridnext-secondary-nav-menu li{text-align:right;float:right;}
+.gridnext-secondary-nav-menu .sub-menu,.gridnext-secondary-nav-menu .children{left:0;right:-9999px;}
+.gridnext-secondary-nav-menu .sub-menu .sub-menu,.gridnext-secondary-nav-menu .children .children{margin:-39px 189px 0 0}
+.gridnext-secondary-nav-menu li:hover > .sub-menu,.gridnext-secondary-nav-menu li:hover > .children,.gridnext-secondary-nav-menu li.gridnext-focus > .sub-menu,.gridnext-secondary-nav-menu li.gridnext-focus > .children{right:auto;}
+.gridnext-secondary-responsive-menu-icon{text-align:right;margin:0;}
+.gridnext-secondary-responsive-menu-icon::before{margin:0 0 0 6px;}
+@media only screen and (min-width: 1113px) {
+.gridnext-secondary-nav-menu > li.menu-item-has-children > a:after{margin-left:0;margin-right:8px;}
+.gridnext-secondary-nav-menu .sub-menu li.menu-item-has-children > a:after,.gridnext-secondary-nav-menu .children li.menu-item-has-children > a:after{margin-left:0;margin-right:8px;right:auto;left:8px;}
+}
+@media only screen and (max-width: 1112px) {
+.gridnext-secondary-mobile-menu-inactive .gridnext-secondary-nav-menu > li.menu-item-has-children > a:after{margin-left:0;margin-right:8px;}
+.gridnext-secondary-mobile-menu-inactive .gridnext-secondary-nav-menu .sub-menu li.menu-item-has-children > a:after,.gridnext-secondary-mobile-menu-inactive .gridnext-secondary-nav-menu .children li.menu-item-has-children > a:after{margin-left:0;margin-right:8px;right:auto;left:8px;}
+}
+@media only screen and (max-width: 1112px) {
+.gridnext-secondary-mobile-menu-active .gridnext-secondary-nav-menu li{float:none}
+.gridnext-secondary-mobile-menu-active .gridnext-secondary-nav-menu.gridnext-secondary-responsive-menu .menu-item-has-children > a,.gridnext-secondary-mobile-menu-active .gridnext-secondary-nav-menu.gridnext-secondary-responsive-menu .page_item_has_children > a{margin-right:0;margin-left:50px;}
+.gridnext-secondary-mobile-menu-active .gridnext-secondary-nav-menu.gridnext-secondary-responsive-menu > .menu-item-has-children:before,.gridnext-secondary-mobile-menu-active .gridnext-secondary-nav-menu.gridnext-secondary-responsive-menu > .page_item_has_children:before{float:left;right:auto;left:0;text-align:left;}
+.gridnext-secondary-mobile-menu-active .gridnext-secondary-nav-menu.gridnext-secondary-responsive-menu > li > .sub-menu,.gridnext-secondary-mobile-menu-active .gridnext-secondary-nav-menu.gridnext-secondary-responsive-menu > li > .children{margin:0;padding:0;left:0;right:-9999px;}
+.gridnext-secondary-mobile-menu-active .gridnext-secondary-nav-menu.gridnext-secondary-responsive-menu > li.gridnext-focus > .sub-menu,.gridnext-secondary-mobile-menu-active .gridnext-secondary-nav-menu.gridnext-secondary-responsive-menu > li.gridnext-focus > .children{right:auto;}
+.gridnext-secondary-mobile-menu-active .gridnext-secondary-nav-menu.gridnext-secondary-responsive-menu > li > .sub-menu.gridnext-submenu-toggle,.gridnext-secondary-mobile-menu-active .gridnext-secondary-nav-menu.gridnext-secondary-responsive-menu > li > .children.gridnext-submenu-toggle{right:auto;}
+.gridnext-secondary-mobile-menu-active .gridnext-secondary-nav-menu.gridnext-secondary-responsive-menu .sub-menu,.gridnext-secondary-mobile-menu-active .gridnext-secondary-nav-menu.gridnext-secondary-responsive-menu .children{right:auto;margin:0;}
+.gridnext-secondary-mobile-menu-active .gridnext-secondary-nav-menu.gridnext-secondary-responsive-menu .sub-menu .sub-menu,.gridnext-secondary-mobile-menu-active .gridnext-secondary-nav-menu.gridnext-secondary-responsive-menu .children .children{margin:0;padding-left:0;padding-right:15px;}
+}
+
+/* Posts & Pages
+-------------------------------------------------------------- */
+.gridnext-posts-wrapper .gridnext-posts-heading{text-align:right;}
+.gridnext-posts-wrapper .gridnext-posts-heading .gridnext-posts-heading-inside{padding:0;}
+.gridnext-posts-wrapper .gridnext-posts-heading i{right:auto;left:5px;}
+
+.gridnext-page-header{text-align:right;}
+.gridnext-page-header-inside{padding:0;}
+.taxonomy-description{text-align:right;}
+
+.gridnext-entry-meta-single{text-align:right;}
+.gridnext-entry-meta-single-cats{margin:0 0 0 10px;}
+.gridnext-entry-meta-single-author{margin:0 0 0 10px;}
+.gridnext-entry-meta-single-date{margin:0 0 0 10px;}
+.gridnext-entry-meta-single-comments{margin:0 0 0 10px;}
+
+.entry-header{text-align:right;}
+.entry-title{text-align:right;}
+
+.gridnext-table-css-active table tr th{border-right-width:0 !important;border-left-width:1px !important;border-left-style:solid !important;}
+.gridnext-table-css-active table tr th:last-child{border-left-width:0px !important;}
+.gridnext-table-css-active table tr td{border-right-width:0 !important;border-left-width:1px !important;border-left-style:solid !important;}
+.gridnext-table-css-active table tr td:last-child{border-left-width:0px !important;}
+
+.gridnext-entry-footer{text-align:right;}
+.gridnext-entry-footer .gridnext-tags-links{text-align:right;}
+
+/* =Page Links
+----------------------------------------------- */
+.page-links > span,.page-links > a{float:right;border-right:1px solid #dadada !important;}
+.page-links span.page-links-title{border-right:0 !important;}
+
+/* Posts/Post Navigation
+-------------------------------------------------------------- */
+.navigation.posts-navigation .nav-links .nav-previous a:after{margin-left:0;margin-right:6px;}
+.navigation.posts-navigation .nav-links .nav-next a:before{margin-right:0;margin-left:6px;}
+.nav-previous{float:left;text-align:left;}
+.nav-next{float:right;text-align:right;}
+.navigation.post-navigation .nav-previous{float:left;text-align:left;}
+.navigation.post-navigation .nav-next{float:right;text-align:right;}
+@media only screen and (max-width: 599px) {
+.navigation.post-navigation .nav-previous{float:none;text-align:center;}
+.navigation.post-navigation .nav-next{float:none;text-align:center;}
+}
+.navigation.pagination{text-align:right;}
+.gridnext-post-navigation-content{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-webkit-flex-direction:row-reverse;-moz-box-orient:horizontal;-moz-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse;}
+
+/* WP-PageNavi
+-------------------------------------------------------------- */
+.wp-pagenavi{text-align:right;}
+
+/* Tag Cloud Widget
+-------------------------------------------------------------- */
+.widget_tag_cloud a{margin:0 0 5px 5px;}
+
+/* Calendar
+-------------------------------------------------------------- */
+#wp-calendar caption{text-align:left;padding:10px 0 0 10px;}
+#wp-calendar tbody td{text-align:right;}
+#wp-calendar tfoot #next{text-align:left;}
+#wp-calendar thead th{padding-bottom:10px;text-align:right;}
+
+/* Alignments
+-------------------------------------------------------------- */
+.alignleft{float:right;margin:0 0 10px 10px;}
+.alignright{float:left;margin:0 10px 10px 0;}
+
+/* Captions
+-------------------------------------------------------------- */
+.wp-caption{text-align:right;}
+
+/* Comments
+-------------------------------------------------------------- */
+.comment-respond #cancel-comment-reply-link{margin-left:0;margin-right:1em;}
+.comment-form label{padding-right:0;padding-left:1em;}
+.comments-area > ol{margin:0;}
+.comment .edit-link,.pingback .edit-link{float:left;}
+.comment .comment-meta .comment-author .avatar{float:right;margin-right:0;margin-left:1em;}
+#respond input[type=text],textarea{padding:3px 3px 3px 0;margin:5px 0 3px 1px;}
+#respond input[type=text]:focus,#respond input[type=text]:active,textarea:focus,textarea:active{margin:5px 0 3px 1px;}
+.comment-form-cookies-consent label{padding-left:0;padding-right:10px;}
+
+
+/* Sidebar
+-------------------------------------------------------------- */
+.gridnext-sidebar-widget-areas .widget .gridnext-widget-title{text-align:right;}
+.gridnext-sidebar-widget-areas .widget .gridnext-widget-title i{right:auto;left:5px;}
+.gridnext-sidebar-widget-areas .widget ol{padding:0 1.2em 0 0;}
+.gridnext-sidebar-widget-areas .widget li{padding:6px 0px 6px 0px;}
+.gridnext-sidebar-widget-areas .widget li li{padding:6px 10px 6px 0;}
+
+/* Footer
+-------------------------------------------------------------- */
+#gridnext-footer-blocks .widget ol{padding:0 1.2em 0 0;}
+#gridnext-footer-blocks .widget li{padding:6px 0 6px 0;}
+#gridnext-footer-blocks .widget li li{padding:8px 10px 8px 0;}
+
+.gridnext-footer-block-cols{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-webkit-flex-direction:row-reverse;-moz-box-orient:horizontal;-moz-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse;}
+
+/* Copyright
+-------------------------------------------------------------- */
+#gridnext-copyright-area{text-align:right;}
+
+/* Search Widget
+-------------------------------------------------------------- */
+.gridnext-search-overlay{left:auto;right:0;}
+.gridnext-search-overlay .gridnext-search-closebtn{right:auto;left:45px;}
+.gridnext-search-overlay input[type=text]{float:right;}
+input.gridnext-search-submit{right:auto;left:0;}
+
+/* Header Social Icons ----------------------------------------------- */
+.gridnext-header-social-icons{right:auto;left:0;}
+.gridnext-layout-type-boxed .gridnext-header-social-icons{right:auto;left:5px;}
+.gridnext-header-social-icons a{margin-right:0;margin-left:0;}
+
+/* Featured Posts Area Widgets
+-------------------------------------------------------------- */
+.gridnext-featured-posts-area .widget .gridnext-widget-title{text-align:right;}
+.gridnext-featured-posts-area .widget .gridnext-widget-title i{right:auto;left:5px;}
+.gridnext-featured-posts-area .widget ol{padding:0 1.2em 0 0;}
+.gridnext-featured-posts-area .widget li{padding:6px 0px 6px 0px;}
+.gridnext-featured-posts-area .widget li li{padding:6px 10px 6px 0;}
+
+/* Grid
+-------------------------------------------------------------- */
+.gridnext-grid-post-categories{}
+.gridnext-grid-post-categories a{margin:0 3px 2px 3px;}
+.gridnext-grid-post-categories a:last-child{margin:0 3px 2px 0;}
+.gridnext-grid-post .gridnext-grid-post-title{text-align:right;clear:left;}
+.gridnext-grid-post-snippet{text-align:right;}
+.gridnext-grid-header-meta{text-align:right;}
+.gridnext-grid-header-meta i{margin-right:0;margin-left:3px;}
+.gridnext-grid-footer-meta{text-align:right;}
+.gridnext-grid-footer-meta i{margin-right:0;margin-left:3px;}
+.gridnext-grid-media-data{text-align:right;}
+.gridnext-grid-media-data-meta{margin-right:0;margin-left:6px;}
+.gridnext-grid-media-data-meta:last-child{margin-left:0;float:left;}
+.gridnext-grid-post-author-image{margin:0 0 0 5px;float:right;}
+.gridnext-grid-post-readmore a:after{margin-left:0;margin-right:5px;}
+
+/* Share Buttons
+-------------------------------------------------------------- */
+.gridnext-share-buttons{text-align:right;}
+.gridnext-share-buttons a{margin:0 2px 6px 4px;text-align:right;}
+.gridnext-share-buttons a i{margin-right:0;margin-left:5px;}
+.gridnext-grid-share-buttons-wrapper{text-align:right;}
+
+.gridnext-small-share-buttons a{margin:0 2px 6px 4px;text-align:right;}
+
+/* Author Bio Box
+-------------------------------------------------------------- */
+.gridnext-author-bio-gravatar{float:right;margin:0 0 5px 12px;}
+.gridnext-author-bio .gridnext-author-bio-social{text-align:right;}
+.gridnext-author-bio .gridnext-author-bio-social a{margin:0 0 3px 4px;}
+.gridnext-author-bio .gridnext-author-bio-social a i{margin-right:0;margin-left:1px;}
+
+/* Scroll to Top Button
+-------------------------------------------------------------- */
+.gridnext-scroll-top{right:auto;left:20px;}
