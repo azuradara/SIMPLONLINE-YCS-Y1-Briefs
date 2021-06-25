@@ -2,7 +2,6 @@
 
 Wordpress thingy
 
-
 ### Installation
 
 - Download the package using G Desktop / ZIP
@@ -13,7 +12,7 @@ Wordpress thingy
 ##### Setup
 - Install the WP package through the [Official Website](https://wordpress.org/)
 - Enable the **mysqli** extension in `php.ini`
-- Create the db **wp2** in MySQL
+- Create the db **wordpress** in MySQL
 - Run WP on a local php server using the command ```shell php -S localhost:3000 -t .```
 - Configure credentials (azuradara / pwd)
 
@@ -25,3 +24,9 @@ Wordpress thingy
 - Customize the pages layout / navigation / widgets
 - Add filler posts
 - Add **Tank** page
+
+### Preview
+
+![Home](./assets/Home.jpeg)
+![Home](./assets/About.jpeg)
+
