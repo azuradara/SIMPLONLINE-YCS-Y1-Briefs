@@ -19,13 +19,13 @@ password: I$3)jmEKeBN@0lU1bS
 ## Screenshots
 ***
 ### **Home**
-![Home](./assets/home.jpeg)
+![Home](./assets/Home.jpeg)
 ***
 ### **Shop**
-![Home](./assets/products.jpeg)
+![Home](./assets/Products.jpeg)
 ***
 ### **Product Listing**
-![Home](./assets/product_listing.jpeg)
+![Home](./assets/Product_Listing.jpeg)
 ***
 ### **Cart**
-![Home](./assets/cart.jpeg)
+![Home](./assets/Cart.jpeg)
