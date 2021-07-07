@@ -1,15 +1,16 @@
 module.exports = {
-    purge: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue"
-    ],
+    purge: [],
     darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {}
+        extend: {
+            // prettier-ignore
+            fontFamily: {
+                "sans": ["Karla", 'sans-serif'],
+            },
+        },
     },
     variants: {
-        extend: {}
+        extend: {},
     },
-    plugins: []
+    plugins: [],
 };
