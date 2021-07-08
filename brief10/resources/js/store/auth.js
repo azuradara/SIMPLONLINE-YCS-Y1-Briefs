@@ -8,15 +8,26 @@ export default {
         loading: false,
         error: null,
     },
+    getters: {
+        authenticated(state) {
+            return state.token && state.user;
+        },
+        user(state) {
+            return state.user;
+        },
+        error(state) {
+            return state.error;
+        },
+    },
     actions: {
-        async login({ dispatch }, credentials) {
+        async login({ commit, dispatch }, credentials) {
             try {
                 commit("SET_ERROR", null);
                 commit("SET_LOADING", true);
 
                 const res = await axios.post("/api/login", credentials);
 
-                dispatch("attempt", res.data.data.token);
+                return dispatch("attempt", res.data.data.token);
             } catch (err) {
                 commit("SET_ERROR", err.message);
                 commit("SET_LOADING", false);
@@ -30,25 +41,43 @@ export default {
 
                 const res = await axios.post("api/signup", credentials);
 
-                dispatch("attempt", res.data.data.token);
+                return dispatch("attempt", res.data.data.token);
             } catch (err) {
                 commit("SET_ERROR", err.message);
                 commit("SET_LOADING", false);
             }
         },
 
-        async attempt({ commit }, token) {
-            commit("SET_TOKEN", token);
-
+        async attempt({ commit, state }, token) {
             try {
+                if (token) commit("SET_TOKEN", token);
+
+                if (!state.token) return;
+
                 const res = await axios.get("/api/user");
 
-                commit("SET_USER", res.data.data.user);
+                commit("SET_USER", res.data);
                 commit("SET_LOADING", false);
             } catch (err) {
                 console.log(err);
                 commit("SET_ERROR", err.message);
                 commit("SET_LOADING", false);
+                commit("SET_TOKEN", null);
+                commit("SET_USER", null);
+            }
+        },
+
+        async logout({ commit }) {
+            try {
+                await axios.post("/api/logout");
+
+                commit("SET_USER", null);
+                commit("SET_TOKEN", null);
+            } catch (err) {
+                commit("SET_USER", null);
+                commit("SET_TOKEN", null);
+
+                console.log(err);
             }
         },
     },

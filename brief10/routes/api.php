@@ -18,7 +18,7 @@ Route::post('/{id}', [AuthController::class, 'logout']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
     /** POSTS */
     Route::get('/post/user/{id}', [PostController::class, 'getUserPosts']);
-    Route::get('/post/all', [PostController::class, 'getAll']);
+    Route::get('/post/all/{page}', [PostController::class, 'getAll']);
     Route::post('/post', [PostController::class, 'create']);
     Route::put('/post/{id}', [PostController::class, 'update']);
     Route::delete('/post/{id}', [PostController::class, 'delete']);
@@ -33,4 +33,5 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     /** AUTH CHECK ROUTE */
     Route::get('/user', [AuthController::class, 'user']);
+    Route::post('/logout', [AuthController::class, 'logout']);
 });

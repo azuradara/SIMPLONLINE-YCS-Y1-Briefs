@@ -1,11 +1,10 @@
 <template>
   <div
     class="
-      min-h-screen
+      min-h-full
       flex
       items-center
       justify-center
-      bg-gray-50
       py-12
       px-4
       sm:px-6
@@ -149,14 +148,32 @@
               focus:ring-2 focus:ring-offset-2 focus:ring-yellow-300
             "
           >
-            <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-              <LockClosedIcon
-                class="h-5 w-5 text-yellow-300 group-hover:text-yellow-300"
-                aria-hidden="true"
-              />
-            </span>
-            Sign in
+            <div v-if="!isLoading">
+              <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                <LockClosedIcon
+                  class="h-5 w-5 text-yellow-300 group-hover:text-yellow-300"
+                  aria-hidden="true"
+                />
+              </span>
+              Sign in
+            </div>
+            <SpinnerIco v-else />
           </button>
+          <div
+            v-if="error"
+            class="
+              bg-red-500
+              w-full
+              text-center text-bold text-white
+              h-12
+              grid
+              place-items-center
+              rounded-md
+              mt-3
+            "
+          >
+            {{ error }}
+          </div>
         </div>
       </form>
     </div>
@@ -164,28 +181,40 @@
 </template>
 
 <script>
-import { LockClosedIcon } from "@heroicons/vue/solid";
 import BrandLogo from "../icons/BrandLogo.vue";
+import SpinnerIco from "../icons/SpinnerIco.vue";
+
+import { LockClosedIcon } from "@heroicons/vue/solid";
 import { useStore } from "vuex";
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
   components: {
     LockClosedIcon,
     BrandLogo,
+    SpinnerIco,
   },
   setup() {
     const store = useStore();
+    const router = useRouter();
 
     const userData = ref({ email: "", password: "" });
 
-    const loginUser = () => {
-      store.dispatch("auth/login", userData.value);
+    const isLoading = computed(() => store.state.auth.loading);
+    const isAuthenticated = computed(() => store.getters["auth/authenticated"]);
+    const error = computed(() => store.getters["auth/error"]);
+
+    const loginUser = async () => {
+      await store.dispatch("auth/login", userData.value);
+      Boolean(isAuthenticated.value) && router.push({ path: "/" });
     };
 
     return {
       loginUser,
       userData,
+      isLoading,
+      error,
     };
   },
 };

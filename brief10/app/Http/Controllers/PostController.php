@@ -18,10 +18,10 @@ class PostController extends Controller
         return response($response, 200);
     }
 
-    public function getAll()
+    public function getAll(Request $request, int $page)
     {
         $response = [
-            "data" => Post::with('comments')->paginate(10),
+            "data" => Post::with('comments')->take(30 * $page)->get(),
             "error" => null
         ];
 

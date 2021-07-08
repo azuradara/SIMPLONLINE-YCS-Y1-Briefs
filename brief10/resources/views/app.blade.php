@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <title>Khepri</title>
 </head>
-<body class="antialiased">
-    <div id="app" class="">
+<body class="antialiased ">
+    <div id="app" class="min-h-screen bg-gray-50">
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
