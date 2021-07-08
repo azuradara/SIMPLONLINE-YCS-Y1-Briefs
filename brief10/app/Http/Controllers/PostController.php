@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function getUserPosts(Request $request)
+    public function getUserPosts(Request $request, $id)
     {
         $response = [
-            "data" => $request->user()->posts()->get()->toArray(),
+            "data" => User::where(["id" => $id])->posts()->get()->toArray(),
             "error" => null
         ];
 
@@ -54,7 +55,10 @@ class PostController extends Controller
 
     public function delete(Request $request, $id)
     {
-        if (!$request->user()->is_moderator())
+        if (
+            !$request->user()->is_moderator() ||
+            !$request->user()->posts()->where(["id" => $id])->first()
+        )
             return response(["error" => "Unauthorized"], 401);
 
         $rm = Post::where(['id' => $id])->delete();
