@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function getUserComments(Request $request)
+    public function getUserComments(Request $request, $id)
     {
         return response([
-            "data" => $request->user()->comments()->get()->toArray(),
+            "data" => User::where(["id" => $id])->comments()->get()->toArray(),
             "error" => null
         ], 200);
     }
