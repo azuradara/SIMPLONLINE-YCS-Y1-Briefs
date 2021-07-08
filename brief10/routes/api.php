@@ -29,4 +29,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/comment', [CommentController::class, 'create']);
     Route::put('/comment/{id}', [CommentController::class, 'update']);
     Route::delete('/comment/{id}', [CommentController::class, 'delete']);
+
+
+    /** AUTH CHECK ROUTE */
+    Route::get('/user', [AuthController::class, 'user']);
 });

@@ -19,14 +19,13 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password
+            'password' => bcrypt($request->password)
         ]);
 
         $token = $user->createToken('app_token')->plainTextToken;
 
         $res = [
             'data' => [
-                'user' => $user,
                 'token' => $token
             ],
             'error' => null
@@ -55,7 +54,6 @@ class AuthController extends Controller
 
         $response = [
             "data" => [
-                "user" => $user,
                 "token" => $token
             ],
             "error" => null
@@ -69,5 +67,10 @@ class AuthController extends Controller
         $request->user()->tokens()->delete();
 
         return response('Signed out.', 200);
+    }
+
+    public function user(Request $request)
+    {
+        return $request->user();
     }
 }
