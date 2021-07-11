@@ -18,6 +18,12 @@ export default {
         error(state) {
             return state.error;
         },
+        moderator(state) {
+            return state.user.is_moderator;
+        },
+        userId(state) {
+            return state.user.id;
+        },
     },
     actions: {
         async login({ commit, dispatch }, credentials) {

@@ -18,10 +18,34 @@ class PostController extends Controller
         return response($response, 200);
     }
 
-    public function getAll(Request $request, int $page)
+    public function getAll()
     {
+        $posts = Post::orderby('created_at')->get();
+
+        $data = $posts->map(function ($post) {
+
+            $comments = $post->comments->map(function ($comment) {
+                return [
+                    'id' => $comment->id,
+                    'user' => $comment->user->name,
+                    'content' => $comment->content,
+                    'updated_at' => $comment->updated_at
+                ];
+            });
+
+            return [
+                'id' => $post->id,
+                'title' => $post->title,
+                'content' => $post->content,
+                'user' => $post->user->name,
+                'user_id' => $post->user_id,
+                'updated_at' => $post->updated_at,
+                'comments' => $comments
+            ];
+        });
+
         $response = [
-            "data" => Post::with('comments')->take(30 * $page)->get(),
+            "data" => $data,
             "error" => null
         ];
 

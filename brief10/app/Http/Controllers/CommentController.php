@@ -39,7 +39,7 @@ class CommentController extends Controller
             "post_id" => ['required', 'exists:posts,id']
         ]);
 
-        $comment = $request->user()->comments->create([
+        $comment = $request->user()->comments()->create([
             "content" => $request->content,
             "post_id" => $request->post_id
         ]);

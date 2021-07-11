@@ -1,4 +1,8 @@
 <template>
+  <!-- Modal -->
+  <Modal v-if="modalOn" :modalContent="modalContent" @close="openModal" />
+  <!-- Modal -->
+
   <div class="bg-gray-800">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
@@ -78,6 +82,9 @@
             sm:pr-0
           "
         >
+          <button v-if="auth" @click="openModal('NewPostModal')">
+            <PlusCircleIcon class="h-6 w-6 text-yellow-400" />
+          </button>
           <!-- Profile dropdown -->
           <Menu v-if="auth" as="div" class="ml-3 relative">
             <div>
@@ -188,6 +195,8 @@ import { ref, computed } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
+import Modal from "./Modal.vue";
+
 import {
   Disclosure,
   DisclosureButton,
@@ -203,6 +212,7 @@ import {
   XIcon,
   EmojiHappyIcon,
 } from "@heroicons/vue/outline";
+import { PlusCircleIcon } from "@heroicons/vue/solid";
 import BrandLogo from "../icons/BrandLogo.vue";
 
 const navigation = [
@@ -225,17 +235,27 @@ export default {
     XIcon,
     BrandLogo,
     EmojiHappyIcon,
+    PlusCircleIcon,
+    Modal,
   },
   setup() {
     const store = useStore();
     const router = useRouter();
+
+    const modalOn = ref(false);
+    const modalContent = ref("NewPostModal");
+
+    const openModal = (modal) => {
+      modalContent.value = modal;
+      modalOn.value = !modalOn.value;
+    };
 
     const open = ref(false);
 
     const auth = computed(() => store.getters["auth/authenticated"]);
 
     const logout = async () => {
-      await store.dispatch("logout");
+      await store.dispatch("auth/logout");
       router.push({ path: "/" });
     };
 
@@ -244,6 +264,9 @@ export default {
       open,
       auth,
       logout,
+      openModal,
+      modalOn,
+      modalContent,
     };
   },
 };

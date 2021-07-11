@@ -1,7 +1,7 @@
 <template>
   <div
     class="
-      min-h-full
+      min-h-screen
       flex
       items-center
       justify-center
