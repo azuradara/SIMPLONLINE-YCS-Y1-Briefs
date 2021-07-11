@@ -26,7 +26,7 @@ export default {
         },
     },
     actions: {
-        async login({ commit, dispatch }, credentials) {
+        async login({commit, dispatch}, credentials) {
             try {
                 commit("SET_ERROR", null);
                 commit("SET_LOADING", true);
@@ -40,7 +40,7 @@ export default {
             }
         },
 
-        async signup({ commit, dispatch }, credentials) {
+        async signup({commit, dispatch}, credentials) {
             try {
                 commit("SET_ERROR", null);
                 commit("SET_LOADING", true);
@@ -54,7 +54,7 @@ export default {
             }
         },
 
-        async attempt({ commit, state }, token) {
+        async attempt({commit, state}, token) {
             try {
                 if (token) commit("SET_TOKEN", token);
 
@@ -73,7 +73,7 @@ export default {
             }
         },
 
-        async logout({ commit }) {
+        async logout({commit}) {
             try {
                 await axios.post("/api/logout");
 

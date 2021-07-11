@@ -19,7 +19,7 @@ export default {
         },
     },
     actions: {
-        async getPosts({ commit }) {
+        async getPosts({commit}) {
             try {
                 const res = await axios.get(`/api/post/all`);
                 commit("GET_POSTS", res.data.data);
@@ -28,7 +28,7 @@ export default {
             }
         },
 
-        async submitPost({ commit }, postData) {
+        async submitPost({commit}, postData) {
             try {
                 commit("SET_LOADING_NEWPOST", true);
                 commit("SET_ERROR_NEWPOST", null);
@@ -42,7 +42,7 @@ export default {
             }
         },
 
-        async submitComment({ commit }, commentData) {
+        async submitComment({commit}, commentData) {
             try {
                 await axios.post("/api/comment", commentData);
                 return true;
