@@ -19,10 +19,10 @@ export default {
             return state.error;
         },
         moderator(state) {
-            return state.user.is_moderator;
+            return state.user?.is_moderator;
         },
         userId(state) {
-            return state.user.id;
+            return state.user?.id;
         },
     },
     actions: {

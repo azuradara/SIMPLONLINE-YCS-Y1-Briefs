@@ -38561,8 +38561,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 9:
                 Boolean(!error.value) && emit("close");
+                _context.next = 12;
+                return store.dispatch("posts/getPosts");
 
-              case 10:
+              case 12:
               case "end":
                 return _context.stop();
             }
@@ -38576,14 +38578,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }();
 
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(function () {
-      postData.value = modalData && function (_ref4) {
-        var title = _ref4.title,
-            content = _ref4.content;
-        return {
-          title: title,
-          content: content
-        };
-      }(modalData);
+      if (modalData) {
+        postData.value = function (_ref4) {
+          var title = _ref4.title,
+              content = _ref4.content;
+          return {
+            title: title,
+            content: content
+          };
+        }(modalData);
+      }
     });
     return {
       submitPost: submitPost,
@@ -40048,10 +40052,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return state.error;
     },
     moderator: function moderator(state) {
-      return state.user.is_moderator;
+      var _state$user;
+
+      return (_state$user = state.user) === null || _state$user === void 0 ? void 0 : _state$user.is_moderator;
     },
     userId: function userId(state) {
-      return state.user.id;
+      var _state$user2;
+
+      return (_state$user2 = state.user) === null || _state$user2 === void 0 ? void 0 : _state$user2.id;
     }
   },
   actions: {

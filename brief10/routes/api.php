@@ -14,11 +14,12 @@ Route::post('/signup', [AuthController::class, 'signup']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
+Route::get('/post/all', [PostController::class, 'getAll']);
+
 /** PROTECTED_ROUTEs */
 Route::group(['middleware' => ['auth:sanctum']], function () {
     /** POSTS */
     Route::get('/post/user/{id}', [PostController::class, 'getUserPosts']);
-    Route::get('/post/all', [PostController::class, 'getAll']);
     Route::post('/post', [PostController::class, 'create']);
     Route::put('/post/{id}', [PostController::class, 'update']);
     Route::delete('/post/{id}', [PostController::class, 'delete']);

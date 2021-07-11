@@ -20,7 +20,7 @@ class PostController extends Controller
 
     public function getAll()
     {
-        $posts = Post::orderby('created_at')->get();
+        $posts = Post::orderBy('updated_at', 'DESC')->get();
 
         $data = $posts->map(function ($post) {
 

@@ -146,11 +146,15 @@ export default {
 
       await store.dispatch("posts/submitPost", postData.value);
       Boolean(!error.value) && emit("close");
+      await store.dispatch("posts/getPosts");
     };
 
     onMounted(() => {
-      postData.value =
-        modalData && (({ title, content }) => ({ title, content }))(modalData);
+      if (modalData) {
+        postData.value = (({ title, content }) => ({ title, content }))(
+          modalData
+        );
+      }
     });
 
     return {
