@@ -80,7 +80,7 @@ class PostController extends Controller
     public function delete(Request $request, $id)
     {
         if (
-            !$request->user()->is_moderator() ||
+            !$request->user()->is_moderator() &&
             !$request->user()->posts()->where(["id" => $id])->first()
         )
             return response(["error" => "Unauthorized"], 401);
